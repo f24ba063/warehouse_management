@@ -143,7 +143,7 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>PRODUCT_INFORMATION_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
+<tr><td>PRODUCT_STATE_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
 <tr><td>PRODUCT_STATE_NAME</td><td>VARCHAR(20)</td><td>状態名</td></tr>
 </tbody>
 </table>
@@ -203,5 +203,14 @@
 <tbody>
 <tr><td>COUNTRY_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
 <tr><td>COUNTRY</td><td>VARCHAR(30)</td><td>国名</td></tr>
+</tbody>
+</table>
+<br>
+19.TRANSACTION_REASON(入出庫理由)
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+<tr><td>TRANSACTION_REASON_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
+<tr><td>TRANSACTION_REASON</td><td>VARCHAR(30)</td><td>入出庫理由</td></tr>
 </tbody>
 </table>
