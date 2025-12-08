@@ -1,5 +1,6 @@
+<p>1．商品情報マスター(PRODUCT_MASTER)</p>
 <table>
-<thead><tr><th>PRODUCT_MASTER</th><th>商品テーブル</th><th></th></tr></thead>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>PRODUCT_CODE</td><td>CHAR(12)</td><td>商品コード (PK)</td></tr>
 <tr><td>PRODUCT_NAME</td><td>VARCHAR(30)</td><td>商品名</td></tr>
@@ -16,8 +17,9 @@
 </tbody>
 </table>
 <br>
+<p>2．倉庫情報マスター(WAREHOUSE_MASTER)</p>
 <table>
-<thead><tr><th>WAREHOUSE_MASTER</th><th>倉庫情報マスター</th><th></th></tr></thead>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>WAREHOUSE_ID</td><td>CHAR(3)</td><td>倉庫ID (PK)</td></tr>
 <tr><td>WAREHOUSE_NAME</td><td>VARCHAR(60)</td><td>倉庫名</td></tr>
@@ -31,9 +33,9 @@
 </tbody>
 </table>
 <br>
-３．INVENTORY(商品在庫管理)<br>
+<p>3．INVENTORY(商品在庫管理)</p>
 <table>
-<thead><tr><th>INVENTORY</th><th>商品在庫管理</th><th>Description</th></tr></thead>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>PRODUCT_CODE</td><td>CHAR(12)</td><td>商品コード (FK)</td></tr>
 <tr><td>WAREHOUSE_ID</td><td>CHAR(3)</td><td>倉庫ID (FK)</td></tr>
@@ -46,9 +48,9 @@
 </tbody>
   <br>
 </table>
-４．WAREHOUSE_CONTACT倉庫連絡先 <br>
+<p>4．WAREHOUSE_CONTACT倉庫連絡先</p>
 <table>
-<thead><tr><th>WAREHOUSE_CONTACT</th><th>倉庫連絡先</th><th>Description</th></tr></thead>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>CONTACT_ID</td><td>CHAR(3)</td><td>連絡先ID (PK)</td></tr>
 <tr><td>WAREHOUSE_ID</td><td>CHAR(3)</td><td>倉庫ID (FK)</td></tr>
@@ -57,9 +59,9 @@
 </tbody>
 </table>
 <br>
-
+<p>5．TRANSACTION_HISTORY(入出庫履歴) </p>
 <table>
-<thead><tr><th>TRANSACTION_HISTORY</th><th>入出庫履歴</th><th>Description</th></tr></thead>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>TRANSACTION_ID</td><td>CHAR(12)</td><td>入出庫ID (PK)</td></tr>
 <tr><td>EMPLOYEE_ID</td><td>CHAR(12)</td><td>担当者ID (FK)</td></tr>
@@ -73,8 +75,9 @@
 </tbody>
 </table>
 <br>
+<p>6.PURCHASE_ORDER(発注管理)</p>
 <table>
-<thead><tr><th>PURCHASE_ORDER</th><th>発注管理</th><th>Description</th></tr></thead>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>ORDER_ID</td><td>CHAR(12)</td><td>発注ID (PK)</td></tr>
 <tr><td>PRODUCT_ID</td><td>CHAR(12)</td><td>商品ID (FK)</td></tr>
@@ -87,16 +90,18 @@
 </tbody>
 </table>
 <br>
+<p>7.CATEGORY(カテゴリ)</p>
 <table>
-<thead><tr><th>CATEGORY</th><th>カテゴリ</th><th><マスターテーブル></th></tr></thead>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>CATEGORY_ID</td><td>CHAR(6)</td><td>カテゴリID (PK)</td></tr>
 <tr><td>CATEGORY_NAME</td><td>VARCHAR(20)</td><td>カテゴリ名</td></tr>
 </tbody>
 </table>
-
+<br>
+<p>8.SUPPLIER(仕入れ先)</p>
 <table>
-<thead><tr><th>SUPPLIER</th><th>仕入れ先</th><th><マスターテーブル></th></tr></thead>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>SUPPLIER_ID</td><td>CHAR(4)</td><td>仕入れ先ID (PK)</td></tr>
 <tr><td>SUPPLIER_NAME</td><td>VARCHAR(60)</td><td>企業名</td></tr>
@@ -105,9 +110,9 @@
 </tbody>
 </table>
 
-9：SUPPLIER_CONTACT (仕入れ先連絡先 )<br>
+<p>9.SUPPLIER_CONTACT (仕入れ先連絡先)</p>
 <table>
-<thead><tr><th>SUPPLIER_CONTACT</th><th>仕入れ先連絡先</th><th><マスターテーブル></th></tr></thead>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>SUPPLIER_CONTACT_ID</td><td>CHAR(4)</td><td>仕入れ先連絡先ID (PK)</td></tr>
 <tr><td>SUPPLIER_ID</td><td>CHAR(4)</td><td>仕入れ先ID (FK)</td></tr>
@@ -116,63 +121,87 @@
 </tbody>
 </table>
 <br>
-10：CONTACT_TYPE(連絡先種別)<br>
+<p>10：CONTACT_TYPE(連絡先種別)</p>
 <table>
-<thead><tr><th>CONTACT_TYPE</th><th>連絡先種別</th><th><マスターテーブル></th></tr></thead>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>CONTACT_TYPE_ID</td><td>CHAR(1)</td><td>ID (PK)</td></tr>
 <tr><td>CONTACT_TYPE</td><td>CHAR(8)</td><td>種別</td></tr>
 </tbody>
 </table>
 <br>
+<p>11.WAREHOUSE_TYPE(倉庫タイプ)</p>
 <table>
-<thead><tr><th>WAREHOUSE_TYPE</th><th>倉庫タイプ</th><th><マスタータイプ></th></tr></thead>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>WAREHOUSE_TYPE_ID</td><td>CHAR(1)</td><td>ID (PK)</td></tr>
 <tr><td>WAREHOUSE_TYPE_NAME</td><td>CHAR(10)</td><td>倉庫タイプ</td></tr>
 </tbody>
 </table>
 <br>
-12：PRODUCT_STATE(商品情報ステータス )<br>
+<p>12.PRODUCT_STATE(商品情報ステータス)</p>
 <table>
-<thead><tr><th>Column</th><th>Type</th><th>Description</th></tr></thead>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>PRODUCT_INFORMATION_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
 <tr><td>PRODUCT_STATE_NAME</td><td>VARCHAR(20)</td><td>状態名</td></tr>
 </tbody>
 </table>
 <br>
-13：TRANSACTION_STATE(トランザクションステータス )<br>
-TRANSACTION_STATE_ID (CHAR(1)) (トランザクションステータスID)<br>
-TRANSACTION_STATE（VARCHAR(20)） (トランザクションステータス)<br>
-<br>
-14：WEIGHT_UNIT(重量単位)<br>
-WEIGHT_UNIT_ID (CHAR(2))(重量単位ID)<br>
-WEIGHT_UNIT_NAME (VARCHAR(20)) (重量単位名)<br>
-<br>
-15：EMPLOYEE(社員)<br>
-EMPLOYEE_ID(CHAR(12))<br>
-EMPLOYEE_NAME(VARCHAR(60))<br>
-<br>
-| Column | Type | Description |
-|--------|------|-------------|
-| PRODUCT_CODE | CHAR(12) | 商品コード |
-| PRODUCT_NAME | VARCHAR(30) | 商品名 |
-<br>
-  
-16：MAKER（メーカー）<br>
-MAKER_ID(CHAR(20))（メーカーID）<br>
-MAKER_NAME(VARCHAR(60))<br>
-MAKER_ADDRESS(VARCHAR(100))<br>
-DELETE_FLG(BOOLEAN)<br>
-<br>
-17：MAKER_CONTACT (仕入れ先連絡先 )<br>
-MAKER_CONTACT_ID (CHAR(4))--自動採番 (メーカー連絡先ID)<br>
-MAKER_ID (char(4))—外部キー (メーカーID)<br>
-CONTACT_TYPE_ID (CHAR(1)) —外部キー (連絡先種別)→10<br>
-CONTACT_DETAIL(VARCHAR(60))(連絡先)<br>
-<br>
-18：COUNTRY(国コード)<br>
-COUNTRY_ID(CHAR(2))<br>
+<p>13.TRANSACTION_STATE(トランザクションステータス)</p>
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+<tr><td>TRANSACTION_STATE_ID</td><td>CHAR(1)</td><td>ID (PK)</td></tr>
+<tr><td>TRANSACTION_STATE</td><td>VARCHAR(20)</td><td>状態名</td></tr>
+</tbody>
 </table>
-COUNTRY（VARCHAR(30)）<br>
+<br>
+<p>14.WEIGHT_UNIT(重量単位)</p>
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+<tr><td>WEIGHT_UNIT_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
+<tr><td>WEIGHT_UNIT_NAME</td><td>VARCHAR(20)</td><td>単位名</td></tr>
+</tbody>
+</table>
+<br>
+<p>15.EMPLOYEE(社員)</p>
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+<tr><td>EMPLOYEE_ID</td><td>CHAR(12)</td><td>ID (PK)</td></tr>
+<tr><td>EMPLOYEE_NAME</td><td>VARCHAR(60)</td><td>氏名</td></tr>
+</tbody>
+</table>
+  
+16.MAKER（メーカー)
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+<tr><td>MAKER_ID</td><td>CHAR(20)</td><td>ID (PK)</td></tr>
+<tr><td>MAKER_NAME</td><td>VARCHAR(60)</td><td>メーカー名</td></tr>
+<tr><td>MAKER_ADDRESS</td><td>VARCHAR(100)</td><td>住所</td></tr>
+<tr><td>DELETE_FLAG</td><td>BOOLEAN</td><td>論理削除</td></tr>
+</tbody>
+</table>
+<br>
+<p>17.MAKER_CONTACT (仕入れ先連絡先)</p>
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+<tr><td>MAKER_CONTACT_ID</td><td>CHAR(4)</td><td>連絡先ID (PK)</td></tr>
+<tr><td>MAKER_ID</td><td>CHAR(20)</td><td>メーカーID (FK)</td></tr>
+<tr><td>CONTACT_TYPE_ID</td><td>CHAR(1)</td><td>種別 (FK)</td></tr>
+<tr><td>CONTACT_DETAIL</td><td>VARCHAR(60)</td><td>内容</td></tr>
+</tbody>
+</table>
+<br>
+18.COUNTRY(国コード)<br>
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+<tr><td>COUNTRY_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
+<tr><td>COUNTRY</td><td>VARCHAR(30)</td><td>国名</td></tr>
+</tbody>
+</table>
