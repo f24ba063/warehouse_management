@@ -1,3 +1,4 @@
+<table>
 1．商品情報マスター(PRODUCT_MASTER) <br>
 PRODUCT_CODE(CHAR(12)) (商品コード)<br>
 PRODUCT_NAME (VARCHAR(30)) (商品名)<br>
@@ -114,4 +115,5 @@ CONTACT_DETAIL(VARCHAR(60))(連絡先)<br>
 <br>
 18：COUNTRY(国コード)<br>
 COUNTRY_ID(CHAR(2))<br>
+</table>
 COUNTRY（VARCHAR(30)）<br>
