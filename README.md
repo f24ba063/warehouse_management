@@ -111,11 +111,13 @@
 <tr><td>SUPPLIER_ID</td><td>CHAR(4)</td><td>仕入れ先ID (PK)</td></tr>
 <tr><td>SUPPLIER_NAME</td><td>VARCHAR(60)</td><td>企業名</td></tr>
 <tr><td>SUPPLIER_ADDRESS</td><td>VARCHAR(100)</td><td>住所</td></tr>
+<tr><td>SUPPLIER_PHONE_ID</td><td>CHAR(4)</td><td>仕入れ先電話ID (FK)</td></tr><tr><td>SUPPLIER_MAIL_ID</td><td>CHAR(4)</td><td>仕入れ先メールID (FK)</td></tr>
 <tr><td>DELETE_FLAG</td><td>BOOLEAN</td><td>論理削除</td></tr>
 </tbody>
 </table>
+<br>
 
-<p>9.SUPPLIER_CONTACT (仕入れ先連絡先)</p>
+<p>9.CONTACT (連絡先マスター)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -126,6 +128,7 @@
 </tbody>
 </table>
 <br>
+
 <p>10：CONTACT_TYPE(連絡先種別)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
@@ -135,6 +138,7 @@
 </tbody>
 </table>
 <br>
+
 <p>11.WAREHOUSE_TYPE(倉庫タイプ)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
@@ -144,6 +148,7 @@
 </tbody>
 </table>
 <br>
+
 <p>12.PRODUCT_STATE(商品情報ステータス)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
@@ -153,6 +158,7 @@
 </tbody>
 </table>
 <br>
+
 <p>13.TRANSACTION_STATE(トランザクションステータス)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
@@ -162,6 +168,7 @@
 </tbody>
 </table>
 <br>
+
 <p>14.WEIGHT_UNIT(重量単位)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
@@ -171,12 +178,14 @@
 </tbody>
 </table>
 <br>
+
 <p>15.EMPLOYEE(社員)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>EMPLOYEE_ID</td><td>CHAR(12)</td><td>ID (PK)</td></tr>
 <tr><td>EMPLOYEE_NAME</td><td>VARCHAR(60)</td><td>氏名</td></tr>
+<tr><td>DEPARTMENT_ID</td><td>VARCHAR(3)</td><td>所属部署</td></tr>
 </tbody>
 </table>
   
@@ -187,12 +196,13 @@
 <tr><td>MAKER_ID</td><td>CHAR(20)</td><td>ID (PK)</td></tr>
 <tr><td>MAKER_NAME</td><td>VARCHAR(60)</td><td>メーカー名</td></tr>
 <tr><td>MAKER_ADDRESS</td><td>VARCHAR(100)</td><td>住所</td></tr>
-<tr><td>MAKER_ADDRESS</td><td>VARCHAR(100)</td><td>代表電話番号</td></tr>
+<tr><td>MAKER_PHONE_ID</td><td>CHAR(4)</td><td>代表電話番号</td></tr>
+<tr><td>MAKER_MAIL_ID</td><td>CHAR(4)</td><td>代表メールアドレス</td></tr>
 <tr><td>DELETE_FLAG</td><td>BOOLEAN</td><td>論理削除</td></tr>
 </tbody>
 </table>
 <br>
-<p>17.MAKER_CONTACT (仕入れ先連絡先)</p>
+<p>17.MAKER_CONTACT (仕入れ先連絡先マスター)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -203,7 +213,7 @@
 </tbody>
 </table>
 <br>
-18.COUNTRY_CODE(国コード)<br>
+18.COUNTRY_CODE(国コードマスター)<br>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -212,13 +222,14 @@
 </tbody>
 </table>
 <br>
-19.TRANSACTION_REASON(入出庫理由)
+19.TRANSACTION_REASON(入出庫理由マスター)
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>TRANSACTION_REASON_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
 <tr><td>TRANSACTION_REASON</td><td>VARCHAR(30)</td><td>入出庫理由</td></tr>
 </tbody>
+  
 20.EMPLOYEE(従業員)
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
@@ -226,6 +237,15 @@
 <tr><td>EMPLOYEE_ID</td><td>CHAR(12)</td><td>ID (PK)</td></tr>
 <tr><td>EMPLOYEE_NAME</td><td>VARCHAR(60)</td><td>従業員氏名</td></tr>
 <tr><td>DELETE_FLAG</td><td>BOOLEAN</td><td>論理削除</td></tr>
+</tbody>
+
+21.PREFECTUR_MASTER(都道府県マスター)
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+<tr><td>PREFECTUR_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
+<tr><td>PREFECTUR</td><td>VARCHAR(3)</td><td>都道府県名</td></tr>
+
 </tbody>
 
 </table>
