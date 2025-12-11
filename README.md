@@ -222,7 +222,9 @@
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>COUNTRY_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
-<tr><td>COUNTRY</td><td>VARCHAR(30)</td><td>国名</td></tr>
+<tr><td>COUNTRY_NAME_JA</td><td>VARCHAR(30)</td><td>日本語国名</td></tr>
+<tr><td>COUNTRY_NAME_EN</td><td>VARCHAR(30)</td><td>英語国名</td></tr>
+  
 </tbody>
 </table>
 <br>
@@ -240,7 +242,9 @@
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>REGION_ID</td><td>CHAR(2)</td><td>リージョン番号 (PK)</td></tr>
-<tr><td>PREFECTUR</td><td>VARCHAR(3)</td><td>都道府県名</td></tr>
+<tr><td>PREFECTUR_NAME_JP</td><td>VARCHAR(3)</td><td>日本語地域名</td></tr>
+<tr><td>PREFECTUR_NAME_EN</td><td>VARCHAR(3)</td><td>英語地域名</td></tr>
+  
 </tbody>
 </table>
 
