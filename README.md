@@ -242,8 +242,8 @@
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>REGION_ID</td><td>CHAR(2)</td><td>リージョン番号 (PK)</td></tr>
-<tr><td>PREFECTUR_NAME_JP</td><td>VARCHAR(3)</td><td>日本語地域名</td></tr>
-<tr><td>PREFECTUR_NAME_EN</td><td>VARCHAR(3)</td><td>英語地域名</td></tr>
+<tr><td>COUNTRY_CODE</td><td>CHAR(2)</td><td>所属国コード(FK)</td></tr>
+<tr><td>REGION_NAME_LOCAL</td><td>VARCHAR(100)</td><td>現地語地域名</td></tr>
   
 </tbody>
 </table>
