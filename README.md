@@ -2,7 +2,7 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>PRODUCT_CODE</td><td>CHAR(12)</td><td>商品コード (PK)</td></tr>
+<tr><td>PRODUCT_ID</td><td>CHAR(12)</td><td>商品コード (PK)</td></tr>
 <tr><td>PRODUCT_NAME</td><td>VARCHAR(30)</td><td>商品名</td></tr>
 <tr><td>MAKER_ID</td><td>CHAR(20)</td><td>メーカーID (FK)</td></tr>
 <tr><td>CATEGORY_ID</td><td>CHAR(6)</td><td>カテゴリID (FK)</td></tr>
@@ -40,7 +40,7 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>PRODUCT_CODE</td><td>CHAR(12)</td><td>商品コード (PK)(FK)</td></tr>
+<tr><td>PRODUCT_ID</td><td>CHAR(12)</td><td>商品コード (PK)(FK)</td></tr>
 <tr><td>WAREHOUSE_ID</td><td>CHAR(3)</td><td>倉庫ID (PK)(FK)</td></tr>
 <tr><td>STOCK</td><td>INT</td><td>在庫数</td></tr>
 <tr><td>SECTION_NO</td><td>INT</td><td>区画番号</td></tr>
@@ -70,7 +70,7 @@
 <tr><td>TRANSACTION_ID</td><td>CHAR(12)</td><td>入出庫ID (PK)</td></tr>
 <tr><td>EMPLOYEE_ID</td><td>CHAR(12)</td><td>担当者ID (FK)</td></tr>
 <tr><td>TRANSACTION_REASON_ID</td><td>CHAR(2)</td><td>理由 (FK)</td></tr>
-<tr><td>PRODUCT_CODE</td><td>CHAR(12)</td><td>商品コード (FK)</td></tr>
+<tr><td>PRODUCT_ID</td><td>CHAR(12)</td><td>商品コード (FK)</td></tr>
 <tr><td>WAREHOUSE_ID</td><td>CHAR(3)</td><td>倉庫ID (FK)</td></tr>
 <tr><td>TRANSACTION_DATE</td><td>DATETIME</td><td>日時</td></tr>
 <tr><td>IN_OUT</td><td>CHAR(1)</td><td>I=入庫 / O=出庫</td></tr>
@@ -231,17 +231,7 @@
 </tbody>
 </table>
 
-20.EMPLOYEE(従業員)
-<table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-<tr><td>EMPLOYEE_ID</td><td>CHAR(12)</td><td>ID (PK)</td></tr>
-<tr><td>EMPLOYEE_NAME</td><td>VARCHAR(60)</td><td>従業員氏名</td></tr>
-<tr><td>DELETE_FLAG</td><td>BOOLEAN</td><td>論理削除</td></tr>
-</tbody>
-</table>
-
-21.PREFECTUR_MASTER(都道府県マスター)
+20.PREFECTUR_MASTER(都道府県マスター)
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
