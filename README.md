@@ -9,7 +9,10 @@
 <tr><td>JAN_CODE</td><td>VARCHAR(13)</td><td>JANコード</td></tr>
 <tr><td>PRICE</td><td>DECIMAL(14,2)</td><td>価格</td></tr>
 <tr><td>COST_PRICE</td><td>DECIMAL(14,2)</td><td>原価</td></tr>
-<tr><td>PRODUCT_STATE_ID</td><td>CHAR(2)</td><td>商品状態 (FK)</td></tr>
+<tr><td>PRODUCT_STATE_ID</td><td>CHAR(2)</td><td>商品状態(FK)</td></tr>
+<tr><td>WIDTH</td><td>number(10,2)</td><td>幅</td></tr>
+<tr><td>HEIGHT</td><td>number(10,2)</td><td>高さ</td></tr>
+<tr><td>DEPTH</td><td>number(10,2)</td><td>奥行き</td></tr>
 <tr><td>CREATED_AT</td><td>DATETIME</td><td>登録日時</td></tr>
 <tr><td>UPDATED_AT</td><td>DATETIME</td><td>更新日時</td></tr>
 <tr><td>WEIGHT_VALUE</td><td>DECIMAL(8,4)</td><td>重量値</td></tr>
@@ -239,3 +242,8 @@
 <tr><td>PREFECTUR</td><td>VARCHAR(3)</td><td>都道府県名</td></tr>
 </tbody>
 </table>
+
+
+
+悩んだ点：
+重量単位は？　キログラム、ポンド
