@@ -31,7 +31,7 @@
 <tr><td>WAREHOUSE_NAME</td><td>VARCHAR(60)</td><td>倉庫名</td></tr>
 <tr><td>POSTAL_CODE</td><td>VARCHAR(12)</td><td>郵便番号</td></tr>
 <tr><td>COUNTRY_CODE</td><td>CHAR(2)</td><td>国コード (FK)</td></tr>
-<tr><td>PREFECTURE_CODE</td><td>VARCHAR(20)</td><td>県</td></tr>
+<tr><td>REGION_CODE</td><td>VARCHAR(20)</td><td>県・地域（iso3166-2準拠)</td></tr>
 <tr><td>CITY</td><td>VARCHAR(30)</td><td>市町村</td></tr>
 <tr><td>ADDRESS_LINE</td><td>VARCHAR(100)</td><td>町名・番地</td></tr>
 <tr><td>WAREHOUSE_TYPE_ID</td><td>CHAR(2)</td><td>倉庫タイプ (FK)</td></tr>
