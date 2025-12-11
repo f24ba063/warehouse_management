@@ -224,12 +224,13 @@
 <br>
 19.TRANSACTION_REASON(入出庫理由マスター)
 <table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+  <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>TRANSACTION_REASON_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
-<tr><td>TRANSACTION_REASON</td><td>VARCHAR(30)</td><td>入出庫理由</td></tr>
+  <tr><td>TRANSACTION_REASON_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
+  <tr><td>TRANSACTION_REASON</td><td>VARCHAR(30)</td><td>入出庫理由</td></tr>
 </tbody>
-  
+</table>
+
 20.EMPLOYEE(従業員)
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
@@ -238,6 +239,7 @@
 <tr><td>EMPLOYEE_NAME</td><td>VARCHAR(60)</td><td>従業員氏名</td></tr>
 <tr><td>DELETE_FLAG</td><td>BOOLEAN</td><td>論理削除</td></tr>
 </tbody>
+</table>
 
 21.PREFECTUR_MASTER(都道府県マスター)
 <table>
@@ -246,5 +248,4 @@
 <tr><td>PREFECTUR_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
 <tr><td>PREFECTUR</td><td>VARCHAR(3)</td><td>都道府県名</td></tr>
 </tbody>
-
 </table>
