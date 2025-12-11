@@ -30,8 +30,8 @@
 <tr><td>LONGITUDE</td><td>DECIMAL(10,7)</td><td>経度</td></tr>
 <tr><td>WAREHOUSE_NAME</td><td>VARCHAR(60)</td><td>倉庫名</td></tr>
 <tr><td>POSTAL_CODE</td><td>VARCHAR(12)</td><td>郵便番号</td></tr>
-<tr><td>COUNTRY_CODE</td><td>CHAR(2)</td><td>国コード (FK)</td></tr>
-<tr><td>REGION_CODE</td><td>VARCHAR(20)</td><td>県・地域（iso3166-2準拠)</td></tr>
+<tr><td>COUNTRY_CODE</td><td>CHAR(2)</td><td>国コード(ISO3166-1準拠) (FK)</td></tr>
+<tr><td>REGION_CODE</td><td>VARCHAR(20)</td><td>県・地域（ISO3166-2準拠)(FK)</td></tr>
 <tr><td>CITY</td><td>VARCHAR(30)</td><td>市町村</td></tr>
 <tr><td>ADDRESS_LINE</td><td>VARCHAR(100)</td><td>町名・番地</td></tr>
 <tr><td>WAREHOUSE_TYPE_ID</td><td>CHAR(2)</td><td>倉庫タイプ (FK)</td></tr>
@@ -235,11 +235,11 @@
 </tbody>
 </table>
 
-20.PREFECTUR_MASTER(都道府県マスター)
+20REGION_MASTER(地域マスター)
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>PREFECTUR_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
+<tr><td>REGION_ID</td><td>CHAR(2)</td><td>リージョン番号 (PK)</td></tr>
 <tr><td>PREFECTUR</td><td>VARCHAR(3)</td><td>都道府県名</td></tr>
 </tbody>
 </table>
