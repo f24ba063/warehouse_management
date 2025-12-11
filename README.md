@@ -25,7 +25,7 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>WAREHOUSE_ID</td><td>CHAR(3)</td><td>倉庫ID (PK)</td></tr>
+<tr><td>WAREHOUSE_ID</td><td>CHAR(6)</td><td>倉庫ID (PK)</td></tr>
 <tr><td>LATITUDE</td><td>DECIMAL(10,7)</td><td>緯度</td></tr>
 <tr><td>LONGITUDE</td><td>DECIMAL(10,7)</td><td>経度</td></tr>
 <tr><td>WAREHOUSE_NAME</td><td>VARCHAR(60)</td><td>倉庫名</td></tr>
