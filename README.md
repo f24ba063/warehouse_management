@@ -25,10 +25,10 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>WAREHOUSE_ID</td><td>CHAR(6)</td><td>倉庫ID (PK)</td></tr>
+<tr><td>WAREHOUSE_ID</td><td>CHAR(5)</td><td>倉庫ID (PK)</td></tr>
+<tr><td>WAREHOUSE_NAME</td><td>VARCHAR(60)</td><td>倉庫名</td></tr>
 <tr><td>LATITUDE</td><td>DECIMAL(10,7)</td><td>緯度</td></tr>
 <tr><td>LONGITUDE</td><td>DECIMAL(10,7)</td><td>経度</td></tr>
-<tr><td>WAREHOUSE_NAME</td><td>VARCHAR(60)</td><td>倉庫名</td></tr>
 <tr><td>POSTAL_CODE</td><td>VARCHAR(12)</td><td>郵便番号</td></tr>
 <tr><td>COUNTRY_CODE</td><td>CHAR(2)</td><td>国コード(ISO3166-1準拠) (FK)</td></tr>
 <tr><td>REGION_CODE</td><td>VARCHAR(20)</td><td>県・地域（ISO3166-2準拠)(FK)</td></tr>
@@ -44,12 +44,9 @@
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>PRODUCT_ID</td><td>CHAR(12)</td><td>商品コード (PK)(FK)</td></tr>
-<tr><td>WAREHOUSE_ID</td><td>CHAR(3)</td><td>倉庫ID (PK)(FK)</td></tr>
+<tr><td>WAREHOUSE_ID</td><td>CHAR(5)</td><td>倉庫ID (PK)(FK)</td></tr>
 <tr><td>STOCK</td><td>INT</td><td>在庫数</td></tr>
-
-<tr><td>SECTION_NO</td><td>INT</td><td>区画番号</td></tr>
-<tr><td>SHELF_NO</td><td>INT</td><td>棚番号</td></tr>
-<tr><td>COLUMN_NO</td><td>INT</td><td>列番号</td></tr>
+<tr><td>LOCATION_ID</td><td>CHAR(20)</td><td>商品所在地を一意に識別するコード</td></tr>
 <tr><td>SAFE_STOCK</td><td>INT</td><td>安全在庫数</td></tr>
 <tr><td>LOT_NO</td><td>CHAR(20)</td><td>ロット番号</td></tr>
 <tr><td>EXPIRATION_DATE</td><td>DATE</td><td>使用期限・賞味期限</td></tr>
@@ -57,17 +54,50 @@
   <br>
 </table>
 
+<p>4．LOCATION_MASTER(商品所在地マスター)</p>
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+<tr><td>　LOCATION_ID　</td><td>　CHAR(20)　</td><td>　区画を一意に識別するID(PK)　</td></tr>
+<tr><td>　WAREHOUSE_ID　</td><td>　CHAR(5)　</td><td>　所属する倉庫(FK)　</td></tr>
+<tr><td>　ZONE_ID　</td><td>　CHAR(3)　</td><td>　冷蔵、大型機械などのゾーンのID(FK)　</td></tr>
+<tr><td>　RACK_ID　</td><td>　CHAR(3)　</td><td>　どの棚(ラック)か(FK)　</td></tr>
+<tr><td>　SHELF_ID　</td><td>　CHAR(5)　</td><td>　どの段(シェルフ)にするか(FK)　</td></tr>
+<tr><td>　　</td><td>　　</td><td>　　</td></tr>
+</tbody>
+</table>
 <br>
+
+<p>4．T_ZONE(区画マスター)</p>
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+<tr><td>　ZONE_ID　</td><td>　CHAR(3)　</td><td>　冷蔵、大型機械などのゾーン(FK)　</td></tr>
+tr><td>　ZONE_NAME　</td><td>　VARCHAR(30)　</td><td>　ゾーンの実体名　</td></tr>
+</tbody>
+</table>
+<br>
+
+<p>4．T_RACK(棚番号マスター)</p>
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+<tr><td>　RACK_ID　</td><td>　CHAR(3)　</td><td>　棚ID(FK)　</td></tr>
+tr><td>　RACK_NO　</td><td>　VARCHAR(30)　</td><td>　棚の実体番号　</td></tr>
+</tbody>
+</table>
+<br>
+
 <p>5．TRANSACTION_HISTORY(入出庫履歴) </p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>TRANSACTION_ID</td><td>INT(12)</td><td>入出庫ID (PK)(自動採番)</td></tr>
 <tr><td>EMPLOYEE_ID</td><td>CHAR(12)</td><td>担当者ID (FK)</td></tr>
-<tr><td>TRANSACTION_REASON_ID</td><td>CHAR(2)</td><td>理由 (FK)</td></tr>
+<tr><td>TRANSACTION_REASON_ID</td><td>CHAR(2)</td><td>入出庫理由 (FK)</td></tr>
 <tr><td>PRODUCT_ID</td><td>CHAR(12)</td><td>商品コード (FK)</td></tr>
 <tr><td>WAREHOUSE_ID</td><td>CHAR(3)</td><td>倉庫ID (FK)</td></tr>
-<tr><td>TRANSACTION_DATE</td><td>DATETIME</td><td>日時</td></tr>
+<tr><td>TRANSACTION_DATE</td><td>DATETIME</td><td>移動日時</td></tr>
 <tr><td>IN_OUT</td><td>CHAR(1)</td><td>I=入庫 / O=出庫</td></tr>
 <tr><td>QUANTITY</td><td>INT</td><td>数量</td></tr>
 <tr><td>TRANSACTION_STATE_ID</td><td>CHAR(2)</td><td>状態 (FK)</td></tr>
@@ -90,7 +120,7 @@
 </tbody>
 </table>
 <br>
-<p>7.CATEGORY(カテゴリ)</p>
+<p>7.CATEGORY(商品カテゴリ)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
