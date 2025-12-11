@@ -21,6 +21,7 @@
 </tbody>
 </table>
 <br>
+
 <p>2．WAREHOUSE_MASTER(倉庫情報マスター)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
@@ -31,7 +32,7 @@
 <tr><td>LONGITUDE</td><td>DECIMAL(10,7)</td><td>経度</td></tr>
 <tr><td>POSTAL_CODE</td><td>VARCHAR(12)</td><td>郵便番号</td></tr>
 <tr><td>COUNTRY_CODE</td><td>CHAR(2)</td><td>国コード(ISO3166-1準拠) (FK)</td></tr>
-<tr><td>REGION_CODE</td><td>VARCHAR(20)</td><td>県・地域（ISO3166-2準拠)(FK)</td></tr>
+<tr><td>REGION_CODE</td><td>VARCHAR(10)</td><td>県・地域（ISO3166-2準拠)(FK)</td></tr>
 <tr><td>CITY</td><td>VARCHAR(30)</td><td>市町村</td></tr>
 <tr><td>ADDRESS_LINE</td><td>VARCHAR(100)</td><td>町名・番地</td></tr>
 <tr><td>WAREHOUSE_TYPE_ID</td><td>CHAR(2)</td><td>倉庫タイプ (FK)</td></tr>
@@ -39,6 +40,7 @@
 </tbody>
 </table>
 <br>
+
 <p>3．INVENTORY(商品在庫管理)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
@@ -46,7 +48,7 @@
 <tr><td>PRODUCT_ID</td><td>CHAR(12)</td><td>商品コード (PK)(FK)</td></tr>
 <tr><td>WAREHOUSE_ID</td><td>CHAR(5)</td><td>倉庫ID (PK)(FK)</td></tr>
 <tr><td>STOCK</td><td>INT</td><td>在庫数</td></tr>
-<tr><td>LOCATION_ID</td><td>CHAR(20)</td><td>商品所在地を一意に識別するコード</td></tr>
+<tr><td>LOCATION_ID</td><td>CHAR(20)</td><td>商品所在地を一意に識別するコード(FK)</td></tr>
 <tr><td>SAFE_STOCK</td><td>INT</td><td>安全在庫数</td></tr>
 <tr><td>LOT_NO</td><td>CHAR(20)</td><td>ロット番号</td></tr>
 <tr><td>EXPIRATION_DATE</td><td>DATE</td><td>使用期限・賞味期限</td></tr>
@@ -59,7 +61,7 @@
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>　LOCATION_ID　</td><td>　CHAR(20)　</td><td>　区画を一意に識別するID(PK)　</td></tr>
-<tr><td>　WAREHOUSE_ID　</td><td>　CHAR(5)　</td><td>　所属する倉庫(FK)　</td></tr>
+<tr><td>　WAREHOUSE_ID　</td><td>　CHAR(5)　</td><td>　所属する倉庫(FK)(PK)　</td></tr>
 <tr><td>　ZONE_ID　</td><td>　CHAR(3)　</td><td>　冷蔵、大型機械などのゾーンのID(FK)　</td></tr>
 <tr><td>　RACK_ID　</td><td>　CHAR(3)　</td><td>　どの棚(ラック)か(FK)　</td></tr>
 <tr><td>　SHELF_ID　</td><td>　CHAR(5)　</td><td>　どの段(シェルフ)にするか(FK)　</td></tr>
@@ -68,7 +70,7 @@
 </table>
 <br>
 
-<p>4．T_ZONE(区画マスター)</p>
+<p>5．T_ZONE(区画マスター)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -78,25 +80,37 @@ tr><td>　ZONE_NAME　</td><td>　VARCHAR(30)　</td><td>　ゾーンの実体�
 </table>
 <br>
 
-<p>4．T_RACK(棚番号マスター)</p>
+<p>6．T_RACK(ラック番号マスター)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>　RACK_ID　</td><td>　CHAR(3)　</td><td>　棚ID(FK)　</td></tr>
-tr><td>　RACK_NO　</td><td>　VARCHAR(30)　</td><td>　棚の実体番号　</td></tr>
+<tr><td>　RACK_ID　</td><td>　CHAR(3)　</td><td>　ラックID(FK)　</td></tr>
+tr><td>　RACK_NO　</td><td>　INT　</td><td>　ラックの実体番号　</td></tr>
 </tbody>
 </table>
 <br>
 
-<p>5．TRANSACTION_HISTORY(入出庫履歴) </p>
+<p>6．T_SHELF(シェルフ番号マスター)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>TRANSACTION_ID</td><td>INT(12)</td><td>入出庫ID (PK)(自動採番)</td></tr>
+<tr><td>　SHELF_ID　</td><td>　CHAR(3)　</td><td>　棚ID(FK)　</td></tr>
+tr><td>　SHELF_NO　</td><td>　INT　</td><td>　シェルフ実体番号　</td></tr>
+</tbody>
+</table>
+<br>
+
+
+
+<p>7．TRANSACTION_HISTORY(入出庫履歴) </p>
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+<tr><td>TRANSACTION_ID</td><td>INT</td><td>入出庫ID (PK)(自動採番)</td></tr>
 <tr><td>EMPLOYEE_ID</td><td>CHAR(12)</td><td>担当者ID (FK)</td></tr>
 <tr><td>TRANSACTION_REASON_ID</td><td>CHAR(2)</td><td>入出庫理由 (FK)</td></tr>
 <tr><td>PRODUCT_ID</td><td>CHAR(12)</td><td>商品コード (FK)</td></tr>
-<tr><td>WAREHOUSE_ID</td><td>CHAR(3)</td><td>倉庫ID (FK)</td></tr>
+<tr><td>WAREHOUSE_ID</td><td>CHAR(5)</td><td>倉庫ID (FK)</td></tr>
 <tr><td>TRANSACTION_DATE</td><td>DATETIME</td><td>移動日時</td></tr>
 <tr><td>IN_OUT</td><td>CHAR(1)</td><td>I=入庫 / O=出庫</td></tr>
 <tr><td>QUANTITY</td><td>INT</td><td>数量</td></tr>
@@ -104,7 +118,7 @@ tr><td>　RACK_NO　</td><td>　VARCHAR(30)　</td><td>　棚の実体番号　<
 </tbody>
 </table>
 <br>
-<p>6.PURCHASE_ORDER(発注管理)</p>
+<p>8.PURCHASE_ORDER(発注管理)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -120,7 +134,8 @@ tr><td>　RACK_NO　</td><td>　VARCHAR(30)　</td><td>　棚の実体番号　<
 </tbody>
 </table>
 <br>
-<p>7.CATEGORY(商品カテゴリ)</p>
+
+<p>9.CATEGORY(商品カテゴリ)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -129,7 +144,8 @@ tr><td>　RACK_NO　</td><td>　VARCHAR(30)　</td><td>　棚の実体番号　<
 </tbody>
 </table>
 <br>
-<p>8.SUPPLIER(仕入れ先)</p>
+
+<p>10.SUPPLIER(仕入れ先)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -143,7 +159,7 @@ tr><td>　RACK_NO　</td><td>　VARCHAR(30)　</td><td>　棚の実体番号　<
 </table>
 <br>
 
-<p>9.CONTACT (連絡先マスター)</p>
+<p>11.CONTACT (連絡先マスター)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -155,7 +171,7 @@ tr><td>　RACK_NO　</td><td>　VARCHAR(30)　</td><td>　棚の実体番号　<
 </table>
 <br>
 
-<p>10：CONTACT_TYPE(連絡先種別)</p>
+<p>12：CONTACT_TYPE(連絡先種別)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -165,7 +181,7 @@ tr><td>　RACK_NO　</td><td>　VARCHAR(30)　</td><td>　棚の実体番号　<
 </table>
 <br>
 
-<p>11.WAREHOUSE_TYPE(倉庫タイプ)</p>
+<p>13.WAREHOUSE_TYPE(倉庫タイプ)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -175,7 +191,7 @@ tr><td>　RACK_NO　</td><td>　VARCHAR(30)　</td><td>　棚の実体番号　<
 </table>
 <br>
 
-<p>12.PRODUCT_STATE(商品情報ステータス)</p>
+<p>14.PRODUCT_STATE(商品情報ステータス)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -185,7 +201,7 @@ tr><td>　RACK_NO　</td><td>　VARCHAR(30)　</td><td>　棚の実体番号　<
 </table>
 <br>
 
-<p>13.TRANSACTION_STATE(トランザクションステータス)</p>
+<p>15.TRANSACTION_STATE(トランザクションステータス)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -195,7 +211,7 @@ tr><td>　RACK_NO　</td><td>　VARCHAR(30)　</td><td>　棚の実体番号　<
 </table>
 <br>
 
-<p>14.WEIGHT_UNIT(重量単位)</p>
+<p>16.WEIGHT_UNIT(重量単位)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -205,7 +221,7 @@ tr><td>　RACK_NO　</td><td>　VARCHAR(30)　</td><td>　棚の実体番号　<
 </table>
 <br>
 
-<p>15.EMPLOYEE(社員)</p>
+<p>17.EMPLOYEE(社員)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -215,7 +231,7 @@ tr><td>　RACK_NO　</td><td>　VARCHAR(30)　</td><td>　棚の実体番号　<
 </tbody>
 </table>
   
-16.MAKER（メーカー)
+18.MAKER（メーカー)
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -230,19 +246,18 @@ tr><td>　RACK_NO　</td><td>　VARCHAR(30)　</td><td>　棚の実体番号　<
 <br>
 
 </table>
-<br>
-18.COUNTRY_CODE(国コードマスター)<br>
+19.COUNTRY_CODE(国コードマスター)<br>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>COUNTRY_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
+<tr><td>COUNTRY_CODE</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
 <tr><td>COUNTRY_NAME_JA</td><td>VARCHAR(30)</td><td>日本語国名</td></tr>
 <tr><td>COUNTRY_NAME_EN</td><td>VARCHAR(30)</td><td>英語国名</td></tr>
-  
 </tbody>
 </table>
 <br>
-19.TRANSACTION_REASON(入出庫理由マスター)
+
+20.TRANSACTION_REASON(入出庫理由マスター)
 <table>
   <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -251,12 +266,12 @@ tr><td>　RACK_NO　</td><td>　VARCHAR(30)　</td><td>　棚の実体番号　<
 </tbody>
 </table>
 
-20REGION_MASTER(地域マスター)
+21.REGION_MASTER(地域マスター)
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>REGION_ID</td><td>CHAR(2)</td><td>リージョン番号 (PK)</td></tr>
-<tr><td>COUNTRY_CODE</td><td>CHAR(2)</td><td>所属国コード(FK)</td></tr>
+<tr><td>REGION_ID</td><td>VARCHAR(7)</td><td>リージョン番号 (PK)</td></tr>
+<tr><td>COUNTRY_CODE</td><td>CHAR(2)</td><td>所属国コード(PK)(FK)</td></tr>
 <tr><td>REGION_NAME_LOCAL</td><td>VARCHAR(100)</td><td>現地語地域名</td></tr>
   
 </tbody>
