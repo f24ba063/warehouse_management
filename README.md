@@ -114,7 +114,8 @@
 <tr><td>SUPPLIER_ID</td><td>CHAR(4)</td><td>仕入れ先ID (PK)</td></tr>
 <tr><td>SUPPLIER_NAME</td><td>VARCHAR(60)</td><td>企業名</td></tr>
 <tr><td>SUPPLIER_ADDRESS</td><td>VARCHAR(100)</td><td>住所</td></tr>
-<tr><td>SUPPLIER_PHONE_ID</td><td>CHAR(4)</td><td>仕入れ先電話ID (FK)</td></tr><tr><td>SUPPLIER_MAIL_ID</td><td>CHAR(4)</td><td>仕入れ先メールID (FK)</td></tr>
+<tr><td>SUPPLIER_PHONE_ID</td><td>CHAR(4)</td><td>仕入れ先電話ID (FK)</td></tr>
+<tr><td>SUPPLIER_MAIL_ID</td><td>CHAR(4)</td><td>仕入れ先メールID (FK)</td></tr>
 <tr><td>DELETE_FLAG</td><td>BOOLEAN</td><td>論理削除</td></tr>
 </tbody>
 </table>
@@ -244,6 +245,11 @@
 </table>
 
 
-
-悩んだ点：
-重量単位は？　キログラム、ポンド
+想定：建築資材を主眼に置いた。数十メートルスケールの資材を考えている。<br>
+重量については数値と単位を切り離すことで、一定の柔軟性を獲得する。<br>
+グラムとポンド、メートルとヤードの互換性を暫定的に獲得。<br>
+当初は物品の入出を管理することだけが目的で作成していったが、管理上必要なことを考えていくと<br>
+責任の所在を明確にするために作業履歴にかかわる担当社員のテーブルを作成し<br>
+倉庫同士の連携を想定するために座標を獲得し外国進出に際しては<br>
+どこの通貨建てで調達するかも考え通貨の概念も導入し、トラック積載に関しては<br>
+サイズと重量も必須でありこれも国によって単位が違うから調整素材を導入した。<br>
