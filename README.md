@@ -46,6 +46,7 @@
 <tr><td>PRODUCT_ID</td><td>CHAR(12)</td><td>商品コード (PK)(FK)</td></tr>
 <tr><td>WAREHOUSE_ID</td><td>CHAR(3)</td><td>倉庫ID (PK)(FK)</td></tr>
 <tr><td>STOCK</td><td>INT</td><td>在庫数</td></tr>
+
 <tr><td>SECTION_NO</td><td>INT</td><td>区画番号</td></tr>
 <tr><td>SHELF_NO</td><td>INT</td><td>棚番号</td></tr>
 <tr><td>COLUMN_NO</td><td>INT</td><td>列番号</td></tr>
@@ -55,22 +56,13 @@
 </tbody>
   <br>
 </table>
-<p>4．WAREHOUSE_CONTACT(倉庫連絡先)</p>
-<table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-<tr><td>CONTACT_ID</td><td>CHAR(3)</td><td>連絡先ID (PK)</td></tr>
-<tr><td>WAREHOUSE_ID</td><td>CHAR(3)</td><td>倉庫ID (FK)</td></tr>
-<tr><td>CONTACT_TYPE_ID</td><td>CHAR(2)</td><td>連絡先種別 (FK)</td></tr>
-<tr><td>CONTACT_DETAIL</td><td>VARCHAR(60)</td><td>連絡内容</td></tr>
-</tbody>
-</table>
+
 <br>
 <p>5．TRANSACTION_HISTORY(入出庫履歴) </p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>TRANSACTION_ID</td><td>CHAR(12)</td><td>入出庫ID (PK)</td></tr>
+<tr><td>TRANSACTION_ID</td><td>INT(12)</td><td>入出庫ID (PK)(自動採番)</td></tr>
 <tr><td>EMPLOYEE_ID</td><td>CHAR(12)</td><td>担当者ID (FK)</td></tr>
 <tr><td>TRANSACTION_REASON_ID</td><td>CHAR(2)</td><td>理由 (FK)</td></tr>
 <tr><td>PRODUCT_ID</td><td>CHAR(12)</td><td>商品コード (FK)</td></tr>
@@ -206,15 +198,7 @@
 </tbody>
 </table>
 <br>
-<p>17.MAKER_CONTACT (仕入れ先連絡先マスター)</p>
-<table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-<tr><td>MAKER_CONTACT_ID</td><td>CHAR(4)</td><td>連絡先ID (PK)</td></tr>
-<tr><td>MAKER_ID</td><td>CHAR(20)</td><td>メーカーID (FK)</td></tr>
-<tr><td>CONTACT_TYPE_ID</td><td>CHAR(1)</td><td>種別 (FK)</td></tr>
-<tr><td>CONTACT_DETAIL</td><td>VARCHAR(60)</td><td>内容</td></tr>
-</tbody>
+
 </table>
 <br>
 18.COUNTRY_CODE(国コードマスター)<br>
