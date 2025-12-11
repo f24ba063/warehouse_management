@@ -245,7 +245,6 @@
 <tbody>
 <tr><td>PREFECTUR_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
 <tr><td>PREFECTUR</td><td>VARCHAR(3)</td><td>都道府県名</td></tr>
-
 </tbody>
 
 </table>
