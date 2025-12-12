@@ -2,7 +2,7 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>PRODUCT_ID</td><td>CHAR(12)</td><td>商品コード (PK)</td></tr>
+<tr><td>PRODUCT_ID</td><td>BIGINT</td><td>商品コード (PK)(自動採番)</td></tr>
 <tr><td>PRODUCT_NAME</td><td>VARCHAR(30)</td><td>商品名</td></tr>
 <tr><td>MAKER_ID</td><td>CHAR(20)</td><td>メーカーID (FK)</td></tr>
 <tr><td>CATEGORY_ID</td><td>CHAR(6)</td><td>カテゴリID (FK)</td></tr>
@@ -13,6 +13,7 @@
 <tr><td>WIDTH</td><td>number(10,2)</td><td>幅</td></tr>
 <tr><td>HEIGHT</td><td>number(10,2)</td><td>高さ</td></tr>
 <tr><td>DEPTH</td><td>number(10,2)</td><td>奥行き</td></tr>
+<tr><td>SCALE_UNIT</td><td>CHAR(2)</td><td>寸法単位(FK)</td></tr>
 <tr><td>CREATED_AT</td><td>DATETIME</td><td>登録日時</td></tr>
 <tr><td>UPDATED_AT</td><td>DATETIME</td><td>更新日時</td></tr>
 <tr><td>WEIGHT_VALUE</td><td>DECIMAL(8,4)</td><td>重量値</td></tr>
@@ -48,9 +49,9 @@
 <tr><td>PRODUCT_ID</td><td>CHAR(12)</td><td>商品コード (PK)(FK)</td></tr>
 <tr><td>WAREHOUSE_ID</td><td>CHAR(5)</td><td>倉庫ID (PK)(FK)</td></tr>
 <tr><td>STOCK</td><td>INT</td><td>在庫数</td></tr>
-<tr><td>LOCATION_ID</td><td>CHAR(20)</td><td>商品所在地を一意に識別するコード(FK)</td></tr>
+<tr><td>LOCATION_ID</td><td>CHAR(20)</td><td>商品所在地を一意に識別するコード(FK)(PK)</td></tr>
 <tr><td>SAFE_STOCK</td><td>INT</td><td>安全在庫数</td></tr>
-<tr><td>LOT_NO</td><td>CHAR(20)</td><td>ロット番号</td></tr>
+<tr><td>LOT_NO</td><td>CHAR(20)</td><td>ロット番号(PK)</td></tr>
 <tr><td>EXPIRATION_DATE</td><td>DATE</td><td>使用期限・賞味期限</td></tr>
 </tbody>
   <br>
@@ -75,7 +76,7 @@
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>　ZONE_ID　</td><td>　CHAR(3)　</td><td>　冷蔵、大型機械などのゾーン(PK)　</td></tr>
-tr><td>　ZONE_NAME　</td><td>　VARCHAR(30)　</td><td>　ゾーンの実体名　</td></tr>
+<td>　ZONE_NAME　</td><td>　VARCHAR(30)　</td><td>　ゾーンの実体名　</td></tr>
 </tbody>
 </table>
 <br>
@@ -85,7 +86,7 @@ tr><td>　ZONE_NAME　</td><td>　VARCHAR(30)　</td><td>　ゾーンの実体�
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>　RACK_ID　</td><td>　CHAR(3)　</td><td>　ラックID(PK)　</td></tr>
-tr><td>　RACK_NO　</td><td>　INT　</td><td>　ラックの実体番号　</td></tr>
+<td>　RACK_NO　</td><td>　INT　</td><td>　ラックの実体番号　</td></tr>
 </tbody>
 </table>
 <br>
@@ -95,7 +96,7 @@ tr><td>　RACK_NO　</td><td>　INT　</td><td>　ラックの実体番号　</t
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>　SHELF_ID　</td><td>　CHAR(3)　</td><td>　棚ID(PK)　</td></tr>
-tr><td>　SHELF_NO　</td><td>　INT　</td><td>　シェルフ実体番号　</td></tr>
+<td>　SHELF_NO　</td><td>　INT　</td><td>　シェルフ実体番号　</td></tr>
 </tbody>
 </table>
 <br>
@@ -112,12 +113,12 @@ tr><td>　SHELF_NO　</td><td>　INT　</td><td>　シェルフ実体番号　</
 <tr><td>PRODUCT_ID</td><td>CHAR(12)</td><td>商品コード (FK)</td></tr>
 <tr><td>WAREHOUSE_ID</td><td>CHAR(5)</td><td>倉庫ID (FK)</td></tr>
 <tr><td>TRANSACTION_DATE</td><td>DATETIME</td><td>移動日時</td></tr>
-<tr><td>IN_OUT</td><td>CHAR(1)</td><td>I=入庫 / O=出庫</td></tr>
 <tr><td>QUANTITY</td><td>INT</td><td>数量</td></tr>
 <tr><td>TRANSACTION_STATE_ID</td><td>CHAR(2)</td><td>状態 (FK)</td></tr>
 </tbody>
 </table>
 <br>
+
 <p>8.PURCHASE_ORDER(発注管理)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
@@ -128,7 +129,7 @@ tr><td>　SHELF_NO　</td><td>　INT　</td><td>　シェルフ実体番号　</
 <tr><td>UNIT_PRICE</td><td>DECIMAL(10,2)</td><td>単価</td></tr>
 <tr><td>ORDER_QUANTITY</td><td>INT</td><td>数量</td></tr>
 <tr><td>ORDER_DATE</td><td>DATETIME</td><td>発注日</td></tr>
-<tr><td>ORDER_STATE</td><td>CHAR(1)</td><td>発注ステータス</td></tr>  
+<tr><td>ORDER_STATE</td><td>CHAR(1)</td><td>発注ステータス(FK)</td></tr>  
 <tr><td>DELIVERY_DATE</td><td>DATETIME</td><td>納期</td></tr>
 <tr><td>DELETE_FLAG</td><td>BOOLEAN</td><td>論理削除</td></tr>
 </tbody>
@@ -228,7 +229,7 @@ tr><td>　SHELF_NO　</td><td>　INT　</td><td>　シェルフ実体番号　</
 <tbody>
 <tr><td>EMPLOYEE_ID</td><td>CHAR(12)</td><td>ID (PK)</td></tr>
 <tr><td>EMPLOYEE_NAME</td><td>VARCHAR(60)</td><td>氏名</td></tr>
-<tr><td>DEPARTMENT_ID</td><td>VARCHAR(3)</td><td>所属部署</td></tr>
+<tr><td>DEPARTMENT_ID</td><td>INT</td><td>所属部署ID(FK)</td></tr>
 </tbody>
 </table>
   
@@ -259,12 +260,13 @@ tr><td>　SHELF_NO　</td><td>　INT　</td><td>　シェルフ実体番号　</
 </table>
 <br>
 
-20.TRANSACTION_REASON(入出庫理由マスター)
+20.TRANSACTION_REASON(入出庫素性マスター)
 <table>
   <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-  <tr><td>TRANSACTION_REASON_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
-  <tr><td>TRANSACTION_REASON</td><td>VARCHAR(30)</td><td>入出庫理由</td></tr>
+<tr><td>TRANSACTION_REASON_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
+<tr><td>TRANSACTION_REASON</td><td>VARCHAR(30)</td><td>入出庫理由</td></tr>
+<tr><td>IN_OUT</td><td>CHAR(1)</td><td>I=入庫 / O=出庫</td></tr>
 </tbody>
 </table>
 
@@ -274,11 +276,37 @@ tr><td>　SHELF_NO　</td><td>　INT　</td><td>　シェルフ実体番号　</
 <tbody>
 <tr><td>REGION_ID</td><td>VARCHAR(7)</td><td>リージョン番号 (PK)</td></tr>
 <tr><td>COUNTRY_CODE</td><td>CHAR(2)</td><td>所属国コード(PK)(FK)</td></tr>
-<tr><td>REGION_NAME_LOCAL</td><td>VARCHAR(100)</td><td>現地語地域名</td></tr>
-  
+<tr><td>REGION_NAME_LOCAL</td><td>VARCHAR(100)</td><td>現地語地域名</td></tr> 
 </tbody>
 </table>
 
+22.SCALE_MASTER(寸法単位マスター)
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+<tr><td>SCALE_ID</td><td>CHAR(2)</td><td>寸法単位ID (PK)</td></tr>
+<tr><td>SCALE_UNIT</td><td>CHAR(12)</td><td>寸法単位</td></tr>
+</tbody>
+</table>
+
+23.ORDER_STATE_MASTER(発注ステータスマスター)
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+<tr><td>ORDER_STATE_ID</td><td>CHAR(1)</td><td>発注ステータスID (PK)</td></tr>
+<tr><td>ORDER_STATE</td><td>CHAR(12)</td><td>発注ステータス</td></tr>
+</tbody>
+</table>
+<br>
+
+24.DEPARTMENT_MASTER(所属部署マスター)
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+<tr><td>DEPARTMENT_ID</td><td>INT</td><td>発注ステータスID (PK)</td></tr>
+<tr><td>DEPARTMENT</td><td>CHAR(12)</td><td>発注ステータス</td></tr>
+</tbody>
+</table>
 
 想定：建築資材を主眼に置いた。数十メートルスケールの資材を考えている。<br>
 重量については数値と単位を切り離すことで、一定の柔軟性を獲得する。<br>
