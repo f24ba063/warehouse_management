@@ -318,10 +318,9 @@
 <tr><td> STAFF_ID </td><td> CHAR(10) </td><td> 担当者ID(FK) </td></tr>
 <tr><td> WAREHOUSE_ID </td><td> CHAR(6) </td><td> 倉庫ID(FK) </td></tr>
 <tr><td> DESTINATION_ID </td><td> CHAR(6) </td><td> 出庫先(入庫はNULL)(FK) </td></tr>
-<tr><td> STATUS </td><td>  </td><td> CHAR(1) </td> 'D'=下書き 'C'=確定(FK) </tr>
+<tr><td> STATUS </td><td> CHAR(1) </td><td>  'D'=下書き 'C'=確定(FK)  </td></tr>
 <tr><td> CREATED_AT </td><td> DATETIME </td><td> 作成日時 </td></tr>
 <tr><td> UPDATED_AT </td><td> DATETIME </td><td> 更新日時 </td></tr>
-
 </tbody>
 </table>
 <br />
@@ -330,7 +329,12 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>  </td><td>  </td><td>  </td></tr>
+<tr><td> SLIP_ID </td><td> CHAR(12) </td><td> ID(PK)(FK) </td></tr>
+<tr><td> LINE_NO </td><td> INT </td><td> 行番号(PK) </td></tr>
+<tr><td> PRODUCT_CODE </td><td> CHAR(12) </td><td> 商品コード(FK) </td></tr>
+<tr><td> QUANTITY </td><td> INT </td><td> 数量 </td></tr>
+<tr><td> SHELF </td><td> VARCHAR </td><td> 棚番号 </td></tr>
+<tr><td> REMARK </td><td> VARCHAR(50) </td><td> 備考 </td></tr>
 </tbody>
 </table>
 
