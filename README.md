@@ -74,7 +74,7 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>　ZONE_ID　</td><td>　CHAR(3)　</td><td>　冷蔵、大型機械などのゾーン(FK)　</td></tr>
+<tr><td>　ZONE_ID　</td><td>　CHAR(3)　</td><td>　冷蔵、大型機械などのゾーン(PK)　</td></tr>
 tr><td>　ZONE_NAME　</td><td>　VARCHAR(30)　</td><td>　ゾーンの実体名　</td></tr>
 </tbody>
 </table>
@@ -84,7 +84,7 @@ tr><td>　ZONE_NAME　</td><td>　VARCHAR(30)　</td><td>　ゾーンの実体�
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>　RACK_ID　</td><td>　CHAR(3)　</td><td>　ラックID(FK)　</td></tr>
+<tr><td>　RACK_ID　</td><td>　CHAR(3)　</td><td>　ラックID(PK)　</td></tr>
 tr><td>　RACK_NO　</td><td>　INT　</td><td>　ラックの実体番号　</td></tr>
 </tbody>
 </table>
@@ -94,7 +94,7 @@ tr><td>　RACK_NO　</td><td>　INT　</td><td>　ラックの実体番号　</t
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>　SHELF_ID　</td><td>　CHAR(3)　</td><td>　棚ID(FK)　</td></tr>
+<tr><td>　SHELF_ID　</td><td>　CHAR(3)　</td><td>　棚ID(PK)　</td></tr>
 tr><td>　SHELF_NO　</td><td>　INT　</td><td>　シェルフ実体番号　</td></tr>
 </tbody>
 </table>
@@ -151,10 +151,11 @@ tr><td>　SHELF_NO　</td><td>　INT　</td><td>　シェルフ実体番号　</
 <tbody>
 <tr><td>SUPPLIER_ID</td><td>CHAR(4)</td><td>仕入れ先ID (PK)</td></tr>
 <tr><td>SUPPLIER_NAME</td><td>VARCHAR(60)</td><td>企業名</td></tr>
-<tr><td>SUPPLIER_ADDRESS</td><td>VARCHAR(100)</td><td>住所</td></tr>
-<tr><td>SUPPLIER_PHONE_ID</td><td>CHAR(4)</td><td>仕入れ先電話ID (FK)</td></tr>
-<tr><td>SUPPLIER_MAIL_ID</td><td>CHAR(4)</td><td>仕入れ先メールID (FK)</td></tr>
-<tr><td>DELETE_FLAG</td><td>BOOLEAN</td><td>論理削除</td></tr>
+<tr><td>COUNTRY_CODE</td><td>CHAR(2)</td><td>国コード(ISO3166-1準拠) (FK)</td></tr>
+<tr><td>REGION_CODE</td><td>VARCHAR(10)</td><td>県・地域（ISO3166-2準拠)(FK)</td></tr>
+<tr><td>CITY</td><td>VARCHAR(30)</td><td>市町村</td></tr>
+<tr><td>ADDRESS_LINE</td><td>VARCHAR(100)</td><td>町名・番地</td></tr>
+  <tr><td>DELETE_FLAG</td><td>BOOLEAN</td><td>論理削除</td></tr>
 </tbody>
 </table>
 <br>
@@ -237,9 +238,10 @@ tr><td>　SHELF_NO　</td><td>　INT　</td><td>　シェルフ実体番号　</
 <tbody>
 <tr><td>MAKER_ID</td><td>CHAR(20)</td><td>ID (PK)</td></tr>
 <tr><td>MAKER_NAME</td><td>VARCHAR(60)</td><td>メーカー名</td></tr>
-<tr><td>MAKER_ADDRESS</td><td>VARCHAR(100)</td><td>住所</td></tr>
-<tr><td>MAKER_PHONE_ID</td><td>CHAR(4)</td><td>代表電話番号</td></tr>
-<tr><td>MAKER_MAIL_ID</td><td>CHAR(4)</td><td>代表メールアドレス</td></tr>
+<tr><td>COUNTRY_CODE</td><td>CHAR(2)</td><td>国コード(ISO3166-1準拠) (FK)</td></tr>
+<tr><td>REGION_CODE</td><td>VARCHAR(10)</td><td>県・地域（ISO3166-2準拠)(FK)</td></tr>
+<tr><td>CITY</td><td>VARCHAR(30)</td><td>市町村</td></tr>
+<tr><td>ADDRESS_LINE</td><td>VARCHAR(100)</td><td>町名・番地</td></tr>
 <tr><td>DELETE_FLAG</td><td>BOOLEAN</td><td>論理削除</td></tr>
 </tbody>
 </table>
