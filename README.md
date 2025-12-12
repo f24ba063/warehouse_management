@@ -307,6 +307,33 @@
 <tr><td>DEPARTMENT</td><td>CHAR(12)</td><td>発注ステータス</td></tr>
 </tbody>
 </table>
+<br />
+
+<p>25.SLIP_ID(入出庫伝票テーブル)</p>
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+<tr><td> SLIP_ID </td><td> CHAR(12) </td><td> 伝票番号(PK) </td></tr>
+<tr><td> TYPE </td><td> CHAR(1) </td><td> 'I'＝入庫　'O'=出庫 </td></tr>
+<tr><td> STAFF_ID </td><td> CHAR(10) </td><td> 担当者ID(FK) </td></tr>
+<tr><td> WAREHOUSE_ID </td><td> CHAR(6) </td><td> 倉庫ID(FK) </td></tr>
+<tr><td> DESTINATION_ID </td><td> CHAR(6) </td><td> 出庫先(入庫はNULL)(FK) </td></tr>
+<tr><td> STATUS </td><td>  </td><td> CHAR(1) </td> 'D'=下書き 'C'=確定(FK) </tr>
+<tr><td> CREATED_AT </td><td> DATETIME </td><td> 作成日時 </td></tr>
+<tr><td> UPDATED_AT </td><td> DATETIME </td><td> 更新日時 </td></tr>
+
+</tbody>
+</table>
+<br />
+
+<p>25.SLIP_DETAIL(伝票商品詳細)</p>
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+<tr><td>  </td><td>  </td><td>  </td></tr>
+</tbody>
+</table>
+
 
 想定：建築資材を主眼に置いた。数十メートルスケールの資材を考えている。<br>
 重量については数値と単位を切り離すことで、一定の柔軟性を獲得する。<br>
