@@ -342,19 +342,38 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>  ALLOCATION_ID  </td><td>  BIGINT  </td><td>  引き当てID（自動採番） (PK)</td></tr>
-<tr><td>    </td><td>    </td><td>    </td></tr>
-<tr><td>    </td><td>    </td><td>    </td></tr>
-<tr><td>    </td><td>    </td><td>    </td></tr>
-<tr><td>    </td><td>    </td><td>    </td></tr>
-<tr><td>    </td><td>    </td><td>    </td></tr>
-<tr><td>    </td><td>    </td><td>    </td></tr>
-<tr><td>    </td><td>    </td><td>    </td></tr>
-  
+<tr><td> ALLOCATION_ID    </td><td> BIGINT    </td><td> 引き当てID（自動採番）(PK)</td></tr>
+<tr><td> SLIP_ID          </td><td> CHAR(12)  </td><td> (FK)                    </td></tr>
+<tr><td> PRODUCT_ID       </td><td> BIGINT    </td><td> (FK)                    </td></tr>
+<tr><td> LOCATION_ID      </td><td> CHAR(20)  </td><td> (FK)                    </td></tr>
+<tr><td> LOT_NO           </td><td> CHAR(20)  </td><td> (FK)                    </td></tr>
+<tr><td> COUNT            </td><td> INT       </td><td>                         </td></tr>
+<tr><td> PRIORITY         </td><td> CHAR(1)   </td><td> (FK)                    </td></tr>
+<tr><td> ALLOCATION_STATE </td><td> CHAR(1)   </td><td> (FK)                    </td></tr>
 </tbody>
 </table>
 <br />
 
+<p>28.PRIORITY（優先度マスター）</p>
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+  <tr><td> PRIORITY_ID   </td><td> CHAR(1) </td><td> (pk) </td></tr>
+  <tr><td> PRIORITY_NAME </td><td> CHAR(8) </td><td>      </td></tr>
+</tbody>
+</table>
+<br />
+<tr><td>    </td><td></td><td>    </td></tr>
+
+<p>29.ALLOCATION_STATE（引き当てステータスマスター）</p>
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+  <tr><td> ALLOCATION_STATE_ID   </td><td> CHAR(1)  </td><td>  (PK)  </td></tr>
+  <tr><td> ALLOCATION_STATE_NAME </td><td> CHAR(10) </td><td>    </td></tr>
+</tbody>
+</table>
+<br />
 
 <tr><td>    </td><td></td><td>    </td></tr>
 
