@@ -2,23 +2,23 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>PRODUCT_ID</td><td>BIGINT</td><td>商品コード (PK)(自動採番)</td></tr>
-<tr><td>PRODUCT_NAME</td><td>VARCHAR(30)</td><td>商品名</td></tr>
-<tr><td>MAKER_ID</td><td>CHAR(20)</td><td>メーカーID (FK)</td></tr>
-<tr><td>CATEGORY_ID</td><td>CHAR(6)</td><td>カテゴリID (FK)</td></tr>
-<tr><td>JAN_CODE</td><td>VARCHAR(13)</td><td>JANコード</td></tr>
-<tr><td>PRICE</td><td>DECIMAL(14,2)</td><td>価格</td></tr>
-<tr><td>COST_PRICE</td><td>DECIMAL(14,2)</td><td>原価</td></tr>
-<tr><td>PRODUCT_STATE_ID</td><td>CHAR(2)</td><td>商品状態(FK)</td></tr>
-<tr><td>WIDTH</td><td>number(10,2)</td><td>幅</td></tr>
-<tr><td>HEIGHT</td><td>number(10,2)</td><td>高さ</td></tr>
-<tr><td>DEPTH</td><td>number(10,2)</td><td>奥行き</td></tr>
-<tr><td>SCALE_UNIT</td><td>CHAR(2)</td><td>寸法単位(FK)</td></tr>
-<tr><td>CREATED_AT</td><td>DATETIME</td><td>登録日時</td></tr>
-<tr><td>UPDATED_AT</td><td>DATETIME</td><td>更新日時</td></tr>
-<tr><td>WEIGHT_VALUE</td><td>DECIMAL(8,4)</td><td>重量値</td></tr>
-<tr><td>WEIGHT_UNIT_ID</td><td>CHAR(2)</td><td>重量単位 (FK)</td></tr>
-<tr><td>DELETE_FLAG</td><td>BOOLEAN</td><td>論理削除</td></tr>
+<tr><td> PRODUCT_ID        </td><td> BIGINT        </td><td> 商品コード (PK)(自動採番)</td></tr>
+<tr><td> PRODUCT_NAME      </td><td> VARCHAR(30)   </td><td> 商品名</td></tr>
+<tr><td> MAKER_ID          </td><td> CHAR(20)      </td><td> メーカーID (FK)</td></tr>
+<tr><td> CATEGORY_ID       </td><td> CHAR(6)       </td><td> カテゴリID (FK)</td></tr>
+<tr><td> JAN_CODE          </td><td> VARCHAR(13)   </td><td> JANコード</td></tr>
+<tr><td> PRICE             </td><td> DECIMAL(14,2) </td><td> 価格</td></tr>
+<tr><td> COST_PRICE        </td><td> DECIMAL(14,2) </td><td> 原価</td></tr>
+<tr><td> PRODUCT_STATE_ID  </td><td> CHAR(2)       </td><td> 商品状態(FK)</td></tr>
+<tr><td> WIDTH             </td><td> number(10,2)  </td><td> 幅</td></tr>
+<tr><td> HEIGHT            </td><td> number(10,2)  </td><td> 高さ</td></tr>
+<tr><td> DEPTH             </td><td> number(10,2)  </td><td> 奥行き</td></tr>
+<tr><td> SCALE_UNIT        </td><td> CHAR(2)       </td><td> 寸法単位(FK)</td></tr>
+<tr><td> CREATED_AT        </td><td> DATETIME      </td><td> 登録日時</td></tr>
+<tr><td> UPDATED_AT        </td><td> DATETIME      </td><td> 更新日時</td></tr>
+<tr><td> WEIGHT_VALUE      </td><td> DECIMAL(8,4)  </td><td> 重量値</td></tr>
+<tr><td> WEIGHT_UNIT_ID    </td><td> CHAR(2)       </td><td> 重量単位 (FK)</td></tr>
+<tr><td> DELETE_FLAG       </td><td> BOOLEAN       </td><td> 論理削除</td></tr>
 </tbody>
 </table>
 <br>
@@ -299,7 +299,7 @@
 </table>
 <br>
 
-24.DEPARTMENT_MASTER(所属部署マスター)
+<p>24.DEPARTMENT_MASTER(所属部署マスター)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -325,7 +325,7 @@
 </table>
 <br />
 
-<p>25.SLIP_DETAIL(伝票商品詳細)</p>
+<p>26.SLIP_DETAIL(伝票商品詳細)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -338,6 +338,25 @@
 </tbody>
 </table>
 
+<p>27.ALLOCATION（引き当てテーブル）</p>
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+<tr><td>  ALLOCATION_ID  </td><td>  BIGINT  </td><td>  引き当てID（自動採番） (PK)</td></tr>
+<tr><td>    </td><td>    </td><td>    </td></tr>
+<tr><td>    </td><td>    </td><td>    </td></tr>
+<tr><td>    </td><td>    </td><td>    </td></tr>
+<tr><td>    </td><td>    </td><td>    </td></tr>
+<tr><td>    </td><td>    </td><td>    </td></tr>
+<tr><td>    </td><td>    </td><td>    </td></tr>
+<tr><td>    </td><td>    </td><td>    </td></tr>
+  
+</tbody>
+</table>
+<br />
+
+
+<tr><td>    </td><td></td><td>    </td></tr>
 
 想定：建築資材を主眼に置いた。数十メートルスケールの資材を考えている。<br>
 重量については数値と単位を切り離すことで、一定の柔軟性を獲得する。<br>
