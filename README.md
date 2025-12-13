@@ -13,7 +13,7 @@
 <tr><td> WIDTH             </td><td> number(10,2)  </td><td> 幅                       </td></tr>
 <tr><td> HEIGHT            </td><td> number(10,2)  </td><td> 高さ                     </td></tr>
 <tr><td> DEPTH             </td><td> number(10,2)  </td><td> 奥行き                   </td></tr>
-<tr><td> SCALE_UNIT        </td><td> CHAR(2)       </td><td> 寸法単位(FK)             </td></tr>
+<tr><td> SCALE_ID        </td><td> CHAR(2)       </td><td> 寸法単位(FK)             </td></tr>
 <tr><td> CREATED_AT        </td><td> DATETIME      </td><td> 登録日時                 </td></tr>
 <tr><td> UPDATED_AT        </td><td> DATETIME      </td><td> 更新日時                 </td></tr>
 <tr><td> WEIGHT_VALUE      </td><td> DECIMAL(8,4)  </td><td> 重量値                   </td></tr>
@@ -47,7 +47,6 @@
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>PRODUCT_ID</td><td>BIGINT</td><td>商品コード (PK)(FK)</td></tr>
-<tr><td>WAREHOUSE_ID</td><td>CHAR(5)</td><td>倉庫ID (PK)(FK)</td></tr>
 <tr><td>STOCK</td><td>INT</td><td>在庫数</td></tr>
 <tr><td>LOCATION_ID</td><td>CHAR(20)</td><td>商品所在地を一意に識別するコード(FK)(PK)</td></tr>
 <tr><td>SAFE_STOCK</td><td>INT</td><td>安全在庫数</td></tr>
@@ -62,7 +61,7 @@
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>　LOCATION_ID　</td><td>　CHAR(20)　</td><td>　区画を一意に識別するID(PK)　</td></tr>
-<tr><td>　WAREHOUSE_ID　</td><td>　CHAR(5)　</td><td>　所属する倉庫(FK)(PK)　</td></tr>
+<tr><td>　WAREHOUSE_ID　</td><td>　CHAR(5)　</td><td>　所属する倉庫(FK)　</td></tr>
 <tr><td>　ZONE_ID　</td><td>　CHAR(3)　</td><td>　冷蔵、大型機械などのゾーンのID(FK)　</td></tr>
 <tr><td>　RACK_ID　</td><td>　CHAR(3)　</td><td>　どの棚(ラック)か(FK)　</td></tr>
 <tr><td>　SHELF_ID　</td><td>　CHAR(5)　</td><td>　どの段(シェルフ)にするか(FK)　</td></tr>
