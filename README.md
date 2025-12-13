@@ -36,7 +36,7 @@
 <tr><td>REGION_CODE</td><td>VARCHAR(10)</td><td>県・地域（ISO3166-2準拠)(FK)</td></tr>
 <tr><td>CITY</td><td>VARCHAR(30)</td><td>市町村</td></tr>
 <tr><td>ADDRESS_LINE</td><td>VARCHAR(100)</td><td>町名・番地</td></tr>
-<tr><td>WAREHOUSE_TYPE_ID</td><td>CHAR(2)</td><td>倉庫タイプ (FK)</td></tr>
+<tr><td>WAREHOUSE_TYPE_ID</td><td>CHAR(1)</td><td>倉庫タイプ (FK)</td></tr>
 <tr><td>DELETE_FLAG</td><td>BOOLEAN</td><td>論理削除</td></tr>
 </tbody>
 </table>
