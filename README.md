@@ -46,7 +46,7 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>PRODUCT_ID</td><td>CHAR(12)</td><td>商品コード (PK)(FK)</td></tr>
+<tr><td>PRODUCT_ID</td><td>BIGINT</td><td>商品コード (PK)(FK)</td></tr>
 <tr><td>WAREHOUSE_ID</td><td>CHAR(5)</td><td>倉庫ID (PK)(FK)</td></tr>
 <tr><td>STOCK</td><td>INT</td><td>在庫数</td></tr>
 <tr><td>LOCATION_ID</td><td>CHAR(20)</td><td>商品所在地を一意に識別するコード(FK)(PK)</td></tr>
@@ -110,7 +110,7 @@
 <tr><td>TRANSACTION_ID</td><td>INT</td><td>入出庫ID (PK)(自動採番)</td></tr>
 <tr><td>EMPLOYEE_ID</td><td>CHAR(12)</td><td>担当者ID (FK)</td></tr>
 <tr><td>TRANSACTION_REASON_ID</td><td>CHAR(2)</td><td>入出庫理由 (FK)</td></tr>
-<tr><td>PRODUCT_ID</td><td>CHAR(12)</td><td>商品コード (FK)</td></tr>
+<tr><td>PRODUCT_ID</td><td>BIGINT</td><td>商品コード (FK)</td></tr>
 <tr><td>WAREHOUSE_ID</td><td>CHAR(5)</td><td>倉庫ID (FK)</td></tr>
 <tr><td>TRANSACTION_DATE</td><td>DATETIME</td><td>移動日時</td></tr>
 <tr><td>QUANTITY</td><td>INT</td><td>数量</td></tr>
@@ -124,7 +124,7 @@
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
 <tr><td>ORDER_ID</td><td>CHAR(12)</td><td>発注ID (PK)</td></tr>
-<tr><td>PRODUCT_ID</td><td>CHAR(12)</td><td>商品ID (FK)</td></tr>
+<tr><td>PRODUCT_ID</td><td>BIGINT</td><td>商品ID (FK)</td></tr>
 <tr><td>SUPPLIER_ID</td><td>CHAR(4)</td><td>仕入れ先ID (FK)</td></tr>
 <tr><td>UNIT_PRICE</td><td>DECIMAL(10,2)</td><td>単価</td></tr>
 <tr><td>ORDER_QUANTITY</td><td>INT</td><td>数量</td></tr>
