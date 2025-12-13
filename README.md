@@ -51,7 +51,7 @@
 <tr><td>LOCATION_ID</td><td>CHAR(20)</td><td>商品所在地を一意に識別するコード(FK)(PK)</td></tr>
 <tr><td>SAFE_STOCK</td><td>INT</td><td>安全在庫数</td></tr>
 <tr><td>LOT_NO</td><td>CHAR(20)</td><td>ロット番号(PK)</td></tr>
-<tr><td>EXPIRATION_DATE</td><td>DATE</td><td>使用期限・賞味期限</td></tr>
+<tr><td>EXPIRATION_DATE</td><td>DATETIME</td><td>使用期限・賞味期限</td></tr>
 </tbody>
   <br>
 </table>
@@ -60,12 +60,12 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>　LOCATION_ID　</td><td>　CHAR(20)　</td><td>　区画を一意に識別するID(PK)　</td></tr>
-<tr><td>　WAREHOUSE_ID　</td><td>　CHAR(5)　</td><td>　所属する倉庫(FK)　</td></tr>
-<tr><td>　ZONE_ID　</td><td>　CHAR(3)　</td><td>　冷蔵、大型機械などのゾーンのID(FK)　</td></tr>
-<tr><td>　RACK_ID　</td><td>　CHAR(3)　</td><td>　どの棚(ラック)か(FK)　</td></tr>
-<tr><td>　SHELF_ID　</td><td>　CHAR(5)　</td><td>　どの段(シェルフ)にするか(FK)　</td></tr>
-<tr><td>　　</td><td>　　</td><td>　　</td></tr>
+  <tr><td>　LOCATION_ID　</td><td>　CHAR(20)　</td><td>　区画を一意に識別するID(PK)　</td></tr>
+  <tr><td>　WAREHOUSE_ID　</td><td>　CHAR(5)　</td><td>　所属する倉庫(FK)　</td></tr>
+  <tr><td>　ZONE_ID　</td><td>　CHAR(3)　</td><td>　冷蔵、大型機械などのゾーンのID(FK)　</td></tr>
+  <tr><td>　RACK_ID　</td><td>　CHAR(3)　</td><td>　どの棚(ラック)か(FK)　</td></tr>
+  <tr><td>　SHELF_ID　</td><td>　CHAR(5)　</td><td>　どの段(シェルフ)にするか(FK)　</td></tr>
+  <tr><td> DELETE_FLAG       </td><td> BOOLEAN       </td><td> 論理削除     </td></tr>
 </tbody>
 </table>
 <br>
@@ -74,8 +74,9 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>　ZONE_ID　</td><td>　CHAR(3)　</td><td>　冷蔵、大型機械などのゾーン(PK)　</td></tr>
-<td>　ZONE_NAME　</td><td>　VARCHAR(30)　</td><td>　ゾーンの実体名　</td></tr>
+<tr><td> ZONE_ID　  </td><td> CHAR(3)   　</td><td> 冷蔵、大型機械などのゾーン(PK) </td></tr>
+<tr><td> ZONE_NAME　</td><td> VARCHAR(30) </td><td> ゾーンの実体名                </td></tr>
+  <tr><td> DELETE_FLAG       </td><td> BOOLEAN       </td><td> 論理削除     </td></tr>
 </tbody>
 </table>
 <br>
@@ -86,6 +87,7 @@
 <tbody>
 <tr><td>　RACK_ID　</td><td>　CHAR(3)　</td><td>　ラックID(PK)　</td></tr>
 <td>　RACK_NO　</td><td>　INT　</td><td>　ラックの実体番号　</td></tr>
+  <tr><td> DELETE_FLAG       </td><td> BOOLEAN       </td><td> 論理削除     </td></tr>
 </tbody>
 </table>
 <br>
@@ -94,8 +96,9 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>　SHELF_ID　</td><td>　CHAR(3)　</td><td>　棚ID(PK)　</td></tr>
-<td>　SHELF_NO　</td><td>　INT　</td><td>　シェルフ実体番号　</td></tr>
+  <tr><td> SHELF_ID　  </td><td> CHAR(3) </td><td> 棚ID(PK)        </td></tr>
+  <tr><td> SHELF_NO　  </td><td> INT     </td><td> シェルフ実体番号 </td></tr>
+  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
 </tbody>
 </table>
 <br>
@@ -141,6 +144,7 @@
 <tbody>
 <tr><td>CATEGORY_ID</td><td>CHAR(6)</td><td>カテゴリID (PK)</td></tr>
 <tr><td>CATEGORY_NAME</td><td>VARCHAR(20)</td><td>カテゴリ名</td></tr>
+  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
 </tbody>
 </table>
 <br>
@@ -168,6 +172,7 @@
 <tr><td>SUPPLIER_ID</td><td>CHAR(4)</td><td>仕入れ先ID (FK)</td></tr>
 <tr><td>CONTACT_TYPE_ID</td><td>CHAR(1)</td><td>種別 (FK)</td></tr>
 <tr><td>CONTACT_DETAIL</td><td>VARCHAR(60)</td><td>内容</td></tr>
+  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
 </tbody>
 </table>
 <br>
@@ -178,6 +183,7 @@
 <tbody>
 <tr><td>CONTACT_TYPE_ID</td><td>CHAR(1)</td><td>ID (PK)</td></tr>
 <tr><td>CONTACT_TYPE</td><td>CHAR(8)</td><td>種別</td></tr>
+  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
 </tbody>
 </table>
 <br>
@@ -188,6 +194,7 @@
 <tbody>
 <tr><td>WAREHOUSE_TYPE_ID</td><td>CHAR(1)</td><td>ID (PK)</td></tr>
 <tr><td>WAREHOUSE_TYPE_NAME</td><td>CHAR(10)</td><td>倉庫タイプ</td></tr>
+  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
 </tbody>
 </table>
 <br>
@@ -198,6 +205,7 @@
 <tbody>
 <tr><td>PRODUCT_STATE_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
 <tr><td>PRODUCT_STATE_NAME</td><td>VARCHAR(20)</td><td>状態名</td></tr>
+  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
 </tbody>
 </table>
 <br>
@@ -208,6 +216,7 @@
 <tbody>
 <tr><td>TRANSACTION_STATE_ID</td><td>CHAR(1)</td><td>ID (PK)</td></tr>
 <tr><td>TRANSACTION_STATE</td><td>VARCHAR(20)</td><td>状態名</td></tr>
+  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
 </tbody>
 </table>
 <br>
@@ -218,6 +227,7 @@
 <tbody>
 <tr><td>WEIGHT_UNIT_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
 <tr><td>WEIGHT_UNIT_NAME</td><td>VARCHAR(20)</td><td>単位名</td></tr>
+  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
 </tbody>
 </table>
 <br>
@@ -229,6 +239,7 @@
 <tr><td>EMPLOYEE_ID</td><td>CHAR(12)</td><td>ID (PK)</td></tr>
 <tr><td>EMPLOYEE_NAME</td><td>VARCHAR(60)</td><td>氏名</td></tr>
 <tr><td>DEPARTMENT_ID</td><td>INT</td><td>所属部署ID(FK)</td></tr>
+  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
 </tbody>
 </table>
   
@@ -255,6 +266,7 @@
 <tr><td>COUNTRY_CODE</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
 <tr><td>COUNTRY_NAME_JA</td><td>VARCHAR(30)</td><td>日本語国名</td></tr>
 <tr><td>COUNTRY_NAME_EN</td><td>VARCHAR(30)</td><td>英語国名</td></tr>
+  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
 </tbody>
 </table>
 <br>
@@ -294,6 +306,7 @@
 <tbody>
 <tr><td>ORDER_STATE_ID</td><td>CHAR(1)</td><td>発注ステータスID (PK)</td></tr>
 <tr><td>ORDER_STATE</td><td>CHAR(12)</td><td>発注ステータス</td></tr>
+  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
 </tbody>
 </table>
 <br>
@@ -302,8 +315,9 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>DEPARTMENT_ID</td><td>INT</td><td>発注ステータスID (PK)</td></tr>
-<tr><td>DEPARTMENT</td><td>CHAR(12)</td><td>発注ステータス</td></tr>
+<tr><td>DEPARTMENT_ID</td><td>INT</td><td>所属部署ID (PK)</td></tr>
+<tr><td>DEPARTMENT</td><td>CHAR(12)</td><td>所属部署名>td></tr>
+  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
 </tbody>
 </table>
 <br />
@@ -359,6 +373,7 @@
 <tbody>
   <tr><td> PRIORITY_ID   </td><td> CHAR(1) </td><td> (pk) </td></tr>
   <tr><td> PRIORITY_NAME </td><td> CHAR(8) </td><td>      </td></tr>
+  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
 </tbody>
 </table>
 <br />
