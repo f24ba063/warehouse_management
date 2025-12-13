@@ -273,7 +273,7 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>REGION_ID</td><td>VARCHAR(7)</td><td>リージョン番号 (PK)</td></tr>
+<tr><td>REGION_CODE</td><td>VARCHAR(7)</td><td>リージョン番号 (PK)</td></tr>
 <tr><td>COUNTRY_CODE</td><td>CHAR(2)</td><td>所属国コード(PK)(FK)</td></tr>
 <tr><td>REGION_NAME_LOCAL</td><td>VARCHAR(100)</td><td>現地語地域名</td></tr> 
 </tbody>
@@ -314,7 +314,7 @@
 <tbody>
 <tr><td> SLIP_ID </td><td> CHAR(12) </td><td> 伝票番号(PK) </td></tr>
 <tr><td> TYPE </td><td> CHAR(1) </td><td> 'I'＝入庫　'O'=出庫 </td></tr>
-<tr><td> STAFF_ID </td><td> CHAR(10) </td><td> 担当者ID(FK) </td></tr>
+<tr><td> EMPLOYEE_ID </td><td> CHAR(10) </td><td> 担当者ID(FK) </td></tr>
 <tr><td> WAREHOUSE_ID </td><td> CHAR(6) </td><td> 倉庫ID(FK) </td></tr>
 <tr><td> DESTINATION_ID </td><td> CHAR(6) </td><td> 出庫先(入庫はNULL)(FK) </td></tr>
 <tr><td> STATUS </td><td> CHAR(1) </td><td>  'D'=下書き 'C'=確定(FK)  </td></tr>
