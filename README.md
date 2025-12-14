@@ -27,17 +27,18 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td> WAREHOUSE_ID      </td><td> CHAR(5)       </td><td> 倉庫ID (PK)</td></tr>
-<tr><td> WAREHOUSE_NAME    </td><td> VARCHAR(60)   </td><td> 倉庫名</td></tr>
-<tr><td> LATITUDE          </td><td> DECIMAL(10,7) </td><td> 緯度</td></tr>
-<tr><td> LONGITUDE         </td><td> DECIMAL(10,7) </td><td> 経度</td></tr>
-<tr><td> POSTAL_CODE       </td><td> VARCHAR(12)   </td><td> 郵便番号</td></tr>
-<tr><td> COUNTRY_CODE      </td><td> CHAR(2)       </td><td> 国コード(ISO3166-1準拠) (FK)</td></tr>
-<tr><td> REGION_CODE       </td><td> VARCHAR(10)   </td><td> 県・地域（ISO3166-2準拠)(FK)</td></tr>
-<tr><td> CITY              </td><td> VARCHAR(30)   </td><td> 市町村</td></tr>
-<tr><td> ADDRESS_LINE      </td><td> VARCHAR(100)  </td><td> 町名・番地</td></tr>
-<tr><td> WAREHOUSE_TYPE_ID </td><td> CHAR(1)       </td><td> 倉庫タイプ (FK)</td></tr>
-<tr><td> DELETE_FLAG       </td><td> BOOLEAN       </td><td> 論理削除</td></tr>
+  <tr><td> WAREHOUSE_ID      </td><td> CHAR(5)       </td><td> 倉庫ID (PK)</td></tr>
+  <tr><td> WAREHOUSE_NAME    </td><td> VARCHAR(60)   </td><td> 倉庫名</td></tr>
+  <tr><td> LATITUDE          </td><td> DECIMAL(10,7) </td><td> 緯度</td></tr>
+  <tr><td> LONGITUDE         </td><td> DECIMAL(10,7) </td><td> 経度</td></tr>
+  <tr><td> POSTAL_CODE       </td><td> VARCHAR(12)   </td><td> 郵便番号</td></tr>
+  <tr><td> COUNTRY_CODE      </td><td> CHAR(2)       </td><td> 国コード(ISO3166-1準拠) (FK)</td></tr>
+  <tr><td> REGION_CODE       </td><td> VARCHAR(10)   </td><td> 県・地域（ISO3166-2準拠)(FK)</td></tr>
+  <tr><td> CITY              </td><td> VARCHAR(30)   </td><td> 市町村</td></tr>
+  <tr><td> ADDRESS_LINE      </td><td> VARCHAR(100)  </td><td> 町名・番地</td></tr>
+  <tr><td> WAREHOUSE_TYPE_ID </td><td> CHAR(1)       </td><td> 倉庫タイプ (FK)</td></tr>
+  <tr><td> DELETE_FLAG       </td><td> BOOLEAN       </td><td> 論理削除</td></tr>
+  <tr><td> 複合FK</td><td colspan="2">FK: (COUNTRY_CODE, REGION_CODE)         </td></tr>
 </tbody>
 </table>
 <br>
@@ -339,7 +340,7 @@
   <tr><td> EMPLOYEE_ID    </td><td> CHAR(12) </td><td> 担当者ID(FK)                      </td></tr>
   <tr><td> WAREHOUSE_ID   </td><td> CHAR(5)  </td><td> 倉庫ID(FK)                        </td></tr>
   <tr><td> DESTINATION_ID </td><td> CHAR(5)  </td><td> 出庫先warehouse_id(入庫はNULL)(FK) </td></tr>
-  <tr><td> SLIP_STATE     </td><td> CHAR(1)  </td><td> 'D'=下書き 'C'=確定(FK)           </td></tr>
+  <tr><td> SLIP_STATE_ID  </td><td> CHAR(1)  </td><td> 'D'=下書き 'C'=確定(FK)           </td></tr>
   <tr><td> CREATED_AT     </td><td> DATETIME </td><td> 作成日時                          </td></tr>
   <tr><td> UPDATED_AT     </td><td> DATETIME </td><td> 更新日時                          </td></tr>
 </tbody>
