@@ -46,9 +46,9 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td> PRODUCT_ID      </td><td> BIGINT   </td><td> 商品コード     (FK)         </td></tr>
+<tr><td> PRODUCT_ID      </td><td> BIGINT   </td><td> 商品コード    (FK)          </td></tr>
 <tr><td> STOCK           </td><td> INT      </td><td> 在庫数                      </td></tr>
-<tr><td> LOCATION_ID     </td><td> CHAR(20) </td><td> 商品所在地識別コード(FK)     </td></tr>
+<tr><td> LOCATION_ID     </td><td> CHAR(20) </td><td> 商品所在地識別コード    (FK) </td></tr>
 <tr><td> SAFE_STOCK      </td><td> INT      </td><td> 安全在庫数                  </td></tr>
 <tr><td> LOT_NO          </td><td> CHAR(20) </td><td> ロット番号                  </td></tr>
 <tr><td> EXPIRATION_DATE </td><td> DATETIME </td><td> 使用期限・賞味期限           </td></tr>
@@ -110,7 +110,7 @@
 <tbody>
  <tr><td> TRANSACTION_ID        </td><td> INT       </td><td> 入出庫ID (PK)(自動採番) </td></tr>
  <tr><td> SLIP_ID               </td><td> CHAR(12)  </td><td> 伝票コード (FK)        </td></tr>
- <tr><td> SLIP_LINE_ID          </td><td> INT       </td><td> 伝票上の行番号(FK)      </td></tr>
+ <tr><td> LINE_ID               </td><td> INT       </td><td> 伝票上の行番号(FK)      </td></tr>
  <tr><td> PRODUCT_ID            </td><td> BIGINT    </td><td> 商品コード (FK)        </td></tr>
  <tr><td> QUANTITY              </td><td> INT       </td><td> 数量                  </td></tr>
  <tr><td> LOT_NO                </td><td> CHAR(20)  </td><td> ロット番号(FK)        </td></tr>
@@ -119,6 +119,7 @@
  <tr><td> TRANSACTION_DATE      </td><td> DATETIME  </td><td> 移動日時              </td></tr>
  <tr><td> TRANSACTION_REASON_ID </td><td> CHAR(2)   </td><td> 入出庫理由 (FK)       </td></tr>
  <tr><td> TRANSACTION_STATE_ID  </td><td> CHAR(1)   </td><td> 状態 (FK)             </td></tr>
+ <tr><td> 複合FK</td><td colspan="2">FK: (SLIP_ID, SLIP_LINE_ID) → SLIP_DETAIL (SLIP_ID, LINE_NO)         </td></tr>
 </tbody>
 </table>
 <br>
@@ -330,7 +331,7 @@
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
   <tr><td> SLIP_ID        </td><td> CHAR(12) </td><td> 伝票番号(PK)                      </td></tr>
-  <tr><td> ALLOCATE_TYPE  </td><td> CHAR(1)  </td><td> 'I'＝入庫　'O'=出庫               </td></tr>
+  <tr><td> SLIP_TYPE 　　 </td><td> CHAR(1)  </td><td> 'I'＝入庫　'O'=出庫               </td></tr>
   <tr><td> EMPLOYEE_ID    </td><td> CHAR(12) </td><td> 担当者ID(FK)                      </td></tr>
   <tr><td> WAREHOUSE_ID   </td><td> CHAR(5)  </td><td> 倉庫ID(FK)                        </td></tr>
   <tr><td> DESTINATION_ID </td><td> CHAR(5)  </td><td> 出庫先warehouse_id(入庫はNULL)(FK) </td></tr>
@@ -345,12 +346,13 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-  <tr><td> SLIP_ID     </td><td> CHAR(12)    </td><td> ID(PK)(FK)    </td></tr>
-  <tr><td> LINE_NO     </td><td> INT         </td><td> 行番号(PK)     </td></tr>
-  <tr><td> PRODUCT_ID  </td><td> BIGINT      </td><td> 商品コード(FK) </td></tr>
-  <tr><td> QUANTITY    </td><td> INT         </td><td> 数量          </td></tr>
-  <tr><td> LOCATION_ID </td><td> CHAR(20)    </td><td> 所在ID(FK)    </td></tr>
-  <tr><td> REMARK      </td><td> VARCHAR(50) </td><td> 備考          </td></tr>
+  <tr><td> SLIP_ID               </td><td> CHAR(12)    </td><td> ID(PK)(FK)    </td></tr>
+  <tr><td> LINE_NO               </td><td> INT         </td><td> 行番号(PK)    </td></tr>
+  <tr><td> PRODUCT_ID            </td><td> BIGINT      </td><td> 商品コード(FK) </td></tr>
+  <tr><td> TRANSACTION_REASON_ID </td><td> CHAR(2)     </td><td> ID (PK)       </td></tr>
+  <tr><td> QUANTITY              </td><td> INT         </td><td> 数量          </td></tr>
+  <tr><td> LOCATION_ID           </td><td> CHAR(20)    </td><td> 所在ID(FK)    </td></tr>
+  <tr><td> REMARK                </td><td> VARCHAR(50) </td><td> 備考          </td></tr>
 </tbody>
 </table>
 
