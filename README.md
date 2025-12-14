@@ -123,6 +123,9 @@
  <tr><td> TRANSACTION_REASON_ID </td><td> CHAR(2)   </td><td> 入出庫理由 (FK)       </td></tr>
  <tr><td> TRANSACTION_STATE_ID  </td><td> CHAR(1)   </td><td> 状態 (FK)             </td></tr>
  <tr><td> 複合FK</td><td colspan="2">FK: (SLIP_ID, LINE_NO) → SLIP_DETAIL (SLIP_ID, LINE_NO)         </td></tr>
+ <tr><td> 複合FK</td><td colspan="2">FK: (PRODUCT_ID, LOCATION_FROM, LOT_NO) → INVENTORY (PRODUCT_ID, LOCATION_ID, LOT_NO)</td></tr>
+ <tr><td> 複合FK</td><td colspan="2">FK: (PRODUCT_ID, LOCATION_TO, LOT_NO) → INVENTORY (PRODUCT_ID, LOCATION_ID, LOT_NO)</td></tr>
+ 
 </tbody>
 </table>
 <br>
