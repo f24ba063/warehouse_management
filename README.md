@@ -329,7 +329,7 @@
 <tr><td> TYPE </td><td> CHAR(1) </td><td> 'I'＝入庫　'O'=出庫 </td></tr>
 <tr><td> EMPLOYEE_ID </td><td> CHAR(12) </td><td> 担当者ID(FK) </td></tr>
 <tr><td> WAREHOUSE_ID </td><td> CHAR(5) </td><td> 倉庫ID(FK) </td></tr>
-<tr><td> DESTINATION_ID </td><td> CHAR(6) </td><td> 出庫先(入庫はNULL)(FK) </td></tr>
+<tr><td> DESTINATION_ID </td><td> CHAR(5) </td><td> 出庫先warehouse_id(入庫はNULL)(FK) </td></tr>
 <tr><td> STATUS </td><td> CHAR(1) </td><td>  'D'=下書き 'C'=確定(FK)  </td></tr>
 <tr><td> CREATED_AT </td><td> DATETIME </td><td> 作成日時 </td></tr>
 <tr><td> UPDATED_AT </td><td> DATETIME </td><td> 更新日時 </td></tr>
