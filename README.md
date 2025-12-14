@@ -92,11 +92,11 @@
 </table>
 <br>
 
-<p>6．T_SHELF(シェルフ番号マスター)</p>
+<p>6．SHELF_MASTER(シェルフ番号マスター)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-  <tr><td> SHELF_ID　  </td><td> CHAR(3) </td><td> 棚ID(PK)        </td></tr>
+  <tr><td> SHELF_ID　  </td><td> CHAR(5) </td><td> 棚ID(PK)        </td></tr>
   <tr><td> SHELF_NO　  </td><td> INT     </td><td> シェルフ実体番号 </td></tr>
   <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
 </tbody>
