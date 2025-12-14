@@ -75,8 +75,8 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td> ZONE_ID　  </td><td> CHAR(3)   　</td><td> 冷蔵、大型機械などのゾーン(PK) </td></tr>
-<tr><td> ZONE_NAME　</td><td> VARCHAR(30) </td><td> ゾーンの実体名                </td></tr>
+  <tr><td> ZONE_ID　  </td><td> CHAR(3)   　</td><td> 冷蔵、大型機械などのゾーン(PK) </td></tr>
+  <tr><td> ZONE_NAME　</td><td> VARCHAR(30) </td><td> ゾーンの実体名                </td></tr>
   <tr><td> DELETE_FLAG       </td><td> BOOLEAN       </td><td> 論理削除     </td></tr>
 </tbody>
 </table>
@@ -86,9 +86,9 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>　RACK_ID　</td><td>　CHAR(3)　</td><td>　ラックID(PK)　</td></tr>
-<td>　RACK_NO　</td><td>　INT　</td><td>　ラックの実体番号　</td></tr>
-  <tr><td> DELETE_FLAG       </td><td> BOOLEAN       </td><td> 論理削除     </td></tr>
+  <tr><td> RACK_ID     </td><td> CHAR(3) </td><td> ラックID(PK)   　</td></tr>
+  <tr><td> RACK_NO     </td><td> INT     </td><td> ラックの実体番号　</td></tr>
+  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除         </td></tr>
 </tbody>
 </table>
 <br>
@@ -129,15 +129,15 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>ORDER_ID</td><td>CHAR(12)</td><td>発注ID (PK)</td></tr>
-<tr><td>PRODUCT_ID</td><td>BIGINT</td><td>商品ID (FK)</td></tr>
-<tr><td>SUPPLIER_ID</td><td>CHAR(4)</td><td>仕入れ先ID (FK)</td></tr>
-<tr><td>UNIT_PRICE</td><td>DECIMAL(10,2)</td><td>単価</td></tr>
-<tr><td>ORDER_QUANTITY</td><td>INT</td><td>数量</td></tr>
-<tr><td>ORDER_DATE</td><td>DATETIME</td><td>発注日</td></tr>
-<tr><td>ORDER_STATE</td><td>CHAR(1)</td><td>発注ステータス(FK)</td></tr>  
-<tr><td>DELIVERY_DATE</td><td>DATETIME</td><td>納期</td></tr>
-<tr><td>DELETE_FLAG</td><td>BOOLEAN</td><td>論理削除</td></tr>
+<tr><td> ORDER_ID       </td><td>CHAR(12)      </td><td>発注ID (PK)       </td></tr>
+<tr><td> PRODUCT_ID     </td><td>BIGINT        </td><td>商品ID (FK)       </td></tr>
+<tr><td> SUPPLIER_ID    </td><td>CHAR(4)       </td><td>仕入れ先ID (FK)   </td></tr>
+<tr><td> UNIT_PRICE     </td><td>DECIMAL(10,2) </td><td>単価              </td></tr>
+<tr><td> ORDER_QUANTITY </td><td>INT           </td><td>数量              </td></tr>
+<tr><td> ORDER_DATE     </td><td>DATETIME      </td><td>発注日            </td></tr>
+<tr><td> ORDER_STATE    </td><td>CHAR(1)       </td><td>発注ステータス(FK) </td></tr>  
+<tr><td> DELIVERY_DATE  </td><td>DATETIME      </td><td>納期              </td></tr>
+<tr><td> DELETE_FLAG    </td><td>BOOLEAN       </td><td>論理削除          </td></tr>
 </tbody>
 </table>
 <br>
@@ -146,9 +146,9 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>CATEGORY_ID</td><td>CHAR(6)</td><td>カテゴリID (PK)</td></tr>
-<tr><td>CATEGORY_NAME</td><td>VARCHAR(20)</td><td>カテゴリ名</td></tr>
-  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
+ <tr><td> CATEGORY_ID   </td><td>CHAR(6)     </td><td> カテゴリID (PK)  </td></tr>
+ <tr><td> CATEGORY_NAME </td><td>VARCHAR(20) </td><td >カテゴリ名       </td></tr>
+ <tr><td> DELETE_FLAG   </td><td> BOOLEAN    </td><td> 論理削除         </td></tr>
 </tbody>
 </table>
 <br>
@@ -157,13 +157,13 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>SUPPLIER_ID</td><td>CHAR(4)</td><td>仕入れ先ID (PK)</td></tr>
-<tr><td>SUPPLIER_NAME</td><td>VARCHAR(60)</td><td>企業名</td></tr>
-<tr><td>COUNTRY_CODE</td><td>CHAR(2)</td><td>国コード(ISO3166-1準拠) (FK)</td></tr>
-<tr><td>REGION_CODE</td><td>VARCHAR(10)</td><td>県・地域（ISO3166-2準拠)(FK)</td></tr>
-<tr><td>CITY</td><td>VARCHAR(30)</td><td>市町村</td></tr>
-<tr><td>ADDRESS_LINE</td><td>VARCHAR(100)</td><td>町名・番地</td></tr>
-  <tr><td>DELETE_FLAG</td><td>BOOLEAN</td><td>論理削除</td></tr>
+  <tr><td> SUPPLIER_ID   </td><td> CHAR(4)      </td><td> 仕入れ先ID (PK)             </td></tr>
+  <tr><td> SUPPLIER_NAME </td><td> VARCHAR(60)  </td><td> 企業名                      </td></tr>
+  <tr><td> COUNTRY_CODE  </td><td> CHAR(2)      </td><td> 国コード(ISO3166-1準拠) (FK) </td></tr>
+  <tr><td> REGION_CODE   </td><td> VARCHAR(10)  </td><td> 県・地域（ISO3166-2準拠)(FK) </td></tr>
+  <tr><td> CITY          </td><td> VARCHAR(30)  </td><td> 市町村                      </td></tr>
+  <tr><td> ADDRESS_LINE  </td><td> VARCHAR(100) </td><td> 町名・番地                  </td></tr>
+  <tr><td> DELETE_FLAG   </td><td> BOOLEAN      </td><td> 論理削除                    </td></tr>
 </tbody>
 </table>
 <br>
@@ -172,11 +172,11 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>SUPPLIER_CONTACT_ID</td><td>CHAR(4)</td><td>仕入れ先連絡先ID (PK)</td></tr>
-<tr><td>SUPPLIER_ID</td><td>CHAR(4)</td><td>仕入れ先ID (FK)</td></tr>
-<tr><td>CONTACT_TYPE_ID</td><td>CHAR(1)</td><td>種別 (FK)</td></tr>
-<tr><td>CONTACT_DETAIL</td><td>VARCHAR(60)</td><td>内容</td></tr>
-  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
+  <tr><td> SUPPLIER_CONTACT_ID </td><td> CHAR(4)     </td><td> 仕入れ先連絡先ID (PK) </td></tr>
+  <tr><td> SUPPLIER_ID         </td><td> CHAR(4)     </td><td> 仕入れ先ID (FK)       </td></tr>
+  <tr><td> CONTACT_TYPE_ID     </td><td> CHAR(1)     </td><td> 種別 (FK)            </td></tr>
+  <tr><td> CONTACT_DETAIL      </td><td> VARCHAR(60) </td><td> 内容                 </td></tr>
+  <tr><td> DELETE_FLAG         </td><td> BOOLEAN     </td><td> 論理削除              </td></tr>
 </tbody>
 </table>
 <br>
@@ -185,9 +185,9 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>CONTACT_TYPE_ID</td><td>CHAR(1)</td><td>ID (PK)</td></tr>
-<tr><td>CONTACT_TYPE</td><td>CHAR(8)</td><td>種別</td></tr>
-  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
+  <tr><td> CONTACT_TYPE_ID </td><td>CHAR(1)  </td><td> ID (PK)   </td></tr>
+  <tr><td> CONTACT_TYPE    </td><td>CHAR(8)  </td><td> 種別       </td></tr>
+  <tr><td> DELETE_FLAG     </td><td> BOOLEAN </td><td> 論理削除   </td></tr>
 </tbody>
 </table>
 <br>
@@ -196,9 +196,9 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>WAREHOUSE_TYPE_ID</td><td>CHAR(1)</td><td>ID (PK)</td></tr>
-<tr><td>WAREHOUSE_TYPE_NAME</td><td>CHAR(10)</td><td>倉庫タイプ</td></tr>
-  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
+  <tr><td> WAREHOUSE_TYPE_ID   </td><td>CHAR(1)  </td><td> ID (PK)   </td></tr>
+  <tr><td> WAREHOUSE_TYPE_NAME </td><td>CHAR(10) </td><td> 倉庫タイプ </td></tr>
+  <tr><td> DELETE_FLAG         </td><td> BOOLEAN </td><td> 論理削除   </td></tr>
 </tbody>
 </table>
 <br>
@@ -207,9 +207,9 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>PRODUCT_STATE_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
-<tr><td>PRODUCT_STATE_NAME</td><td>VARCHAR(20)</td><td>状態名</td></tr>
-  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
+  <tr><td> PRODUCT_STATE_ID   </td><td>CHAR(2)     </td><td>ID (PK)  </td></tr>
+  <tr><td> PRODUCT_STATE_NAME </td><td>VARCHAR(20) </td><td>状態名    </td></tr>
+  <tr><td> DELETE_FLAG        </td><td> BOOLEAN    </td><td> 論理削除 </td></tr>
 </tbody>
 </table>
 <br>
@@ -218,9 +218,9 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>TRANSACTION_STATE_ID</td><td>CHAR(1)</td><td>ID (PK)</td></tr>
-<tr><td>TRANSACTION_STATE</td><td>VARCHAR(20)</td><td>状態名</td></tr>
-  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
+  <tr><td> TRANSACTION_STATE_ID </td><td> CHAR(1)     </td><td> ID (PK)  </td></tr>
+  <tr><td> TRANSACTION_STATE    </td><td> VARCHAR(20) </td><td> 状態名   </td></tr>
+  <tr><td> DELETE_FLAG          </td><td> BOOLEAN     </td><td> 論理削除 </td></tr>
 </tbody>
 </table>
 <br>
@@ -229,9 +229,9 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>WEIGHT_UNIT_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
-<tr><td>WEIGHT_UNIT_NAME</td><td>VARCHAR(20)</td><td>単位名</td></tr>
-  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
+  <tr><td> WEIGHT_UNIT_ID   </td><td> CHAR(2)     </td><td> ID (PK) </td></tr>
+  <tr><td> WEIGHT_UNIT_NAME </td><td> VARCHAR(20) </td><td> 単位名   </td></tr>
+  <tr><td> DELETE_FLAG      </td><td> BOOLEAN     </td><td> 論理削除 </td></tr>
 </tbody>
 </table>
 <br>
@@ -240,10 +240,10 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>EMPLOYEE_ID</td><td>CHAR(12)</td><td>ID (PK)</td></tr>
-<tr><td>EMPLOYEE_NAME</td><td>VARCHAR(60)</td><td>氏名</td></tr>
-<tr><td>DEPARTMENT_ID</td><td>INT</td><td>所属部署ID(FK)</td></tr>
-  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
+  <tr><td> EMPLOYEE_ID   </td><td> CHAR(12)    </td><td> ID (PK)        </td></tr>
+  <tr><td> EMPLOYEE_NAME </td><td> VARCHAR(60) </td><td> 氏名           </td></tr>
+  <tr><td> DEPARTMENT_ID </td><td> INT         </td><td> 所属部署ID(FK) </td></tr>
+  <tr><td> DELETE_FLAG   </td><td> BOOLEAN     </td><td> 論理削除       </td></tr>
 </tbody>
 </table>
   
@@ -251,13 +251,13 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>MAKER_ID</td><td>CHAR(20)</td><td>ID (PK)</td></tr>
-<tr><td>MAKER_NAME</td><td>VARCHAR(60)</td><td>メーカー名</td></tr>
-<tr><td>COUNTRY_CODE</td><td>CHAR(2)</td><td>国コード(ISO3166-1準拠) (FK)</td></tr>
-<tr><td>REGION_CODE</td><td>VARCHAR(10)</td><td>県・地域（ISO3166-2準拠)(FK)</td></tr>
-<tr><td>CITY</td><td>VARCHAR(30)</td><td>市町村</td></tr>
-<tr><td>ADDRESS_LINE</td><td>VARCHAR(100)</td><td>町名・番地</td></tr>
-<tr><td>DELETE_FLAG</td><td>BOOLEAN</td><td>論理削除</td></tr>
+<tr><td> MAKER_ID     </td><td>CHAR(20)     </td><td> ID (PK)                    </td></tr>
+<tr><td> MAKER_NAME   </td><td>VARCHAR(60)  </td><td> メーカー名                  </td></tr>
+<tr><td> COUNTRY_CODE </td><td>CHAR(2)      </td><td> 国コード(ISO3166-1準拠)(FK) </td></tr>
+<tr><td> REGION_CODE  </td><td>VARCHAR(10)  </td><td> 県・地域(ISO3166-2準拠)(FK) </td></tr>
+<tr><td> CITY         </td><td>VARCHAR(30)  </td><td> 市町村                     </td></tr>
+<tr><td> ADDRESS_LINE </td><td>VARCHAR(100) </td><td> 町名・番地                 </td></tr>
+<tr><td> DELETE_FLAG  </td><td>BOOLEAN      </td><td> 論理削除                   </td></tr>
 </tbody>
 </table>
 <br>
