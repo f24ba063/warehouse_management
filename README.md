@@ -9,7 +9,7 @@
  <tr><td> JAN_CODE          </td><td> VARCHAR(13)   </td><td> JANコード                 </td></tr>
  <tr><td> PRICE             </td><td> DECIMAL(14,2) </td><td> 価格                      </td></tr>
  <tr><td> COST_PRICE        </td><td> DECIMAL(14,2) </td><td> 原価                      </td></tr>
- <tr><td> PRODUCT_STATE_ID  </td><td> CHAR(2)       </td><td> 商品状態(FK)              </td></tr>
+ <tr><td> PRODUCT_STATE_ID  </td><td> CHAR(2)       </td><td> 商品状態(FK)      SCALE        </td></tr>
  <tr><td> WIDTH             </td><td> decimal(10,2)  </td><td> 幅                      </td></tr>
  <tr><td> HEIGHT            </td><td> decimal(10,2)  </td><td> 高さ                    </td></tr>
  <tr><td> DEPTH             </td><td> decimal(10,2)  </td><td> 奥行き                  </td></tr>
