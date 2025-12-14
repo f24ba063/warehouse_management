@@ -310,7 +310,7 @@
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
   <tr><td> SCALE_ID   </td><td> CHAR(2)  </td><td> 寸法単位ID (PK) </td></tr>
-  <tr><td> SCALE_UNIT </td><td> CHAR(12) </td><td> 寸法単位        </td></tr>
+  <tr><td> SCALE_UNIT </td><td> VARCHAR(20) </td><td> 寸法単位        </td></tr>
 </tbody>
 </table>
 
