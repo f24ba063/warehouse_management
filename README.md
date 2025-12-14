@@ -27,17 +27,17 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>WAREHOUSE_ID</td><td>CHAR(5)</td><td>倉庫ID (PK)</td></tr>
-<tr><td>WAREHOUSE_NAME</td><td>VARCHAR(60)</td><td>倉庫名</td></tr>
-<tr><td>LATITUDE</td><td>DECIMAL(10,7)</td><td>緯度</td></tr>
-<tr><td>LONGITUDE</td><td>DECIMAL(10,7)</td><td>経度</td></tr>
-<tr><td>POSTAL_CODE</td><td>VARCHAR(12)</td><td>郵便番号</td></tr>
-<tr><td>COUNTRY_CODE</td><td>CHAR(2)</td><td>国コード(ISO3166-1準拠) (FK)</td></tr>
-<tr><td>REGION_CODE</td><td>VARCHAR(10)</td><td>県・地域（ISO3166-2準拠)(FK)</td></tr>
-<tr><td>CITY</td><td>VARCHAR(30)</td><td>市町村</td></tr>
-<tr><td>ADDRESS_LINE</td><td>VARCHAR(100)</td><td>町名・番地</td></tr>
-<tr><td>WAREHOUSE_TYPE_ID</td><td>CHAR(1)</td><td>倉庫タイプ (FK)</td></tr>
-<tr><td>DELETE_FLAG</td><td>BOOLEAN</td><td>論理削除</td></tr>
+<tr><td> WAREHOUSE_ID      </td><td> CHAR(5)       </td><td> 倉庫ID (PK)</td></tr>
+<tr><td> WAREHOUSE_NAME    </td><td> VARCHAR(60)   </td><td> 倉庫名</td></tr>
+<tr><td> LATITUDE          </td><td> DECIMAL(10,7) </td><td> 緯度</td></tr>
+<tr><td> LONGITUDE         </td><td> DECIMAL(10,7) </td><td> 経度</td></tr>
+<tr><td> POSTAL_CODE       </td><td> VARCHAR(12)   </td><td> 郵便番号</td></tr>
+<tr><td> COUNTRY_CODE      </td><td> CHAR(2)       </td><td> 国コード(ISO3166-1準拠) (FK)</td></tr>
+<tr><td> REGION_CODE       </td><td> VARCHAR(10)   </td><td> 県・地域（ISO3166-2準拠)(FK)</td></tr>
+<tr><td> CITY              </td><td> VARCHAR(30)   </td><td> 市町村</td></tr>
+<tr><td> ADDRESS_LINE      </td><td> VARCHAR(100)  </td><td> 町名・番地</td></tr>
+<tr><td> WAREHOUSE_TYPE_ID </td><td> CHAR(1)       </td><td> 倉庫タイプ (FK)</td></tr>
+<tr><td> DELETE_FLAG       </td><td> BOOLEAN       </td><td> 論理削除</td></tr>
 </tbody>
 </table>
 <br>
@@ -46,13 +46,13 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>PRODUCT_ID</td><td>BIGINT</td><td>商品コード (PK)(FK)</td></tr>
-<tr><td>STOCK</td><td>INT</td><td>在庫数</td></tr>
-<tr><td>LOCATION_ID</td><td>CHAR(20)</td><td>商品所在地を一意に識別するコード(FK)(PK)</td></tr>
-<tr><td>SAFE_STOCK</td><td>INT</td><td>安全在庫数</td></tr>
-<tr><td>LOT_NO</td><td>CHAR(20)</td><td>ロット番号(PK)</td></tr>
-<tr><td>EXPIRATION_DATE</td><td>DATETIME</td><td>使用期限・賞味期限</td></tr>
- 複合pk-商品コード+ロケーションコード+ロット番号
+<tr><td> PRODUCT_ID      </td><td> BIGINT   </td><td> 商品コード (PK)(FK)         </td></tr>
+<tr><td> STOCK           </td><td> INT      </td><td> 在庫数                      </td></tr>
+<tr><td> LOCATION_ID     </td><td> CHAR(20) </td><td> 商品所在地識別コード(FK)(PK) </td></tr>
+<tr><td> SAFE_STOCK      </td><td> INT      </td><td> 安全在庫数                  </td></tr>
+<tr><td> LOT_NO          </td><td> CHAR(20) </td><td> ロット番号(PK)              </td></tr>
+<tr><td> EXPIRATION_DATE </td><td> DATETIME </td><td> 使用期限・賞味期限           </td></tr>
+<tr><td> 複合pk</td><td>商品コード+ロケーションコード+ロット番号                     </td></tr>
 </tbody>
   <br>
 </table>
