@@ -47,35 +47,38 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-  <tr><td> PRODUCT_ID      </td><td> BIGINT   </td><td> 商品コード(Pk)(FK)   </td></tr>
+  <tr><td> INVENTORY_ID    </td><td> BIGINT   </td><td> 在庫管理ID(Pk)   </td></tr>
+  <tr><td> PRODUCT_ID      </td><td> BIGINT   </td><td> 商品コード(FK)   </td></tr>
   <tr><td> CREATED_AT      </td><td> DATETIME </td><td> 追加日時             </td></tr>
   <tr><td> UPDATED_AT      </td><td> DATETIME </td><td> 最終更新日時         </td></tr>
-  <tr><td> STOCK           </td><td> INT      </td><td> 在庫数               </td></tr>
-  <tr><td> WAREHOUSE_ID    </td><td> CHAR(5)  </td><td> (PK)(FK)            </td></tr>
-  <tr><td> ZONE_ID         </td><td> CHAR(3)  </td><td> (PK)(FK)            </td></tr>
-  <tr><td> RACK_ID         </td><td> CHAR(3)  </td><td> (PK)(FK)            </td></tr>
-  <tr><td> SHELF_ID        </td><td> CHAR(5)  </td><td> (PK)(FK)            </td></tr>
-  <tr><td> SAFE_STOCK      </td><td> INT      </td><td> 安全在庫数           </td></tr>
+  <tr><td> WAREHOUSE_ID    </td><td> CHAR(5)  </td><td> (FK)            </td></tr>
+  <tr><td> ZONE_ID         </td><td> CHAR(3)  </td><td> (FK)            </td></tr>
+  <tr><td> RACK_ID         </td><td> CHAR(3)  </td><td> (FK)            </td></tr>
+  <tr><td> SHELF_ID        </td><td> CHAR(5)  </td><td> (FK)            </td></tr>
   <tr><td> LOT_NO          </td><td> CHAR(20) </td><td> ロット番号           </td></tr>
   <tr><td> EXPIRATION_DATE </td><td> DATETIME </td><td> 使用期限・賞味期限   </td></tr>
-  <tr><td> 複合PK</td><td colspan="2">PK: (PRODUCT_ID, LOCATION_ID, LOT_NO) </td></tr>
+  <tr><td> 複合UK</td><td colspan="2">UK: (PRODUCT_ID, WAREHOUSE_ID, ZONE_ID, RACK_ID, SHELF_ID, LOT_NO) </td></tr>
 </tbody>
   <br>
 </table>
 
-<!-- <p>4．LOCATION_MASTER(商品所在地マスター)</p>
+<p>4．INVENTORY_SUMMARY(商品集計テーブル)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-  <tr><td>　LOCATION_ID　</td><td> CHAR(16) </td><td> 区画を一意に識別するID(PK)      　</td></tr>
-  <tr><td>　WAREHOUSE_ID </td><td> CHAR(5)　</td><td> 所属する倉庫(FK)                　</td></tr>
-  <tr><td>　ZONE_ID　    </td><td> CHAR(3)　</td><td> 冷蔵、大型機械などのゾーンのID(FK)　</td></tr>
-  <tr><td>　RACK_ID      </td><td> CHAR(3)　</td><td> どの棚(ラック)か(FK)　            </td></tr>
-  <tr><td>　SHELF_ID     </td><td> CHAR(5)　</td><td> どの段(シェルフ)にするか(FK)     　</td></tr>
-  <tr><td> DELETE_FLAG   </td><td> BOOLEAN  </td><td> 論理削除                         </td></tr>
+  <tr><td> SUMMARY_ID      　</td><td> BIGINT   </td><td> 集計管理ID(PK)      　</td></tr>
+  <tr><td> PRODUCT_ID        </td><td> BIGINT 　</td><td> 所属する倉庫(FK)                　</td></tr>
+  <tr><td> WAREHOUSE_ID      </td><td> CHAR(5)  </td><td> (FK)            </td></tr>
+  <tr><td> ZONE_ID　         </td><td> CHAR(3)　</td><td> 冷蔵、大型機械などのゾーンのID(FK)　</td></tr>
+  <tr><td> RACK_ID           </td><td> CHAR(3)　</td><td> どの棚(ラック)か(FK)　            </td></tr>
+  <tr><td> SHELF_ID          </td><td> CHAR(5)　</td><td> どの段(シェルフ)にするか(FK)     　</td></tr>
+  <tr><td> LOT_NO            </td><td> CHAR(20) </td><td> ロット番号                        </td></tr>
+  <tr><td> STOCK             </td><td> INT      </td><td> 在庫総数                          </td></tr>
+  <tr><td> LAST_STOCK_CHANGE </td><td> DATETIME </td><td> 最後に在庫が変動した日             </td></tr>
+  <tr><td> 複合UK</td><td colspan="2">UK: (PRODUCT_ID, WAREHOUSE_ID, ZONE_ID, RACK_ID, SHELF_ID, LOT_NO) </td></tr>
 </tbody>
 </table>
-<br> -->
+<br>
 
 <p>5．ZONE_MASTER(区画マスター)</p>
 <table>
@@ -430,6 +433,31 @@
 <br />
 
 
+<p>32.SAFETY_STOCK_CONTROL（安全在庫管理）</p>
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+  <tr><td> WAREHOUSE_ID       </td><td> CHAR(5)  </td><td> (PK)(FK) </td></tr>
+  <tr><td> PRODUCT_ID         </td><td> BIGINT   </td><td> (PK)(FK) </td></tr>
+  <tr><td> SAFE_STOCK         </td><td> INT      </td><td> 倉庫ごとに管理される最低在庫数 </td></tr>
+  <tr><td> MIN_ORDER_QUANTITY </td><td> INT      </td><td> 最小発注数 </td></tr>
+  <tr><td> UPDATED_AT         </td><td> DATETIME </td><td>        </td></tr>
+  <tr><td> CREATED_AT         </td><td> DATETIME </td><td>        </td></tr>
+  <tr><td> 複合PK<td><td colspan="2">PK: (WAREHOUSE_ID, PRODUCT_ID)
+  <tr><td> 複合FK<td><td colspan="2">FK: (WAREHOUSE_ID, PRODUCT_ID) → (WAREHOUSE_MASTER(WAREHOUSE_ID), PRODUCT_MASTER(PRODUCT_ID))
+</tbody>
+</table>
+<br />
+
+<p>33.CURRENCY_MASTER（）</p>
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+ <tr><td> CURRENCY_CODE   </td><td> CHAR(3)     </td><td> (PK)   </td></tr>
+ <tr><td> CURRENCY_NAME   </td><td> VARCHAR(50) </td><td>        </td></tr>
+ <tr><td> SYMBOL          </td><td> VARCHAR(10) </td><td>        </td></tr>
+</tbody>
+</table>
 
 <tr><td>    </td><td></td><td>    </td></tr>
 
