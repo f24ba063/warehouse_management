@@ -123,7 +123,7 @@
 </table>
 <br>
 
-<p>8.PURCHASE_ORDER(発注管理)</p>
+<p>9.PURCHASE_ORDER(発注管理)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -140,7 +140,7 @@
 </table>
 <br>
 
-<p>9.CATEGORY(商品カテゴリ)</p>
+<p>10.CATEGORY(商品カテゴリ)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -151,7 +151,7 @@
 </table>
 <br>
 
-<p>10.SUPPLIER(仕入れ先)</p>
+<p>11.SUPPLIER(仕入れ先)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -166,7 +166,7 @@
 </table>
 <br>
 
-<p>11.CONTACT (連絡先マスター)</p>
+<p>12.CONTACT (連絡先マスター)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -179,7 +179,7 @@
 </table>
 <br>
 
-<p>12：CONTACT_TYPE(連絡先種別)</p>
+<p>13：CONTACT_TYPE(連絡先種別)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -190,7 +190,7 @@
 </table>
 <br>
 
-<p>13.WAREHOUSE_TYPE(倉庫タイプ)</p>
+<p>14.WAREHOUSE_TYPE(倉庫タイプ)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -201,7 +201,7 @@
 </table>
 <br>
 
-<p>14.PRODUCT_STATE(商品情報ステータス)</p>
+<p>15.PRODUCT_STATE(商品情報ステータス)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -212,7 +212,7 @@
 </table>
 <br>
 
-<p>15.TRANSACTION_STATE(トランザクションステータス)</p>
+<p>16.TRANSACTION_STATE(トランザクションステータス)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -223,7 +223,7 @@
 </table>
 <br>
 
-<p>16.WEIGHT_UNIT(重量単位)</p>
+<p>17.WEIGHT_UNIT(重量単位)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -234,7 +234,7 @@
 </table>
 <br>
 
-<p>17.EMPLOYEE(社員)</p>
+<p>18.EMPLOYEE(社員)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -245,7 +245,7 @@
 </tbody>
 </table>
   
-18.MAKER（メーカー)
+19.MAKER（メーカー)
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -261,7 +261,7 @@
 <br>
 </table>
 
-19.COUNTRY_CODE(国コードマスター)<br>
+20.COUNTRY_CODE(国コードマスター)<br>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -273,7 +273,7 @@
 </table>
 <br>
 
-20.TRANSACTION_REASON(入出庫素性マスター)
+21.TRANSACTION_REASON(入出庫素性マスター)
 <table>
   <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -283,7 +283,7 @@
 </tbody>
 </table>
 
-21.REGION_MASTER(地域マスター)
+22.REGION_MASTER(地域マスター)
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -293,7 +293,7 @@
 </tbody>
 </table>
 
-22.SCALE_MASTER(寸法単位マスター)
+23.SCALE_MASTER(寸法単位マスター)
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -302,7 +302,7 @@
 </tbody>
 </table>
 
-23.ORDER_STATE_MASTER(発注ステータスマスター)
+24.ORDER_STATE_MASTER(発注ステータスマスター)
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -313,7 +313,7 @@
 </table>
 <br>
 
-<p>24.DEPARTMENT_MASTER(所属部署マスター)</p>
+<p>25.DEPARTMENT_MASTER(所属部署マスター)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -324,7 +324,7 @@
 </table>
 <br />
 
-<p>25.SLIP(入出庫伝票テーブル)</p>
+<p>26.SLIP(入出庫伝票テーブル)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -340,7 +340,7 @@
 </table>
 <br />
 
-<p>26.SLIP_DETAIL(伝票商品詳細)</p>
+<p>27.SLIP_DETAIL(伝票商品詳細)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -353,7 +353,7 @@
 </tbody>
 </table>
 
-<p>27.ALLOCATION（引き当てテーブル）</p>
+<p>28.ALLOCATION（引き当てテーブル）</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -369,7 +369,7 @@
 </table>
 <br />
 
-<p>28.PRIORITY（優先度マスター）</p>
+<p>29.PRIORITY（優先度マスター）</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -381,7 +381,7 @@
 <br />
 <tr><td>    </td><td></td><td>    </td></tr>
 
-<p>29.ALLOCATION_STATE（引き当てステータスマスター）</p>
+<p>30.ALLOCATION_STATE（引き当てステータスマスター）</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
