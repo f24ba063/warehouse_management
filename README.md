@@ -256,8 +256,8 @@
 </tbody>
 </table>
 <br>
-
 </table>
+
 19.COUNTRY_CODE(国コードマスター)<br>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
@@ -284,7 +284,7 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>REGION_CODE</td><td>VARCHAR(7)</td><td>リージョン番号 (PK)</td></tr>
+<tr><td>REGION_CODE</td><td>VARCHAR(10)</td><td>リージョン番号 (PK)</td></tr>
 <tr><td>COUNTRY_CODE</td><td>CHAR(2)</td><td>所属国コード(PK)(FK)</td></tr>
 <tr><td>REGION_NAME_LOCAL</td><td>VARCHAR(100)</td><td>現地語地域名</td></tr> 
 </tbody>
