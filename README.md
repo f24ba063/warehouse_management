@@ -4,7 +4,7 @@
 <tbody>
  <tr><td> PRODUCT_ID        </td><td> BIGINT        </td><td> 商品コード (PK)(自動採番)  </td></tr>
  <tr><td> PRODUCT_NAME      </td><td> VARCHAR(30)   </td><td> 商品名                    </td></tr>
- <tr><td> MAKER_ID          </td><td> CHAR(20)      </td><td> メーカーID (FK)           </td></tr>
+ <tr><td> MAKER_ID          </td><td> CHAR(6)      </td><td> メーカーID (FK)           </td></tr>
  <tr><td> CATEGORY_ID       </td><td> CHAR(6)       </td><td> カテゴリID (FK)           </td></tr>
  <tr><td> JAN_CODE          </td><td> VARCHAR(13)   </td><td> JANコード                 </td></tr>
  <tr><td> PRICE             </td><td> DECIMAL(14,2) </td><td> 価格                      </td></tr>
@@ -61,7 +61,7 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-  <tr><td>　LOCATION_ID　</td><td> CHAR(20) </td><td> 区画を一意に識別するID(PK)      　</td></tr>
+  <tr><td>　LOCATION_ID　</td><td> CHAR(16) </td><td> 区画を一意に識別するID(PK)      　</td></tr>
   <tr><td>　WAREHOUSE_ID </td><td> CHAR(5)　</td><td> 所属する倉庫(FK)                　</td></tr>
   <tr><td>　ZONE_ID　    </td><td> CHAR(3)　</td><td> 冷蔵、大型機械などのゾーンのID(FK)　</td></tr>
   <tr><td>　RACK_ID      </td><td> CHAR(3)　</td><td> どの棚(ラック)か(FK)　            </td></tr>
@@ -141,7 +141,7 @@
 </table>
 <br>
 
-<p>10.CATEGORY(商品カテゴリ)</p>
+<p>10.CATEGORY_MASTER(商品カテゴリ)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -167,7 +167,7 @@
 </table>
 <br>
 
-<p>12.CONTACT (連絡先マスター)</p>
+<p>12.CONTACT_MASTER (連絡先マスター)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -180,7 +180,7 @@
 </table>
 <br>
 
-<p>13：CONTACT_TYPE(連絡先種別)</p>
+<p>13：CONTACT_TYPE_MASTER(連絡先種別)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -191,7 +191,7 @@
 </table>
 <br>
 
-<p>14.WAREHOUSE_TYPE(倉庫タイプ)</p>
+<p>14.WAREHOUSE_TYPE_MASTER(倉庫タイプ)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -202,7 +202,7 @@
 </table>
 <br>
 
-<p>15.PRODUCT_STATE(商品情報ステータス)</p>
+<p>15.PRODUCT_STATE_MASTER(商品情報ステータス)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -213,7 +213,7 @@
 </table>
 <br>
 
-<p>16.TRANSACTION_STATE(トランザクションステータス)</p>
+<p>16.TRANSACTION_STATE_MASTER(トランザクションステータス)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -224,7 +224,7 @@
 </table>
 <br>
 
-<p>17.WEIGHT_UNIT(重量単位)</p>
+<p>17.WEIGHT_UNIT_MASTER(重量単位)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -235,7 +235,7 @@
 </table>
 <br>
 
-<p>18.EMPLOYEE(社員)</p>
+<p>18.EMPLOYEE_MASTER(社員)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -247,11 +247,11 @@
 </tbody>
 </table>
   
-19.MAKER（メーカー)
+19.MAKER_MASTER（メーカー)
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td> MAKER_ID     </td><td>CHAR(20)     </td><td> ID (PK)                    </td></tr>
+<tr><td> MAKER_ID     </td><td>CHAR(6)     </td><td> ID (PK)                    </td></tr>
 <tr><td> MAKER_NAME   </td><td>VARCHAR(60)  </td><td> メーカー名                  </td></tr>
 <tr><td> COUNTRY_CODE </td><td>CHAR(2)      </td><td> 国コード(ISO3166-1準拠)(FK) </td></tr>
 <tr><td> REGION_CODE  </td><td>VARCHAR(10)  </td><td> 県・地域(ISO3166-2準拠)(FK) </td></tr>
@@ -263,7 +263,7 @@
 <br>
 </table>
 
-20.COUNTRY_CODE(国コードマスター)<br>
+20.COUNTRY_CODE_MASTER(国コードマスター)<br>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -375,7 +375,7 @@
 </table>
 <br />
 
-<p>29.PRIORITY（優先度マスター）</p>
+<p>29.PRIORITY_MASTER（優先度マスター）</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -387,7 +387,7 @@
 <br />
 <tr><td>    </td><td></td><td>    </td></tr>
 
-<p>30.ALLOCATION_STATE（引き当てステータスマスター）</p>
+<p>30.ALLOCATION_STATE_MASTER（引き当てステータスマスター）</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
