@@ -46,13 +46,15 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td> PRODUCT_ID      </td><td> BIGINT   </td><td> 商品コード    (FK)          </td></tr>
-<tr><td> STOCK           </td><td> INT      </td><td> 在庫数                      </td></tr>
-<tr><td> LOCATION_ID     </td><td> CHAR(16) </td><td> 商品所在地識別コード    (FK) </td></tr>
-<tr><td> SAFE_STOCK      </td><td> INT      </td><td> 安全在庫数                  </td></tr>
-<tr><td> LOT_NO          </td><td> CHAR(20) </td><td> ロット番号                  </td></tr>
-<tr><td> EXPIRATION_DATE </td><td> DATETIME </td><td> 使用期限・賞味期限           </td></tr>
-<tr><td> 複合pk</td><td colspan="2">PK: (PRODUCT_ID, LOCATION_ID, LOT_NO)         </td></tr>
+  <tr><td> PRODUCT_ID      </td><td> BIGINT   </td><td> 商品コード    (FK)          </td></tr>
+  <tr><td> CREATED_AT      </td><td> DATETIME </td><td> 追加日時                    </td></tr>
+  <tr><td> UPDATED_AT      </td><td> DSTETIME </td><td> 最終更新日時                </td></tr>
+  <tr><td> STOCK           </td><td> INT      </td><td> 在庫数                      </td></tr>
+  <tr><td> LOCATION_ID     </td><td> CHAR(16) </td><td> 商品所在地識別コード    (FK) </td></tr>
+  <tr><td> SAFE_STOCK      </td><td> INT      </td><td> 安全在庫数                  </td></tr>
+  <tr><td> LOT_NO          </td><td> CHAR(20) </td><td> ロット番号                  </td></tr>
+  <tr><td> EXPIRATION_DATE </td><td> DATETIME </td><td> 使用期限・賞味期限           </td></tr>
+  <tr><td> 複合pk</td><td colspan="2">PK: (PRODUCT_ID, LOCATION_ID, LOT_NO)         </td></tr>
 </tbody>
   <br>
 </table>
