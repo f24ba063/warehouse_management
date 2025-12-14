@@ -110,7 +110,7 @@
 <tbody>
  <tr><td> TRANSACTION_ID        </td><td> INT       </td><td> 入出庫ID (PK)(自動採番) </td></tr>
  <tr><td> SLIP_ID               </td><td> CHAR(12)  </td><td> 伝票コード (FK)        </td></tr>
- <tr><td> SLIP_LINE_ID          </td><td> INT       </td><td> 伝票上の行番号          </td></tr>
+ <tr><td> SLIP_LINE_ID          </td><td> INT       </td><td> 伝票上の行番号(FK)      </td></tr>
  <tr><td> PRODUCT_ID            </td><td> BIGINT    </td><td> 商品コード (FK)        </td></tr>
  <tr><td> QUANTITY              </td><td> INT       </td><td> 数量                  </td></tr>
  <tr><td> LOT_NO                </td><td> CHAR(20)  </td><td> ロット番号(FK)        </td></tr>
