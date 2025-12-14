@@ -115,7 +115,7 @@
 <tr><td>WAREHOUSE_ID</td><td>CHAR(5)</td><td>倉庫ID (FK)</td></tr>
 <tr><td>TRANSACTION_DATE</td><td>DATETIME</td><td>移動日時</td></tr>
 <tr><td>TRANSACTION_REASON_ID</td><td>CHAR(2)</td><td>入出庫理由 (FK)</td></tr>
-<tr><td>TRANSACTION_STATE_ID</td><td>CHAR(2)</td><td>状態 (FK)</td></tr>
+<tr><td>TRANSACTION_STATE_ID</td><td>CHAR(1)</td><td>状態 (FK)</td></tr>
 </tbody>
 </table>
 <br>
@@ -327,8 +327,8 @@
 <tbody>
 <tr><td> SLIP_ID </td><td> CHAR(12) </td><td> 伝票番号(PK) </td></tr>
 <tr><td> TYPE </td><td> CHAR(1) </td><td> 'I'＝入庫　'O'=出庫 </td></tr>
-<tr><td> EMPLOYEE_ID </td><td> CHAR(10) </td><td> 担当者ID(FK) </td></tr>
-<tr><td> WAREHOUSE_ID </td><td> CHAR(6) </td><td> 倉庫ID(FK) </td></tr>
+<tr><td> EMPLOYEE_ID </td><td> CHAR(12) </td><td> 担当者ID(FK) </td></tr>
+<tr><td> WAREHOUSE_ID </td><td> CHAR(5) </td><td> 倉庫ID(FK) </td></tr>
 <tr><td> DESTINATION_ID </td><td> CHAR(6) </td><td> 出庫先(入庫はNULL)(FK) </td></tr>
 <tr><td> STATUS </td><td> CHAR(1) </td><td>  'D'=下書き 'C'=確定(FK)  </td></tr>
 <tr><td> CREATED_AT </td><td> DATETIME </td><td> 作成日時 </td></tr>
@@ -343,7 +343,7 @@
 <tbody>
 <tr><td> SLIP_ID </td><td> CHAR(12) </td><td> ID(PK)(FK) </td></tr>
 <tr><td> LINE_NO </td><td> INT </td><td> 行番号(PK) </td></tr>
-<tr><td> PRODUCT_CODE </td><td> CHAR(12) </td><td> 商品コード(FK) </td></tr>
+<tr><td> PRODUCT_ID </td><td> BIGINT </td><td> 商品コード(FK) </td></tr>
 <tr><td> QUANTITY </td><td> INT </td><td> 数量 </td></tr>
 <tr><td> SHELF </td><td> VARCHAR </td><td> 棚番号 </td></tr>
 <tr><td> REMARK </td><td> VARCHAR(50) </td><td> 備考 </td></tr>
