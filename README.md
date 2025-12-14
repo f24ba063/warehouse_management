@@ -10,9 +10,9 @@
  <tr><td> PRICE             </td><td> DECIMAL(14,2) </td><td> 価格                      </td></tr>
  <tr><td> COST_PRICE        </td><td> DECIMAL(14,2) </td><td> 原価                      </td></tr>
  <tr><td> PRODUCT_STATE_ID  </td><td> CHAR(2)       </td><td> 商品状態(FK)              </td></tr>
- <tr><td> WIDTH             </td><td> number(10,2)  </td><td> 幅                       </td></tr>
- <tr><td> HEIGHT            </td><td> number(10,2)  </td><td> 高さ                     </td></tr>
- <tr><td> DEPTH             </td><td> number(10,2)  </td><td> 奥行き                   </td></tr>
+ <tr><td> WIDTH             </td><td> decimal(10,2)  </td><td> 幅                      </td></tr>
+ <tr><td> HEIGHT            </td><td> decimal(10,2)  </td><td> 高さ                    </td></tr>
+ <tr><td> DEPTH             </td><td> decimal(10,2)  </td><td> 奥行き                  </td></tr>
  <tr><td> SCALE_ID          </td><td> CHAR(2)       </td><td> 寸法単位(FK)             </td></tr>
  <tr><td> CREATED_AT        </td><td> DATETIME      </td><td> 登録日時                 </td></tr>
  <tr><td> UPDATED_AT        </td><td> DATETIME      </td><td> 更新日時                 </td></tr>
