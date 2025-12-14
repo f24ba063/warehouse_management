@@ -70,7 +70,7 @@
 </table>
 <br>
 
-<p>5．T_ZONE(区画マスター)</p>
+<p>5．ZONE_MASTER(区画マスター)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -81,7 +81,7 @@
 </table>
 <br>
 
-<p>6．T_RACK(ラック番号マスター)</p>
+<p>6．RACK_MASTER(ラック番号マスター)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -346,7 +346,7 @@
 <tr><td> LINE_NO </td><td> INT </td><td> 行番号(PK) </td></tr>
 <tr><td> PRODUCT_ID </td><td> BIGINT </td><td> 商品コード(FK) </td></tr>
 <tr><td> QUANTITY </td><td> INT </td><td> 数量 </td></tr>
-<tr><td> SHELF </td><td> VARCHAR </td><td> 棚番号 </td></tr>
+<tr><td> LOCATION_ID </td><td> CHAR(20) </td><td> 所在ID(FK) </td></tr>
 <tr><td> REMARK </td><td> VARCHAR(50) </td><td> 備考 </td></tr>
 </tbody>
 </table>
