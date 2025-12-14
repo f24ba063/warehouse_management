@@ -115,7 +115,8 @@
  <tr><td> PRODUCT_ID            </td><td> BIGINT    </td><td> 商品コード (FK)        </td></tr>
  <tr><td> QUANTITY              </td><td> INT       </td><td> 数量                  </td></tr>
  <tr><td> LOT_NO                </td><td> CHAR(20)  </td><td> ロット番号(FK)        </td></tr>
- <tr><td> LOCATION_ID           </td><td> CHAR(20)  </td><td> 所在地 (FK)           </td></tr>
+ <tr><td> LOCATION_FROM         </td><td> CHAR(20)  </td><td> 所在地 (FK)           </td></tr>
+ <tr><td> LOCATION_TO           </td><td> CHAR(20)  </td><td> 所在地 (FK)(null許容）</td></tr>
  <tr><td> TRANSACTION_DATE      </td><td> DATETIME  </td><td> 移動日時              </td></tr>
  <tr><td> TRANSACTION_REASON_ID </td><td> CHAR(2)   </td><td> 入出庫理由 (FK)       </td></tr>
  <tr><td> TRANSACTION_STATE_ID  </td><td> CHAR(1)   </td><td> 状態 (FK)             </td></tr>
