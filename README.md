@@ -364,7 +364,7 @@
 <tr><td> PRODUCT_ID       </td><td> BIGINT    </td><td> (FK)                    </td></tr>
 <tr><td> LOCATION_ID      </td><td> CHAR(20)  </td><td> (FK)                    </td></tr>
 <tr><td> LOT_NO           </td><td> CHAR(20)  </td><td> (FK)                    </td></tr>
-<tr><td> COUNT            </td><td> INT       </td><td>                         </td></tr>
+<tr><td> QUANTITY         </td><td> INT       </td><td>                         </td></tr>
 <tr><td> PRIORITY         </td><td> CHAR(1)   </td><td> (FK)                    </td></tr>
 <tr><td> ALLOCATION_STATE </td><td> CHAR(1)   </td><td> (FK)                    </td></tr>
 </tbody>
