@@ -1,471 +1,244 @@
-<p>1．PRODUCT_MASTER(商品情報マスター)</p>
+
+No.	テーブル名	カラム名	型	制約	説明
+<table>1 PRODUCT_MASTER
+<thead>
+ <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
+</thead>
+ <tbody>
+  <tr><td> PRODUCT_ID </td><td> BIGINT </td><td> PK	 </td><td> 商品コード </td></tr>
+  <tr><td> PRODUCT_NAME </td><td> VARCHAR(255) </td><td> NOT NULL	 </td><td> 商品名 </td></tr>
+  <tr><td> UNIT_OF_MEASURE </td><td> VARCHAR(10) </td><td> NOT NULL	 </td><td> 計測単位 (例: PCS, 箱, ケース) [拡張性向上] </td></tr>
+  <tr><td> SAFETY_STOCK </td><td> INT </td><td> NOT NULL </td><td> 安全在庫数 </td></tr>
+  <tr><td> MIN_ORDER_QTY </td><td> INT </td><td> NOT NULL </td><td> 最低発注数量 </td></tr>
+  <tr><td> IS_LOT_MANAGED </td><td> BOOLEAN </td><td> NOT NULL </td><td> ロット管理対象フラグ </td></tr>
+  <tr><td> IS_ACTIVE </td><td> BOOLEAN </td><td> NOT NULL </td><td> 有効フラグ </td></tr>
+ </tbody>
+</table>
+
 <table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
- <tr><td> PRODUCT_ID        </td><td> BIGINT        </td><td> 商品コード (PK)(自動採番)  </td></tr>
- <tr><td> PRODUCT_NAME      </td><td> VARCHAR(30)   </td><td> 商品名                    </td></tr>
- <tr><td> MAKER_ID          </td><td> CHAR(6)      </td><td> メーカーID (FK)           </td></tr>
- <tr><td> CATEGORY_ID       </td><td> CHAR(6)       </td><td> カテゴリID (FK)           </td></tr>
- <tr><td> JAN_CODE          </td><td> VARCHAR(13)   </td><td> JANコード                 </td></tr>
- <tr><td> PRICE             </td><td> DECIMAL(14,2) </td><td> 価格                      </td></tr>
- <tr><td> COST_PRICE        </td><td> DECIMAL(14,2) </td><td> 原価                      </td></tr>
- <tr><td> PRODUCT_STATE_ID  </td><td> CHAR(2)       </td><td> 商品状態(FK)             </td></tr>
- <tr><td> WIDTH             </td><td> decimal(10,2)  </td><td> 幅                      </td></tr>
- <tr><td> HEIGHT            </td><td> decimal(10,2)  </td><td> 高さ                    </td></tr>
- <tr><td> DEPTH             </td><td> decimal(10,2)  </td><td> 奥行き                  </td></tr>
- <tr><td> SCALE_ID          </td><td> CHAR(2)       </td><td> 寸法単位(FK)             </td></tr>
- <tr><td> CREATED_AT        </td><td> DATETIME      </td><td> 登録日時                 </td></tr>
- <tr><td> UPDATED_AT        </td><td> DATETIME      </td><td> 更新日時                 </td></tr>
- <tr><td> WEIGHT_VALUE      </td><td> DECIMAL(6,1)  </td><td> 重量値                   </td></tr>
- <tr><td> WEIGHT_UNIT_ID    </td><td> CHAR(2)       </td><td> 重量単位 (FK)            </td></tr>
- <tr><td> DELETE_FLAG       </td><td> BOOLEAN       </td><td> 論理削除                 </td></tr>
-</tbody>
+<thead>2	WAREHOUSE_MASTER
+ <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
+</thead>
+ <tbody>
+  <tr><td> WAREHOUSE_ID </td><td> CHAR(5) </td><td> PK </td><td> 倉庫ID </td></tr>
+  <tr><td> WAREHOUSE_NAME </td><td> VARCHAR(50) </td><td> NOT NULL </td><td> 倉庫名 </td></tr>
+ </tbody>
 </table>
-<br>
 
-<p>2．WAREHOUSE_MASTER(倉庫情報マスター)</p>
 <table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> WAREHOUSE_ID      </td><td> CHAR(5)       </td><td> 倉庫ID (PK)</td></tr>
-  <tr><td> WAREHOUSE_NAME    </td><td> VARCHAR(60)   </td><td> 倉庫名</td></tr>
-  <tr><td> LATITUDE          </td><td> DECIMAL(10,7) </td><td> 緯度</td></tr>
-  <tr><td> LONGITUDE         </td><td> DECIMAL(10,7) </td><td> 経度</td></tr>
-  <tr><td> POSTAL_CODE       </td><td> VARCHAR(12)   </td><td> 郵便番号</td></tr>
-  <tr><td> COUNTRY_CODE      </td><td> CHAR(2)       </td><td> 国コード(ISO3166-1準拠) (FK)</td></tr>
-  <tr><td> REGION_CODE       </td><td> VARCHAR(10)   </td><td> 県・地域（ISO3166-2準拠)(FK)</td></tr>
-  <tr><td> CITY              </td><td> VARCHAR(30)   </td><td> 市町村</td></tr>
-  <tr><td> ADDRESS_LINE      </td><td> VARCHAR(100)  </td><td> 町名・番地</td></tr>
-  <tr><td> WAREHOUSE_TYPE_ID </td><td> CHAR(1)       </td><td> 倉庫タイプ (FK)</td></tr>
-  <tr><td> DELETE_FLAG       </td><td> BOOLEAN       </td><td> 論理削除</td></tr>
-  <tr><td> 複合FK</td><td colspan="2">FK: (COUNTRY_CODE, REGION_CODE)         </td></tr>
-</tbody>
+<thead>5	LOCATION_MASTER
+ <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
+</thead>
+ <tbody>
+  <tr><td> WAREHOUSE_ID </td><td> CHAR(5) </td><td> PK, FK </td><td> 倉庫ID </td></tr>
+  <tr><td> ZONE_ID </td><td> CHAR(3) </td><td> PK, FK </td><td> ゾーンID </td></tr>
+  <tr><td> RACK_ID </td><td> CHAR(3) </td><td> PK, FK </td><td> ラックID </td></tr>
+  <tr><td> SHELF_ID </td><td> CHAR(5) </td><td> PK, FK </td><td> シェルフID </td></tr>
+  <tr><td> LOCATION_CODE </td><td> CHAR(16) </td><td> UNIQUE </td><td> 参照用コード (在庫実体参照キー) </td></tr>
+  <tr><td> MAX_CAPACITY </td><td> INT </td><td>  </td><td> 最大収容数量 </td></tr>
+ </tbody>
 </table>
-<br>
 
-<p>3．INVENTORY(商品在庫管理)</p>
+			
+					
+					
+					
+					
+					
+
 <table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> INVENTORY_ID    </td><td> BIGINT   </td><td> 在庫管理ID(Pk)   </td></tr>
-  <tr><td> PRODUCT_ID      </td><td> BIGINT   </td><td> 商品コード(FK)   </td></tr>
-  <tr><td> CREATED_AT      </td><td> DATETIME </td><td> 追加日時             </td></tr>
-  <tr><td> UPDATED_AT      </td><td> DATETIME </td><td> 最終更新日時         </td></tr>
-  <tr><td> WAREHOUSE_ID    </td><td> CHAR(5)  </td><td> (FK)            </td></tr>
-  <tr><td> ZONE_ID         </td><td> CHAR(3)  </td><td> (FK)            </td></tr>
-  <tr><td> RACK_ID         </td><td> CHAR(3)  </td><td> (FK)            </td></tr>
-  <tr><td> SHELF_ID        </td><td> CHAR(5)  </td><td> (FK)            </td></tr>
-  <tr><td> LOT_NO          </td><td> CHAR(20) </td><td> ロット番号           </td></tr>
-  <tr><td> EXPIRATION_DATE </td><td> DATETIME </td><td> 使用期限・賞味期限   </td></tr>
-  <tr><td> 複合UK</td><td colspan="2">UK: (PRODUCT_ID, WAREHOUSE_ID, ZONE_ID, RACK_ID, SHELF_ID, LOT_NO) </td></tr>
-</tbody>
-  <br>
+<thead>
+ <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
+</thead>
+ <tbody>
+  <tr><td>  </td><td>  </td><td>  </td><td>  </td></tr>
+ </tbody>
 </table>
 
-<p>4．INVENTORY_SUMMARY(商品集計テーブル)</p>
 <table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> SUMMARY_ID      　</td><td> BIGINT   </td><td> 集計管理ID(PK)      　</td></tr>
-  <tr><td> PRODUCT_ID        </td><td> BIGINT 　</td><td> 所属する倉庫(FK)                　</td></tr>
-  <tr><td> WAREHOUSE_ID      </td><td> CHAR(5)  </td><td> (FK)            </td></tr>
-  <tr><td> ZONE_ID　         </td><td> CHAR(3)　</td><td> 冷蔵、大型機械などのゾーンのID(FK)　</td></tr>
-  <tr><td> RACK_ID           </td><td> CHAR(3)　</td><td> どの棚(ラック)か(FK)　            </td></tr>
-  <tr><td> SHELF_ID          </td><td> CHAR(5)　</td><td> どの段(シェルフ)にするか(FK)     　</td></tr>
-  <tr><td> LOT_NO            </td><td> CHAR(20) </td><td> ロット番号                        </td></tr>
-  <tr><td> STOCK             </td><td> INT      </td><td> 在庫総数                          </td></tr>
-  <tr><td> LAST_STOCK_CHANGE </td><td> DATETIME </td><td> 最後に在庫が変動した日             </td></tr>
-  <tr><td> 複合UK</td><td colspan="2">UK: (PRODUCT_ID, WAREHOUSE_ID, ZONE_ID, RACK_ID, SHELF_ID, LOT_NO) </td></tr>
-</tbody>
+<thead>
+ <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
+</thead>
+ <tbody>
+  <tr><td>  </td><td>  </td><td>  </td><td>  </td></tr>
+ </tbody>
 </table>
-<br>
 
-<p>5．ZONE_MASTER(区画マスター)</p>
+
+
 <table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> WAREHOUSE_ID </td><td> CHAR(5)     </td><td> 倉庫ID (PK)(FK)              </td></tr>
-  <tr><td> ZONE_ID　    </td><td> CHAR(3)   　</td><td> 冷蔵、大型機械などのゾーン(PK) </td></tr>
-  <tr><td> ZONE_NAME　  </td><td> VARCHAR(30) </td><td> ゾーンの実体名                </td></tr>
-  <tr><td> DELETE_FLAG  </td><td> BOOLEAN     </td><td> 論理削除                     </td></tr>
-  <tr><td> 複合PK</td><td colspan="2">PK: (WAREHOUSE_ID, ZONE_ID)                    </td></tr>
-</tbody>
+<thead>
+ <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
+</thead>
+ <tbody>
+  <tr><td>  </td><td>  </td><td>  </td><td>  </td></tr>
+ </tbody>
 </table>
-<br>
 
-<p>6．RACK_MASTER(ラック番号マスター)</p>
+6	PURCHASE_HEAD	ORDER_ID	CHAR(12)	PK	発注ID
+		SUPPLIER_ID	CHAR(4)	FK (P.M.)	仕入れ先ID
+		ORDER_DATE	DATE	NOT NULL	発注日 [追加]
+		TOTAL_AMOUNT	DECIMAL(14, 2)		合計金額 (JPY)
+
 <table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> WAREHOUSE_ID </td><td> CHAR(5) </td><td> 倉庫ID (PK)(FK)  </td></tr>
-  <tr><td> RACK_ID     </td><td> CHAR(3)  </td><td> ラックID(PK)   　</td></tr>
-  <tr><td> RACK_NO     </td><td> INT      </td><td> ラックの実体番号　</td></tr>
-  <tr><td> DELETE_FLAG </td><td> BOOLEAN  </td><td> 論理削除         </td></tr>
-  <tr><td> 複合PK</td><td colspan="2">PK: (WAREHOUSE_ID, RACK_ID)    </td></tr>
-</tbody>
+<thead>
+ <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
+</thead>
+ <tbody>
+  <tr><td>  </td><td>  </td><td>  </td><td>  </td></tr>
+ </tbody>
 </table>
-<br>
 
-<p>7．SHELF_MASTER(シェルフ番号マスター)</p>
 <table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> WAREHOUSE_ID </td><td> CHAR(5) </td><td> 倉庫ID (PK)(FK) </td></tr>
-  <tr><td> SHELF_ID　   </td><td> CHAR(5) </td><td> 棚ID(PK)        </td></tr>
-  <tr><td> SHELF_NO　   </td><td> INT     </td><td> シェルフ実体番号 </td></tr>
-  <tr><td> DELETE_FLAG  </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
-  <tr><td> 複合PK</td><td colspan="2">PK: (WAREHOUSE_ID, SHELF_ID)   </td></tr>
-</tbody>
+<thead>
+ <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
+</thead>
+ <tbody>
+  <tr><td>  </td><td>  </td><td>  </td><td>  </td></tr>
+ </tbody>
 </table>
-<br>
 
-<p>8．TRANSACTION_HISTORY(入出庫履歴) </p>
 <table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
- <tr><td> TRANSACTION_ID        </td><td> INT       </td><td> 入出庫ID (PK)(自動採番) </td></tr>
- <tr><td> SLIP_ID               </td><td> CHAR(12)  </td><td> 伝票コード (FK)        </td></tr>
- <tr><td> LINE_NO               </td><td> INT       </td><td> 伝票上の行番号(FK)     </td></tr>
- <!-- <tr><td> PRODUCT_ID            </td><td> BIGINT    </td><td> 商品コード (FK)        </td></tr> -->
- <tr><td> QUANTITY              </td><td> INT       </td><td> 数量                  </td></tr>
- <!-- <tr><td> LOT_NO                </td><td> CHAR(20)  </td><td> ロット番号(FK)        </td></tr> -->
- <tr><td> LOCATION_FROM         </td><td> CHAR(16)  </td><td> 所在地 (FK)(null許容) </td></tr>
- <tr><td> LOCATION_TO           </td><td> CHAR(16)  </td><td> 所在地 (FK)(null許容) </td></tr>
- <tr><td> TRANSACTION_DATE      </td><td> DATETIME  </td><td> 移動日時              </td></tr>
- <tr><td> TRANSACTION_REASON_ID </td><td> CHAR(2)   </td><td> 入出庫理由 (FK)       </td></tr>
- <tr><td> TRANSACTION_STATE_ID  </td><td> CHAR(1)   </td><td> 状態 (FK)             </td></tr>
- <tr><td> 複合FK</td><td colspan="2">FK: (SLIP_ID, LINE_NO) → SLIP_DETAIL (SLIP_ID, LINE_NO)         </td></tr>
- <tr><td> 複合FK</td><td colspan="2">FK: (PRODUCT_ID, LOCATION_FROM, LOT_NO) → INVENTORY (PRODUCT_ID, LOCATION_ID, LOT_NO)</td></tr>
- <tr><td> 複合FK</td><td colspan="2">FK: (PRODUCT_ID, LOCATION_TO, LOT_NO) → INVENTORY (PRODUCT_ID, LOCATION_ID, LOT_NO)</td></tr>
-  <tr><td> 複合FK</td><td colspan="2">FK: (PRODUCT_ID, LOT_NO) → SLIP_DETAIL (PRODUCT_ID, LOT_NO)</td></tr>
-
- 
-</tbody>
+<thead>
+ <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
+</thead>
+ <tbody>
+  <tr><td>  </td><td>  </td><td>  </td><td>  </td></tr>
+ </tbody>
 </table>
-<br>
 
-<p>9.PURCHASE_ORDER(発注管理)</p>
 <table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-<tr><td> ORDER_ID       </td><td> CHAR(12)      </td><td> 発注ID (PK)       </td></tr>
-<tr><td> CREATED_AT     </td><td> DATETIME      </td><td> 作成日時          </td></tr>
-<tr><td> UPDATED_AT     </td><td> DATETIME      </td><td> 更新日時          </td></tr>
-<tr><td> PRODUCT_ID     </td><td> BIGINT        </td><td> 商品ID (FK)       </td></tr>
-<tr><td> SUPPLIER_ID    </td><td> CHAR(4)       </td><td> 仕入れ先ID (FK)   </td></tr>
-<tr><td> UNIT_PRICE     </td><td> DECIMAL(10,2) </td><td> 単価              </td></tr>
-<tr><td> ORDER_QUANTITY </td><td> INT           </td><td> 数量              </td></tr>
-<tr><td> ORDER_DATE     </td><td> DATETIME      </td><td> 発注日            </td></tr>
-<tr><td> ORDER_STATE_ID </td><td> CHAR(1)       </td><td> 発注ステータス(FK) </td></tr>  
-<tr><td> DELIVERY_DATE  </td><td> DATETIME      </td><td> 納期              </td></tr>
-<tr><td> DELETE_FLAG    </td><td> BOOLEAN       </td><td> 論理削除          </td></tr>
-</tbody>
+<thead>
+ <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
+</thead>
+ <tbody>
+  <tr><td>  </td><td>  </td><td>  </td><td>  </td></tr>
+ </tbody>
 </table>
-<br>
 
-<p>10.CATEGORY_MASTER(商品カテゴリ)</p>
 <table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
- <tr><td> CATEGORY_ID   </td><td>CHAR(6)     </td><td> カテゴリID (PK)  </td></tr>
- <tr><td> CATEGORY_NAME </td><td>VARCHAR(20) </td><td >カテゴリ名       </td></tr>
- <tr><td> DELETE_FLAG   </td><td> BOOLEAN    </td><td> 論理削除         </td></tr>
-</tbody>
+<thead>
+ <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
+</thead>
+ <tbody>
+  <tr><td>  </td><td>  </td><td>  </td><td>  </td></tr>
+ </tbody>
 </table>
-<br>
 
-<p>11.SUPPLIER(仕入れ先)</p>
 <table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> SUPPLIER_ID   </td><td> CHAR(4)      </td><td> 仕入れ先ID (PK)             </td></tr>
-  <tr><td> SUPPLIER_NAME </td><td> VARCHAR(60)  </td><td> 企業名                      </td></tr>
-  <tr><td> COUNTRY_CODE  </td><td> CHAR(2)      </td><td> 国コード(ISO3166-1準拠) (FK) </td></tr>
-  <tr><td> REGION_CODE   </td><td> VARCHAR(10)  </td><td> 県・地域（ISO3166-2準拠)(FK) </td></tr>
-  <tr><td> CITY          </td><td> VARCHAR(30)  </td><td> 市町村                      </td></tr>
-  <tr><td> ADDRESS_LINE  </td><td> VARCHAR(100) </td><td> 町名・番地                  </td></tr>
-  <tr><td> DELETE_FLAG   </td><td> BOOLEAN      </td><td> 論理削除                    </td></tr>
-</tbody>
+<thead>
+ <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
+</thead>
+ <tbody>
+  <tr><td>  </td><td>  </td><td>  </td><td>  </td></tr>
+ </tbody>
 </table>
-<br>
 
-<p>12.CONTACT_MASTER (連絡先マスター)</p>
 <table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> SUPPLIER_CONTACT_ID </td><td> CHAR(4)     </td><td> 仕入れ先連絡先ID (PK) </td></tr>
-  <tr><td> SUPPLIER_ID         </td><td> CHAR(4)     </td><td> 仕入れ先ID (FK)       </td></tr>
-  <tr><td> CONTACT_TYPE_ID     </td><td> CHAR(1)     </td><td> 種別 (FK)            </td></tr>
-  <tr><td> CONTACT_DETAIL      </td><td> VARCHAR(60) </td><td> 内容                 </td></tr>
-  <tr><td> DELETE_FLAG         </td><td> BOOLEAN     </td><td> 論理削除              </td></tr>
-</tbody>
+<thead>
+ <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
+</thead>
+ <tbody>
+  <tr><td>  </td><td>  </td><td>  </td><td>  </td></tr>
+ </tbody>
 </table>
-<br>
 
-<p>13：CONTACT_TYPE_MASTER(連絡先種別)</p>
 <table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> CONTACT_TYPE_ID </td><td>CHAR(1)  </td><td> ID (PK)   </td></tr>
-  <tr><td> CONTACT_TYPE    </td><td>CHAR(8)  </td><td> 種別       </td></tr>
-  <tr><td> DELETE_FLAG     </td><td> BOOLEAN </td><td> 論理削除   </td></tr>
-</tbody>
+<thead>
+ <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
+</thead>
+ <tbody>
+  <tr><td>  </td><td>  </td><td>  </td><td>  </td></tr>
+ </tbody>
 </table>
-<br>
 
-<p>14.WAREHOUSE_TYPE_MASTER(倉庫タイプ)</p>
 <table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> WAREHOUSE_TYPE_ID   </td><td>CHAR(1)  </td><td> ID (PK)   </td></tr>
-  <tr><td> WAREHOUSE_TYPE_NAME </td><td>CHAR(10) </td><td> 倉庫タイプ </td></tr>
-  <tr><td> DELETE_FLAG         </td><td> BOOLEAN </td><td> 論理削除   </td></tr>
-</tbody>
+<thead>
+ <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
+</thead>
+ <tbody>
+  <tr><td>  </td><td>  </td><td>  </td><td>  </td></tr>
+ </tbody>
 </table>
-<br>
 
-<p>15.PRODUCT_STATE_MASTER(商品情報ステータス)</p>
 <table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> PRODUCT_STATE_ID   </td><td>CHAR(2)     </td><td>ID (PK)  </td></tr>
-  <tr><td> PRODUCT_STATE_NAME </td><td>VARCHAR(20) </td><td>状態名    </td></tr>
-  <tr><td> DELETE_FLAG        </td><td> BOOLEAN    </td><td> 論理削除 </td></tr>
-</tbody>
+<thead>
+ <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
+</thead>
+ <tbody>
+  <tr><td>  </td><td>  </td><td>  </td><td>  </td></tr>
+ </tbody>
 </table>
-<br>
 
-<p>16.TRANSACTION_STATE_MASTER(トランザクションステータス)</p>
 <table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> TRANSACTION_STATE_ID </td><td> CHAR(1)     </td><td> ID (PK)  </td></tr>
-  <tr><td> TRANSACTION_STATE    </td><td> VARCHAR(20) </td><td> 状態名   </td></tr>
-  <tr><td> DELETE_FLAG          </td><td> BOOLEAN     </td><td> 論理削除 </td></tr>
-</tbody>
-</table>
-<br>
-
-<p>17.WEIGHT_UNIT_MASTER(重量単位)</p>
-<table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> WEIGHT_UNIT_ID   </td><td> CHAR(2)     </td><td> ID (PK) </td></tr>
-  <tr><td> WEIGHT_UNIT_NAME </td><td> VARCHAR(20) </td><td> 単位名   </td></tr>
-  <tr><td> DELETE_FLAG      </td><td> BOOLEAN     </td><td> 論理削除 </td></tr>
-</tbody>
-</table>
-<br>
-
-<p>18.EMPLOYEE_MASTER(社員)</p>
-<table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> EMPLOYEE_ID   </td><td> CHAR(12)    </td><td> ID (PK)        </td></tr>
-  <tr><td> EMPLOYEE_NAME </td><td> VARCHAR(60) </td><td> 氏名           </td></tr>
-  <tr><td> COUNTRY_CODE  </td><td> CHAR(2)     </td><td> 国籍(FK)      </td></tr>
-  <tr><td> DEPARTMENT_ID </td><td> INT         </td><td> 所属部署ID(FK) </td></tr>
-  <tr><td> DELETE_FLAG   </td><td> BOOLEAN     </td><td> 論理削除       </td></tr>
-</tbody>
-</table>
-  
-19.MAKER_MASTER（メーカー)
-<table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-<tr><td> MAKER_ID     </td><td>CHAR(6)     </td><td> ID (PK)                    </td></tr>
-<tr><td> MAKER_NAME   </td><td>VARCHAR(60)  </td><td> メーカー名                  </td></tr>
-<tr><td> COUNTRY_CODE </td><td>CHAR(2)      </td><td> 国コード(ISO3166-1準拠)(FK) </td></tr>
-<tr><td> REGION_CODE  </td><td>VARCHAR(10)  </td><td> 県・地域(ISO3166-2準拠)(FK) </td></tr>
-<tr><td> CITY         </td><td>VARCHAR(30)  </td><td> 市町村                     </td></tr>
-<tr><td> ADDRESS_LINE </td><td>VARCHAR(100) </td><td> 町名・番地                 </td></tr>
-<tr><td> DELETE_FLAG  </td><td>BOOLEAN      </td><td> 論理削除                   </td></tr>
-</tbody>
-</table>
-<br>
+<thead>
+ <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
+</thead>
+ <tbody>
+  <tr><td>  </td><td>  </td><td>  </td><td>  </td></tr>
+ </tbody>
 </table>
 
-20.COUNTRY_CODE_MASTER(国コードマスター)<br>
-<table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> COUNTRY_CODE    </td><td> CHAR(2)     </td><td> ID (PK)   </td></tr>
-  <tr><td> COUNTRY_NAME_JA </td><td> VARCHAR(30) </td><td> 日本語国名 </td></tr>
-  <tr><td> COUNTRY_NAME_EN </td><td> VARCHAR(30) </td><td> 英語国名   </td></tr>
-  <tr><td> DELETE_FLAG     </td><td> BOOLEAN     </td><td> 論理削除   </td></tr>
-</tbody>
-</table>
-<br>
 
-21.TRANSACTION_REASON(入出庫素性マスター)
-<table>
-  <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> TRANSACTION_REASON_ID </td><td> CHAR(2)     </td><td> ID (PK)        </td></tr>
-  <tr><td> TRANSACTION_REASON    </td><td> VARCHAR(30) </td><td> 入出庫理由      </td></tr>
-  <tr><td> IN_OUT                </td><td> CHAR(1)     </td><td> I=入庫 / O=出庫 </td></tr>
-</tbody>
-</table>
+15	PARTNER_MASTER	PARTNER_ID	CHAR(4)	PK	取引先ID (仕入先、得意先共通)
+		PARTNER_TYPE	CHAR(1)	NOT NULL	種別 (S:仕入先, C:得意先, B:両方)
+		PARTNER_NAME	VARCHAR(100)	NOT NULL	取引先名
 
-22.REGION_MASTER(地域マスター)
-<table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> REGION_CODE       </td><td> VARCHAR(10)  </td><td> リージョン番号 (PK)  </td></tr>
-  <tr><td> COUNTRY_CODE      </td><td> CHAR(2)      </td><td> 所属国コード(PK)(FK) </td></tr>
-  <tr><td> REGION_NAME_LOCAL </td><td> VARCHAR(100) </td><td> 現地語地域名         </td></tr>
-  <tr><td> 複合PK</td><td colspan="2">PK: (REGION_CODE, COUNTRY_CODE)             </td></tr>
-</tbody>
-</tbody>
-</table>
-
-23.SCALE_MASTER(寸法単位マスター)
-<table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> SCALE_ID   </td><td> CHAR(2)  </td><td> 寸法単位ID (PK) </td></tr>
-  <tr><td> SCALE_UNIT </td><td> VARCHAR(20) </td><td> 寸法単位        </td></tr>
-</tbody>
-</table>
-
-24.ORDER_STATE_MASTER(発注ステータスマスター)
-<table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> ORDER_STATE_ID </td><td> CHAR(1)  </td><td> 発注ステータスID (PK) </td></tr>
-  <tr><td> ORDER_STATE    </td><td> CHAR(12) </td><td> 発注ステータス        </td></tr>
-  <tr><td> DELETE_FLAG    </td><td> BOOLEAN  </td><td> 論理削除              </td></tr>
-</tbody>
-</table>
-<br>
-
-<p>25.DEPARTMENT_MASTER(所属部署マスター)</p>
-<table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
- <tr><td> DEPARTMENT_ID </td><td> INT         </td><td> 所属部署ID (PK) </td></tr>
- <tr><td> DEPARTMENT    </td><td> VARCHAR(30) </td><td> 所属部署名      <td></tr>
- <tr><td> DELETE_FLAG   </td><td> BOOLEAN     </td><td> 論理削除        </td></tr>
-</tbody>
-</table>
-<br />
-
-<p>26.SLIP(入出庫伝票テーブル)</p>
-<table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> SLIP_ID        </td><td> CHAR(12) </td><td> 伝票番号(PK)                      </td></tr>
-  <tr><td> SLIP_TYPE 　　 </td><td> CHAR(1)  </td><td> 'I'＝入庫　'O'=出庫               </td></tr>
-  <tr><td> EMPLOYEE_ID    </td><td> CHAR(12) </td><td> 担当者ID(FK)                      </td></tr>
-  <tr><td> WAREHOUSE_ID   </td><td> CHAR(5)  </td><td> 倉庫ID(FK)                        </td></tr>
-  <tr><td> DESTINATION_ID </td><td> CHAR(5)  </td><td> 出庫先warehouse_id(入庫はNULL)(FK) </td></tr>
-  <tr><td> SLIP_STATE_ID  </td><td> CHAR(1)  </td><td> 'D'=下書き 'C'=確定(FK)           </td></tr>
-  <tr><td> CREATED_AT     </td><td> DATETIME </td><td> 作成日時                          </td></tr>
-  <tr><td> UPDATED_AT     </td><td> DATETIME </td><td> 更新日時                          </td></tr>
-</tbody>
-</table>
-<br />
-
-<p>27.SLIP_DETAIL(伝票商品詳細)</p>
-<table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> SLIP_ID               </td><td> CHAR(12)    </td><td> ID(FK)    </td></tr>
-  <tr><td> LINE_NO               </td><td> INT         </td><td> 行番号   </td></tr>
-  <tr><td> PRODUCT_ID            </td><td> BIGINT      </td><td> 商品コード(FK) </td></tr>
-  <tr><td> TRANSACTION_REASON_ID </td><td> CHAR(2)     </td><td> ID (FK)       </td></tr>
-  <tr><td> QUANTITY              </td><td> INT         </td><td> 数量          </td></tr>
-  <tr><td> LOCATION_ID           </td><td> CHAR(16)    </td><td> 所在ID(FK)    </td></tr>
-  <tr><td> REMARK                </td><td> VARCHAR(50) </td><td> 備考          </td></tr>
-  <tr><td> 複合PK</td><td colspan="2">PK: SLIP_ID, LINE_NO                     </td></tr>
-</tbody>
-</table>
-
-<p>28.ALLOCATION（引き当てテーブル）</p>
-<table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> ALLOCATION_ID    </td><td> BIGINT    </td><td> 引き当てID（自動採番）(PK)</td></tr>
-  <tr><td> SLIP_ID          </td><td> CHAR(12)  </td><td>                         </td></tr>
-  <tr><td> LINE_NO          </td><td> INT       </td><td>                         </td></tr>
-  <tr><td> PRODUCT_ID       </td><td> BIGINT    </td><td> (FK)                    </td></tr>
-  <tr><td> LOCATION_ID      </td><td> CHAR(16)  </td><td> (FK)                    </td></tr>
-  <tr><td> LOT_NO           </td><td> CHAR(20)  </td><td> (FK)                    </td></tr>
-  <tr><td> QUANTITY         </td><td> INT       </td><td>                         </td></tr>
-  <tr><td> PRIORITY_ID      </td><td> CHAR(1)   </td><td> (FK)                    </td></tr>
-  <tr><td> ALLOCATION_STATE </td><td> CHAR(1)   </td><td> (FK)                    </td></tr>
-  <tr><td> 複合FK</td><td colspan="2">FK: (SLIP_ID, LINE_NO) → SLIP_DETAIL (SLIP_ID, LINE_NO)   
-</tbody>
-</table>
-<br />
-
-<p>29.PRIORITY_MASTER（優先度マスター）</p>
-<table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> PRIORITY_ID   </td><td> CHAR(1) </td><td> (pk) </td></tr>
-  <tr><td> PRIORITY_NAME </td><td> CHAR(8) </td><td>      </td></tr>
-  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
-</tbody>
-</table>
-<br />
-<tr><td>    </td><td></td><td>    </td></tr>
-
-<p>30.ALLOCATION_STATE_MASTER（引き当てステータスマスター）</p>
-<table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> ALLOCATION_STATE_ID   </td><td> CHAR(1)  </td><td>  (PK)  </td></tr>
-  <tr><td> ALLOCATION_STATE_NAME </td><td> CHAR(10) </td><td>    </td></tr>
-</tbody>
-</table>
-<br />
+7	PURCHASE_DETAIL	ORDER_ID	CHAR(12)	PK, FK	発注ID
+		LINE_NO	INT	PK	行番号
+		PRODUCT_ID	BIGINT	FK	商品ID
+		UNIT_PRICE	DECIMAL(10, 2)	NOT NULL	発注単価 (JPY)
+		ORDER_QUANTITY	INT	NOT NULL	数量
+16	SALES_HEAD	SALES_ID	CHAR(12)	PK	出荷伝票ID
+		CUSTOMER_ID	CHAR(4)	FK (P.M.)	得意先ID
+		SHIPPING_DATE	DATE	NOT NULL	出荷予定日
+17	SALES_DETAIL	SALES_ID	CHAR(12)	PK, FK	出荷伝票ID
+		LINE_NO	INT	PK	行番号
+		PRODUCT_ID	BIGINT	FK	商品ID
+		UNIT_PRICE	DECIMAL(10, 2)	NOT NULL	販売単価 (JPY)
+		ORDER_QUANTITY	INT	NOT NULL	注文数量
+No.	テーブル名	カラム名	型	制約	説明
+8	INVENTORY_STOCK	STOCK_ID	BIGINT	PK	在庫実体ID (代理主キー)
+		PRODUCT_ID	BIGINT	FK	商品ID
+		LOCATION_CODE	CHAR(16)	FK	ロケーションコード
+		LOT_NO	CHAR(20)	FK	ロット番号
+		(複合制約)		UNIQUE(PRODUCT_ID, LOCATION_CODE, LOT_NO)	在庫の唯一性の定義
+		STOCK	INT	NOT NULL	現在の在庫数 (真実)
+9	SLIP_HEAD	SLIP_ID	CHAR(12)	PK	伝票番号
+		SLIP_STATE_ID	CHAR(1)	NOT NULL, FK	伝票の状態
+10	SLIP_DETAIL	SLIP_ID	CHAR(12)	PK, FK	伝票番号
+		LINE_NO	INT	PK	行番号
+		PRODUCT_ID	BIGINT	FK	商品ID
+		QUANTITY	INT	NOT NULL	処理数量
+11	STOCK_MOVEMENT	MOVEMENT_ID	BIGINT	PK	移動履歴ID (代理主キー)
+		SLIP_ID	CHAR(12)	FK	元伝票ID
+		LINE_NO	INT	FK	元伝票行番号
+		MOVE_SEQ	INT		移動時の連番
+		(複合制約)		UNIQUE(SLIP_ID, LINE_NO, MOVE_SEQ)	履歴ログの一意性定義
+		PRODUCT_ID	BIGINT	FK	商品ID (分析・監査対応)
+		LOT_NO	CHAR(20)	NOT NULL, FK	移動ロット
+		LOCATION_FROM	CHAR(16)	FK	移動元 [NULL許容]
+		LOCATION_TO	CHAR(16)	FK	移動先 [NULL許容]
+		STOCK_CHANGE	INT	NOT NULL	増減量 (IN=+ / OUT=-)
+18	ALLOCATION_HEAD	ALLOCATE_HEAD_ID	CHAR(12)	PK	引当ヘッダID
+		SALES_ID	CHAR(12)	FK	元の出荷伝票ID
+		STATUS	CHAR(1)	NOT NULL	引当ステータス
+12	ALLOCATION_STOCK	SLIP_ID	CHAR(12)	PK, FK	引当元伝票ID
+		LINE_NO	INT	PK, FK	引当元行番号
+		ALLOCATION_ID	BIGINT	PK	引当識別子
+		LOT_NO	CHAR(20)	FK	引当対象ロット
+		ALLOCATED_QUANTITY	INT	NOT NULL	引当済み数量
+No.	テーブル名	カラム名	型	制約	説明
 
 
-<p>31.SLIP_STATE_MASTER（伝票ステータスマスター）</p>
-<table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> SLIP_STATE_ID   </td><td> CHAR(1)  </td><td>  (PK)  </td></tr>
-  <tr><td> SLIP_STATE_NAME </td><td> VARCHAR  </td><td>        </td></tr>
-</tbody>
-</table>
-<br />
+14	LOT_MASTER	PRODUCT_ID	BIGINT	PK, FK	ロットの対象商品
+		LOT_NO	CHAR(20)	PK	ロット番号
+		CREATION_DATE	DATETIME	NOT NULL	ロット生成日時 (入庫時)
+		SUPPLIER_ID	CHAR(4)	FK (P.M.)	仕入先ID
+		EXPIRATION_DATE	DATE		ロット有効期限
+		QC_STATUS_ID	CHAR(1)	NOT NULL	品質管理ステータス
+13	LOT_COST	PRODUCT_ID	BIGINT	PK, FK	ロットの対象商品
+		LOT_NO	CHAR(20)	PK, FK	ロット番号
+		CONVERTED_COST_JPY	DECIMAL(14, 2)	NOT NULL	日本円換算後の原価 (JPY)
 
-
-<p>32.SAFETY_STOCK_CONTROL（安全在庫管理）</p>
-<table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
-  <tr><td> WAREHOUSE_ID       </td><td> CHAR(5)  </td><td> (PK)(FK) </td></tr>
-  <tr><td> PRODUCT_ID         </td><td> BIGINT   </td><td> (PK)(FK) </td></tr>
-  <tr><td> SAFE_STOCK         </td><td> INT      </td><td> 倉庫ごとに管理される最低在庫数 </td></tr>
-  <tr><td> MIN_ORDER_QUANTITY </td><td> INT      </td><td> 最小発注数 </td></tr>
-  <tr><td> UPDATED_AT         </td><td> DATETIME </td><td>        </td></tr>
-  <tr><td> CREATED_AT         </td><td> DATETIME </td><td>        </td></tr>
-  <tr><td> 複合PK<td><td colspan="2">PK: (WAREHOUSE_ID, PRODUCT_ID)
-  <tr><td> 複合FK<td><td colspan="2">FK: (WAREHOUSE_ID, PRODUCT_ID) → (WAREHOUSE_MASTER(WAREHOUSE_ID), PRODUCT_MASTER(PRODUCT_ID))
-</tbody>
-</table>
-<br />
-
-<p>33.CURRENCY_MASTER（）</p>
-<table>
-<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
-<tbody>
- <tr><td> CURRENCY_CODE   </td><td> CHAR(3)     </td><td> (PK)   </td></tr>
- <tr><td> CURRENCY_NAME   </td><td> VARCHAR(50) </td><td>        </td></tr>
- <tr><td> SYMBOL          </td><td> VARCHAR(10) </td><td>        </td></tr>
-</tbody>
-</table>
-
-<tr><td>    </td><td></td><td>    </td></tr>
-
-想定：建築資材を主眼に置いた。数十メートルスケールの資材を考えている。<br>
-重量については数値と単位を切り離すことで、一定の柔軟性を獲得する。<br>
-グラムとポンド、メートルとヤードの互換性を暫定的に獲得。<br>
-当初は物品の入出を管理することだけが目的で作成していったが、管理上必要なことを考えていくと<br>
-責任の所在を明確にするために作業履歴にかかわる担当社員のテーブルを作成し<br>
-倉庫同士の連携を想定するために座標を獲得し外国進出に際しては<br>
-どこの通貨建てで調達するかも考え通貨の概念も導入し、トラック積載に関しては<br>
 サイズと重量も必須でありこれも国によって単位が違うから調整素材を導入した。<br>
