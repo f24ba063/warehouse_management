@@ -61,12 +61,12 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-  <tr><td>　LOCATION_ID　</td><td>　CHAR(20)　</td><td>　区画を一意に識別するID(PK)　</td></tr>
-  <tr><td>　WAREHOUSE_ID　</td><td>　CHAR(5)　</td><td>　所属する倉庫(FK)　</td></tr>
-  <tr><td>　ZONE_ID　</td><td>　CHAR(3)　</td><td>　冷蔵、大型機械などのゾーンのID(FK)　</td></tr>
-  <tr><td>　RACK_ID　</td><td>　CHAR(3)　</td><td>　どの棚(ラック)か(FK)　</td></tr>
-  <tr><td>　SHELF_ID　</td><td>　CHAR(5)　</td><td>　どの段(シェルフ)にするか(FK)　</td></tr>
-  <tr><td> DELETE_FLAG       </td><td> BOOLEAN       </td><td> 論理削除     </td></tr>
+  <tr><td>　LOCATION_ID　</td><td> CHAR(20) </td><td> 区画を一意に識別するID(PK)      　</td></tr>
+  <tr><td>　WAREHOUSE_ID </td><td> CHAR(5)　</td><td> 所属する倉庫(FK)                　</td></tr>
+  <tr><td>　ZONE_ID　    </td><td> CHAR(3)　</td><td> 冷蔵、大型機械などのゾーンのID(FK)　</td></tr>
+  <tr><td>　RACK_ID      </td><td> CHAR(3)　</td><td> どの棚(ラック)か(FK)　            </td></tr>
+  <tr><td>　SHELF_ID     </td><td> CHAR(5)　</td><td> どの段(シェルフ)にするか(FK)     　</td></tr>
+  <tr><td> DELETE_FLAG   </td><td> BOOLEAN  </td><td> 論理削除                         </td></tr>
 </tbody>
 </table>
 <br>
@@ -77,7 +77,7 @@
 <tbody>
   <tr><td> ZONE_ID　  </td><td> CHAR(3)   　</td><td> 冷蔵、大型機械などのゾーン(PK) </td></tr>
   <tr><td> ZONE_NAME　</td><td> VARCHAR(30) </td><td> ゾーンの実体名                </td></tr>
-  <tr><td> DELETE_FLAG       </td><td> BOOLEAN       </td><td> 論理削除     </td></tr>
+  <tr><td> DELETE_FLAG </td><td> BOOLEAN    </td><td> 論理削除                     </td></tr>
 </tbody>
 </table>
 <br>
@@ -103,8 +103,6 @@
 </tbody>
 </table>
 <br>
-
-
 
 <p>8．TRANSACTION_HISTORY(入出庫履歴) </p>
 <table>
@@ -267,10 +265,10 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>COUNTRY_CODE</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
-<tr><td>COUNTRY_NAME_JA</td><td>VARCHAR(30)</td><td>日本語国名</td></tr>
-<tr><td>COUNTRY_NAME_EN</td><td>VARCHAR(30)</td><td>英語国名</td></tr>
-  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
+  <tr><td> COUNTRY_CODE    </td><td> CHAR(2)     </td><td> ID (PK)   </td></tr>
+  <tr><td> COUNTRY_NAME_JA </td><td> VARCHAR(30) </td><td> 日本語国名 </td></tr>
+  <tr><td> COUNTRY_NAME_EN </td><td> VARCHAR(30) </td><td> 英語国名   </td></tr>
+  <tr><td> DELETE_FLAG     </td><td> BOOLEAN     </td><td> 論理削除   </td></tr>
 </tbody>
 </table>
 <br>
@@ -279,9 +277,9 @@
 <table>
   <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>TRANSACTION_REASON_ID</td><td>CHAR(2)</td><td>ID (PK)</td></tr>
-<tr><td>TRANSACTION_REASON</td><td>VARCHAR(30)</td><td>入出庫理由</td></tr>
-<tr><td>IN_OUT</td><td>CHAR(1)</td><td>I=入庫 / O=出庫</td></tr>
+  <tr><td> TRANSACTION_REASON_ID </td><td> CHAR(2)     </td><td> ID (PK)        </td></tr>
+  <tr><td> TRANSACTION_REASON    </td><td> VARCHAR(30) </td><td> 入出庫理由      </td></tr>
+  <tr><td> IN_OUT                </td><td> CHAR(1)     </td><td> I=入庫 / O=出庫 </td></tr>
 </tbody>
 </table>
 
@@ -289,9 +287,9 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>REGION_CODE</td><td>VARCHAR(10)</td><td>リージョン番号 (PK)</td></tr>
-<tr><td>COUNTRY_CODE</td><td>CHAR(2)</td><td>所属国コード(PK)(FK)</td></tr>
-<tr><td>REGION_NAME_LOCAL</td><td>VARCHAR(100)</td><td>現地語地域名</td></tr> 
+  <tr><td> REGION_CODE       </td><td> VARCHAR(10)  </td><td> リージョン番号 (PK)  </td></tr>
+  <tr><td> COUNTRY_CODE      </td><td> CHAR(2)      </td><td> 所属国コード(PK)(FK) </td></tr>
+  <tr><td> REGION_NAME_LOCAL </td><td> VARCHAR(100) </td><td> 現地語地域名         </td></tr> 
 </tbody>
 </table>
 
@@ -299,8 +297,8 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>SCALE_ID</td><td>CHAR(2)</td><td>寸法単位ID (PK)</td></tr>
-<tr><td>SCALE_UNIT</td><td>CHAR(12)</td><td>寸法単位</td></tr>
+  <tr><td> SCALE_ID   </td><td> CHAR(2)  </td><td> 寸法単位ID (PK) </td></tr>
+  <tr><td> SCALE_UNIT </td><td> CHAR(12) </td><td> 寸法単位        </td></tr>
 </tbody>
 </table>
 
@@ -308,9 +306,9 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td>ORDER_STATE_ID</td><td>CHAR(1)</td><td>発注ステータスID (PK)</td></tr>
-<tr><td>ORDER_STATE</td><td>CHAR(12)</td><td>発注ステータス</td></tr>
-  <tr><td> DELETE_FLAG </td><td> BOOLEAN </td><td> 論理削除        </td></tr>
+  <tr><td> ORDER_STATE_ID </td><td> CHAR(1)  </td><td> 発注ステータスID (PK) </td></tr>
+  <tr><td> ORDER_STATE    </td><td> CHAR(12) </td><td> 発注ステータス        </td></tr>
+  <tr><td> DELETE_FLAG    </td><td> BOOLEAN  </td><td> 論理削除              </td></tr>
 </tbody>
 </table>
 <br>
@@ -330,14 +328,14 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td> SLIP_ID </td><td> CHAR(12) </td><td> 伝票番号(PK) </td></tr>
-<tr><td> TYPE </td><td> CHAR(1) </td><td> 'I'＝入庫　'O'=出庫 </td></tr>
-<tr><td> EMPLOYEE_ID </td><td> CHAR(12) </td><td> 担当者ID(FK) </td></tr>
-<tr><td> WAREHOUSE_ID </td><td> CHAR(5) </td><td> 倉庫ID(FK) </td></tr>
-<tr><td> DESTINATION_ID </td><td> CHAR(5) </td><td> 出庫先warehouse_id(入庫はNULL)(FK) </td></tr>
-<tr><td> STATUS </td><td> CHAR(1) </td><td>  'D'=下書き 'C'=確定(FK)  </td></tr>
-<tr><td> CREATED_AT </td><td> DATETIME </td><td> 作成日時 </td></tr>
-<tr><td> UPDATED_AT </td><td> DATETIME </td><td> 更新日時 </td></tr>
+  <tr><td> SLIP_ID </td><td> CHAR(12) </td><td> 伝票番号(PK)                             </td></tr>
+  <tr><td> TYPE           </td><td> CHAR(1)  </td><td> 'I'＝入庫　'O'=出庫               </td></tr>
+  <tr><td> EMPLOYEE_ID    </td><td> CHAR(12) </td><td> 担当者ID(FK)                      </td></tr>
+  <tr><td> WAREHOUSE_ID   </td><td> CHAR(5)  </td><td> 倉庫ID(FK)                        </td></tr>
+  <tr><td> DESTINATION_ID </td><td> CHAR(5)  </td><td> 出庫先warehouse_id(入庫はNULL)(FK) </td></tr>
+  <tr><td> STATUS         </td><td> CHAR(1)  </td><td> 'D'=下書き 'C'=確定(FK)           </td></tr>
+  <tr><td> CREATED_AT     </td><td> DATETIME </td><td> 作成日時                          </td></tr>
+  <tr><td> UPDATED_AT     </td><td> DATETIME </td><td> 更新日時                          </td></tr>
 </tbody>
 </table>
 <br />
@@ -346,12 +344,12 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td> SLIP_ID </td><td> CHAR(12) </td><td> ID(PK)(FK) </td></tr>
-<tr><td> LINE_NO </td><td> INT </td><td> 行番号(PK) </td></tr>
-<tr><td> PRODUCT_ID </td><td> BIGINT </td><td> 商品コード(FK) </td></tr>
-<tr><td> QUANTITY </td><td> INT </td><td> 数量 </td></tr>
-<tr><td> LOCATION_ID </td><td> CHAR(20) </td><td> 所在ID(FK) </td></tr>
-<tr><td> REMARK </td><td> VARCHAR(50) </td><td> 備考 </td></tr>
+  <tr><td> SLIP_ID     </td><td> CHAR(12)    </td><td> ID(PK)(FK)    </td></tr>
+  <tr><td> LINE_NO     </td><td> INT         </td><td> 行番号(PK)     </td></tr>
+  <tr><td> PRODUCT_ID  </td><td> BIGINT      </td><td> 商品コード(FK) </td></tr>
+  <tr><td> QUANTITY    </td><td> INT         </td><td> 数量          </td></tr>
+  <tr><td> LOCATION_ID </td><td> CHAR(20)    </td><td> 所在ID(FK)    </td></tr>
+  <tr><td> REMARK      </td><td> VARCHAR(50) </td><td> 備考          </td></tr>
 </tbody>
 </table>
 
