@@ -323,7 +323,7 @@
 </table>
 <br />
 
-<p>25.SLIP_ID(入出庫伝票テーブル)</p>
+<p>25.SLIP(入出庫伝票テーブル)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
