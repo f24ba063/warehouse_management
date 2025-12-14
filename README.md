@@ -324,7 +324,7 @@
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
  <tr><td> DEPARTMENT_ID </td><td> INT      </td><td> 所属部署ID (PK) </td></tr>
- <tr><td> DEPARTMENT    </td><td> CHAR(12) </td><td> 所属部署名      <td></tr>
+ <tr><td> DEPARTMENT    </td><td> VARCHAR  </td><td> 所属部署名      <td></tr>
  <tr><td> DELETE_FLAG   </td><td> BOOLEAN  </td><td> 論理削除        </td></tr>
 </tbody>
 </table>
@@ -357,7 +357,7 @@
   <tr><td> QUANTITY              </td><td> INT         </td><td> 数量          </td></tr>
   <tr><td> LOCATION_ID           </td><td> CHAR(16)    </td><td> 所在ID(FK)    </td></tr>
   <tr><td> REMARK                </td><td> VARCHAR(50) </td><td> 備考          </td></tr>
-  <tr><td> 複合PK</td><td colspan="2">PK: SLIP_ID, LINE_NO  
+  <tr><td> 複合PK</td><td colspan="2">PK: SLIP_ID, LINE_NO                     </td></tr>
 </tbody>
 </table>
 
@@ -407,7 +407,7 @@
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
   <tr><td> SLIP_STATE_ID   </td><td> CHAR(1)  </td><td>  (PK)  </td></tr>
-  <tr><td> SLIP_STATE </td><td> CHAR(1)       </td><td>        </td></tr>
+  <tr><td> SLIP_STATE_NAME </td><td> CHAR(1)  </td><td>        </td></tr>
 </tbody>
 </table>
 <br />
