@@ -323,9 +323,9 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
- <tr><td> DEPARTMENT_ID </td><td> INT      </td><td> 所属部署ID (PK) </td></tr>
- <tr><td> DEPARTMENT    </td><td> VARCHAR  </td><td> 所属部署名      <td></tr>
- <tr><td> DELETE_FLAG   </td><td> BOOLEAN  </td><td> 論理削除        </td></tr>
+ <tr><td> DEPARTMENT_ID </td><td> INT         </td><td> 所属部署ID (PK) </td></tr>
+ <tr><td> DEPARTMENT    </td><td> VARCHAR(30) </td><td> 所属部署名      <td></tr>
+ <tr><td> DELETE_FLAG   </td><td> BOOLEAN     </td><td> 論理削除        </td></tr>
 </tbody>
 </table>
 <br />
@@ -339,7 +339,7 @@
   <tr><td> EMPLOYEE_ID    </td><td> CHAR(12) </td><td> 担当者ID(FK)                      </td></tr>
   <tr><td> WAREHOUSE_ID   </td><td> CHAR(5)  </td><td> 倉庫ID(FK)                        </td></tr>
   <tr><td> DESTINATION_ID </td><td> CHAR(5)  </td><td> 出庫先warehouse_id(入庫はNULL)(FK) </td></tr>
-  <tr><td> STATUS         </td><td> CHAR(1)  </td><td> 'D'=下書き 'C'=確定(FK)           </td></tr>
+  <tr><td> SLIP_STATE     </td><td> CHAR(1)  </td><td> 'D'=下書き 'C'=確定(FK)           </td></tr>
   <tr><td> CREATED_AT     </td><td> DATETIME </td><td> 作成日時                          </td></tr>
   <tr><td> UPDATED_AT     </td><td> DATETIME </td><td> 更新日時                          </td></tr>
 </tbody>
@@ -407,7 +407,7 @@
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
   <tr><td> SLIP_STATE_ID   </td><td> CHAR(1)  </td><td>  (PK)  </td></tr>
-  <tr><td> SLIP_STATE_NAME </td><td> CHAR(1)  </td><td>        </td></tr>
+  <tr><td> SLIP_STATE_NAME </td><td> VARCHAR  </td><td>        </td></tr>
 </tbody>
 </table>
 <br />
