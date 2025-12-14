@@ -1,5 +1,4 @@
 
-No.	テーブル名	カラム名	型	制約	説明
 <table>1 PRODUCT_MASTER
 <thead>
  <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
