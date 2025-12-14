@@ -92,7 +92,7 @@
 </table>
 <br>
 
-<p>6．SHELF_MASTER(シェルフ番号マスター)</p>
+<p>7．SHELF_MASTER(シェルフ番号マスター)</p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
@@ -105,14 +105,15 @@
 
 
 
-<p>7．TRANSACTION_HISTORY(入出庫履歴) </p>
+<p>8．TRANSACTION_HISTORY(入出庫履歴) </p>
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
  <tr><td> TRANSACTION_ID        </td><td> INT      </td><td> 入出庫ID (PK)(自動採番) </td></tr>
  <tr><td> SLIP_ID               </td><td> CHAR(12) </td><td> 伝票コード (FK)        </td></tr>
  <tr><td> PRODUCT_ID            </td><td> BIGINT   </td><td> 商品コード (FK)        </td></tr>
- <tr><td> QUANTITY              </td><td> INT      </td><td> 数量   </td></tr>
+ <tr><td> QUANTITY              </td><td> INT      </td><td> 数量                  </td></tr>
+ <tr><td> LOT_NO                </td><td>CHAR(20)  </td><td> ロット番号(FK)        </td></tr>
  <tr><td> WAREHOUSE_ID          </td><td>CHAR(5)   </td><td> 倉庫ID (FK)           </td></tr>
  <tr><td> TRANSACTION_DATE      </td><td>DATETIME  </td><td> 移動日時              </td></tr>
  <tr><td> TRANSACTION_REASON_ID </td><td>CHAR(2)   </td><td> 入出庫理由 (FK)       </td></tr>
