@@ -134,7 +134,7 @@
 <tr><td> UNIT_PRICE     </td><td>DECIMAL(10,2) </td><td>単価              </td></tr>
 <tr><td> ORDER_QUANTITY </td><td>INT           </td><td>数量              </td></tr>
 <tr><td> ORDER_DATE     </td><td>DATETIME      </td><td>発注日            </td></tr>
-<tr><td> ORDER_STATE    </td><td>CHAR(1)       </td><td>発注ステータス(FK) </td></tr>  
+<tr><td> ORDER_STATE_ID    </td><td>CHAR(1)       </td><td>発注ステータス(FK) </td></tr>  
 <tr><td> DELIVERY_DATE  </td><td>DATETIME      </td><td>納期              </td></tr>
 <tr><td> DELETE_FLAG    </td><td>BOOLEAN       </td><td>論理削除          </td></tr>
 </tbody>
