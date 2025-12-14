@@ -48,7 +48,7 @@
 <tbody>
   <tr><td> PRODUCT_ID      </td><td> BIGINT   </td><td> 商品コード    (FK)          </td></tr>
   <tr><td> CREATED_AT      </td><td> DATETIME </td><td> 追加日時                    </td></tr>
-  <tr><td> UPDATED_AT      </td><td> DSTETIME </td><td> 最終更新日時                </td></tr>
+  <tr><td> UPDATED_AT      </td><td> DATETIME </td><td> 最終更新日時                </td></tr>
   <tr><td> STOCK           </td><td> INT      </td><td> 在庫数                      </td></tr>
   <tr><td> LOCATION_ID     </td><td> CHAR(16) </td><td> 商品所在地識別コード    (FK) </td></tr>
   <tr><td> SAFE_STOCK      </td><td> INT      </td><td> 安全在庫数                  </td></tr>
@@ -111,8 +111,8 @@
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
  <tr><td> TRANSACTION_ID        </td><td> INT       </td><td> 入出庫ID (PK)(自動採番) </td></tr>
- <tr><td> SLIP_ID               </td><td> CHAR(12)  </td><td> 伝票コード             </td></tr>
- <tr><td> LINE_NO               </td><td> INT       </td><td> 伝票上の行番号          </td></tr>
+ <tr><td> SLIP_ID               </td><td> CHAR(12)  </td><td> 伝票コード (FK)        </td></tr>
+ <tr><td> LINE_NO               </td><td> INT       </td><td> 伝票上の行番号(FK)     </td></tr>
  <tr><td> PRODUCT_ID            </td><td> BIGINT    </td><td> 商品コード (FK)        </td></tr>
  <tr><td> QUANTITY              </td><td> INT       </td><td> 数量                  </td></tr>
  <tr><td> LOT_NO                </td><td> CHAR(20)  </td><td> ロット番号(FK)        </td></tr>
@@ -130,15 +130,17 @@
 <table>
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
-<tr><td> ORDER_ID       </td><td>CHAR(12)      </td><td>発注ID (PK)       </td></tr>
-<tr><td> PRODUCT_ID     </td><td>BIGINT        </td><td>商品ID (FK)       </td></tr>
-<tr><td> SUPPLIER_ID    </td><td>CHAR(4)       </td><td>仕入れ先ID (FK)   </td></tr>
-<tr><td> UNIT_PRICE     </td><td>DECIMAL(10,2) </td><td>単価              </td></tr>
-<tr><td> ORDER_QUANTITY </td><td>INT           </td><td>数量              </td></tr>
-<tr><td> ORDER_DATE     </td><td>DATETIME      </td><td>発注日            </td></tr>
-<tr><td> ORDER_STATE_ID    </td><td>CHAR(1)       </td><td>発注ステータス(FK) </td></tr>  
-<tr><td> DELIVERY_DATE  </td><td>DATETIME      </td><td>納期              </td></tr>
-<tr><td> DELETE_FLAG    </td><td>BOOLEAN       </td><td>論理削除          </td></tr>
+<tr><td> ORDER_ID       </td><td> CHAR(12)      </td><td> 発注ID (PK)       </td></tr>
+<tr><td> CREATED_AT     </td><td> DATETIME      </td><td> 作成日時          </td></tr>
+<tr><td> UPDATED_AT     </td><td> DATETIME      </td><td> 更新日時          </td></tr>
+<tr><td> PRODUCT_ID     </td><td> BIGINT        </td><td> 商品ID (FK)       </td></tr>
+<tr><td> SUPPLIER_ID    </td><td> CHAR(4)       </td><td> 仕入れ先ID (FK)   </td></tr>
+<tr><td> UNIT_PRICE     </td><td> DECIMAL(10,2) </td><td> 単価              </td></tr>
+<tr><td> ORDER_QUANTITY </td><td> INT           </td><td> 数量              </td></tr>
+<tr><td> ORDER_DATE     </td><td> DATETIME      </td><td> 発注日            </td></tr>
+<tr><td> ORDER_STATE_ID </td><td> CHAR(1)       </td><td> 発注ステータス(FK) </td></tr>  
+<tr><td> DELIVERY_DATE  </td><td> DATETIME      </td><td> 納期              </td></tr>
+<tr><td> DELETE_FLAG    </td><td> BOOLEAN       </td><td> 論理削除          </td></tr>
 </tbody>
 </table>
 <br>
@@ -322,7 +324,7 @@
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
  <tr><td> DEPARTMENT_ID </td><td> INT      </td><td> 所属部署ID (PK) </td></tr>
- <tr><td> DEPARTMENT    </td><td> CHAR(12) </td><td> 所属部署名>     <td></tr>
+ <tr><td> DEPARTMENT    </td><td> CHAR(12) </td><td> 所属部署名      <td></tr>
  <tr><td> DELETE_FLAG   </td><td> BOOLEAN  </td><td> 論理削除        </td></tr>
 </tbody>
 </table>
@@ -398,6 +400,19 @@
 </tbody>
 </table>
 <br />
+
+
+<p>31.SLIP_STATE_MASTER（伝票ステータスマスター）</p>
+<table>
+<thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
+<tbody>
+  <tr><td> SLIP_STATE_ID   </td><td> CHAR(1)  </td><td>  (PK)  </td></tr>
+  <tr><td> SLIP_STATE </td><td> CHAR(1)       </td><td>        </td></tr>
+</tbody>
+</table>
+<br />
+
+
 
 <tr><td>    </td><td></td><td>    </td></tr>
 
