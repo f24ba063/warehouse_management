@@ -109,8 +109,8 @@
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
  <tr><td> TRANSACTION_ID        </td><td> INT       </td><td> 入出庫ID (PK)(自動採番) </td></tr>
- <tr><td> SLIP_ID               </td><td> CHAR(12)  </td><td> 伝票コード (FK)        </td></tr>
- <tr><td> LINE_ID               </td><td> INT       </td><td> 伝票上の行番号(FK)      </td></tr>
+ <tr><td> SLIP_ID               </td><td> CHAR(12)  </td><td> 伝票コード             </td></tr>
+ <tr><td> LINE_ID               </td><td> INT       </td><td> 伝票上の行番号          </td></tr>
  <tr><td> PRODUCT_ID            </td><td> BIGINT    </td><td> 商品コード (FK)        </td></tr>
  <tr><td> QUANTITY              </td><td> INT       </td><td> 数量                  </td></tr>
  <tr><td> LOT_NO                </td><td> CHAR(20)  </td><td> ロット番号(FK)        </td></tr>
@@ -361,7 +361,7 @@
 <thead><tr><th>カラム名</th><th>型</th><th>制約</th></tr></thead>
 <tbody>
   <tr><td> ALLOCATION_ID    </td><td> BIGINT    </td><td> 引き当てID（自動採番）(PK)</td></tr>
-  <tr><td> SLIP_ID          </td><td> CHAR(12)  </td><td> (FK)                    </td></tr>
+  <tr><td> SLIP_ID          </td><td> CHAR(12)  </td><td>                         </td></tr>
   <tr><td> SLIP_LINE_NO     </td><td> INT       </td><td>                         </td></tr>
   <tr><td> PRODUCT_ID       </td><td> BIGINT    </td><td> (FK)                    </td></tr>
   <tr><td> LOCATION_ID      </td><td> CHAR(20)  </td><td> (FK)                    </td></tr>
@@ -369,6 +369,7 @@
   <tr><td> QUANTITY         </td><td> INT       </td><td>                         </td></tr>
   <tr><td> PRIORITY         </td><td> CHAR(1)   </td><td> (FK)                    </td></tr>
   <tr><td> ALLOCATION_STATE </td><td> CHAR(1)   </td><td> (FK)                    </td></tr>
+  <tr><td> 複合FK</td><td colspan="2">FK: (SLIP_ID, SLIP_LINE_NO) → SLIP_DETAIL (SLIP_ID, LINE_NO)   
 </tbody>
 </table>
 <br />
