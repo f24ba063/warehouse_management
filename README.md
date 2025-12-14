@@ -16,7 +16,7 @@
  <tr><td> SCALE_ID          </td><td> CHAR(2)       </td><td> 寸法単位(FK)             </td></tr>
  <tr><td> CREATED_AT        </td><td> DATETIME      </td><td> 登録日時                 </td></tr>
  <tr><td> UPDATED_AT        </td><td> DATETIME      </td><td> 更新日時                 </td></tr>
- <tr><td> WEIGHT_VALUE      </td><td> DECIMAL(8,4)  </td><td> 重量値                   </td></tr>
+ <tr><td> WEIGHT_VALUE      </td><td> DECIMAL(6,1)  </td><td> 重量値                   </td></tr>
  <tr><td> WEIGHT_UNIT_ID    </td><td> CHAR(2)       </td><td> 重量単位 (FK)            </td></tr>
  <tr><td> DELETE_FLAG       </td><td> BOOLEAN       </td><td> 論理削除                 </td></tr>
 </tbody>
