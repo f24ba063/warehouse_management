@@ -23,4 +23,12 @@ public class WarehouseService {
 	public Warehouse addWarehouse(Warehouse warehouse) {
 		return warehouseRepository.save(warehouse);
 	}
+
+	public Warehouse findById(Long id) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+	public Warehouse saveWarehouse(Warehouse warehouse) {
+		return warehouseRepository.save(warehouse);
+	}
 }

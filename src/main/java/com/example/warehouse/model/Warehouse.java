@@ -26,5 +26,5 @@ public class Warehouse {
 	private Long warehouseId;
 	
 	private String warehouseName;
-
+	private int isVisible = 1;
 }
